@@ -1136,6 +1136,8 @@ function renderThread(turns) {
     item.append(meta);
     const stages = result.stage_timeline || [];
     const reports = result.scope_receipts || [];
+    const attemptReports = new Map(reports.filter(({ attempt_id }) => attempt_id)
+      .map((report) => [report.attempt_id, report]));
     const scope = turn.execution_scope;
     if (stages.length) {
       const stagesView = $("div", "stage-timeline");
@@ -1148,7 +1150,8 @@ function renderThread(turns) {
           content.push(href(message, locationFor("sources", library.id), "domain-mount-link", "book"));
         }
         if (stage.summary) content.push(agentMessage(stage.summary));
-        const report = stage.receipt || reports.find(({ contract_id }) => contract_id === stage.contract_id);
+        const report = stage.receipt || attemptReports.get(stage.id) || (stage.id.startsWith("archive-") &&
+          reports.find(({ attempt_id, contract_id }) => !attempt_id && contract_id === stage.contract_id));
         if (report) {
           const receipt = scopeReceipts(report, openDetails, null);
           receipt.id += "-" + stage.id;

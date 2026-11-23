@@ -269,3 +269,53 @@ def existing_object_clusters(
         if isinstance(cluster, str) and taxonomy.valid_cluster(cluster):
             examples.setdefault(cluster, name[:140] if isinstance(name, str) else "")
     return [{"object_cluster": key, "example": title} for key, title in sorted(examples.items())]
+
+
+def library_industry_hint(db: sqlite3.Connection, domain: int) -> dict[str, str] | None:
+    """Use an unambiguous official name or alias to seed the stage's L2 lookup."""
+    from .domain_libraries import _normalized
+
+    row = db.execute("""SELECT d.name,coalesce(l.aliases,'[]') FROM domains d
+        LEFT JOIN domain_library l ON l.domain_id=d.id WHERE d.id=? AND coalesce(l.archived,0)=0""",
+                     (domain,)).fetchone()
+    if not row:
+        return None
+    name = _normalized(row[0])
+    aliases = json.loads(row[1])
+    alias_keys = {_normalized(alias) for alias in aliases if isinstance(alias, str)}
+    exact, by_alias = [], []
+    for code, industry in taxonomy.registry()[1].items():
+        official = {_normalized(industry[key]) for key in ("name_zh", "english_id")}
+        hint = {"l2_code": code, "name_zh": industry["name_zh"]}
+        if name in official:
+            exact.append(hint)
+        elif official & alias_keys:
+            by_alias.append(hint)
+    matches = exact or by_alias
+    return matches[0] if len(matches) == 1 else None
+
+
+def _object_terms(value: str) -> set[str]:
+    terms = set(re.findall(r"[a-z0-9]{2,}", value))
+    for phrase in re.findall(r"[\u3400-\u9fff]{2,}", value):
+        terms.update(phrase[i:i + 2] for i in range(len(phrase) - 1))
+    return terms - {"http", "https", "html", "www", "pdf"}
+
+
+def rank_object_clusters(rows: list[dict[str, str]], query: str) -> list[dict[str, str]]:
+    """Rank exact identifiers, complete phrases and token overlap in that order."""
+    focus = " ".join(re.findall(r"[a-z0-9\u3400-\u9fff]+", unicodedata.normalize("NFKC", query).casefold()))
+    terms = _object_terms(focus)
+    matches = []
+    for row in rows:
+        slug = row["object_cluster"]
+        label = slug.replace("-", " ")
+        example = " ".join(re.findall(r"[a-z0-9\u3400-\u9fff]+",
+                                      unicodedata.normalize("NFKC", row["example"]).casefold()))
+        overlap = terms & _object_terms(label + " " + example)
+        exact = int(focus == label)
+        phrase = int(bool(focus) and (focus in label or focus in example or
+                                      " " + label + " " in " " + focus + " "))
+        if exact or phrase or overlap:
+            matches.append(((-exact, -phrase, -sum(len(term) for term in overlap), slug), row))
+    return [row for _, row in sorted(matches, key=lambda item: item[0])]

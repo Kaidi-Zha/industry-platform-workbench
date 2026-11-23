@@ -10,7 +10,7 @@ from uuid import uuid4
 from . import domain_export, domain_libraries, engineering_quality as quality, frontier, mcp, provider_api, public_web, sandbox_verifier
 from . import process_topology as topology
 from . import reference_catalog as catalog, shared_metadata, taxonomy
-from .scope_guard import (APPEND, ENTITY_ID, GUARD_ABORT_CODE, STAGES, STAGE_NAMES, READ_ONLY, REBUILD,
+from .scope_guard import (APPEND, ENTITY_ID, STAGES, STAGE_NAMES, STAGE_TOOL_LIMIT_CODE, READ_ONLY, REBUILD,
                           ScopeBoundaryError, ScopeGuardMiddleware, ScopeViolationError,
                           dumps, requested_task_count, scoped_new_tasks)
 
@@ -21,15 +21,21 @@ def text(size=120):
 
 ID = text()
 PAGE_SIZE = 6
+STAGE_TOOL_LIMIT = 24
+DOMAIN_WRITE_RESERVE = 4
 OFFSET = {"type": "integer", "minimum": 0, "maximum": 100000}
 REFERENCE_PERMISSIONS = ("stated", "unknown", "restricted")
 RELATION_KINDS = ("actual_delivery", "supplier_requirement", "collaboration", "demonstration", "compatibility")
+CLUSTER_PAGE_SIZE = 8
+CLUSTER_SEARCH_LIMIT = 3 * CLUSTER_PAGE_SIZE
 TAXONOMY_TOOLS = (
     mcp.tool("lookup_industry_taxonomy",
-             "List official L2 codes, or read one L2 boundary, advisory engineering objects and existing object identifiers. "
-             "Reuse an existing identifier with the same meaning.",
+             "List official L2 codes, or read one L2 boundary with a short list of object identifiers relevant to the task. "
+             "Use object_query with a specific engineering operation, object name or identifier to refine matches. "
+             "Only use next_cluster_offset with the same object_query when needed. Reuse an existing identifier with the same meaning.",
              {"l2_code": text(12), "hint_offset": {"type": "integer", "minimum": 0, "maximum": 10000},
-              "cluster_offset": {"type": "integer", "minimum": 0, "maximum": 10000},
+              "cluster_offset": {"type": "integer", "minimum": 0, "maximum": CLUSTER_SEARCH_LIMIT - CLUSTER_PAGE_SIZE},
+              "object_query": text(120),
               "l1_code": text(3), "offset": OFFSET}),
     mcp.tool("classify_industry_task",
              "Record one task classification after looking up its official L2 and checking existing object identifiers. "
@@ -252,6 +258,7 @@ class StageTools:
         self.taxonomy_lookups = set()
         self.topology_passages = {}
         self.calls = 0
+        self.domain_budget_warned = False
 
     def _audit_text(self, value):
         from .codex_agent import diagnostic_text
@@ -261,8 +268,7 @@ class StageTools:
                 value = value.replace(secret, "[已隐藏凭证]")
         return diagnostic_text(value)
 
-    def reject(self, name, args, exc):
-        category = "validation"
+    def reject(self, name, args, exc, *, category="validation"):
         if isinstance(exc, ScopeBoundaryError):
             category = "scope_guard"
         elif isinstance(exc, public_web.SearchError):
@@ -289,17 +295,37 @@ class StageTools:
         self.guard.reject(self._audit_text(name)[:120] or "未知工具", reason, params=params, category=category,
                           requested_stage=TOOL_STAGE.get(name) if name not in self.schemas else None)
         return {"error": reason, "category": category, "audited": True,
-                **({"code": GUARD_ABORT_CODE} if self.guard.aborted else {})}
+                **({"code": self.guard.aborted.diagnostic["code"]} if self.guard.aborted else {})}
 
     def unavailable_tool(self, name, args):
         return self.reject(name, args, ScopeBoundaryError("当前阶段未开放此工具"))
+
+    def _call_budget(self, name, args):
+        reserve = (self.contract.target_stage == STAGES[0] and name in READ_TOOLS
+                   and self.calls >= STAGE_TOOL_LIMIT - DOMAIN_WRITE_RESERVE)
+        if self.calls >= STAGE_TOOL_LIMIT or reserve and self.domain_budget_warned:
+            from .codex_agent import AgentError
+
+            detail = ("剩余调用额度留给保存分类和确认领域，本阶段已停止。"
+                      if reserve and self.calls < STAGE_TOOL_LIMIT else "已达到本阶段的工具调用上限，本阶段已停止。")
+            failure = AgentError(detail + "可缩小范围后重试本阶段。", code=STAGE_TOOL_LIMIT_CODE,
+                                 detail=f"已使用 {self.calls}/{STAGE_TOOL_LIMIT} 次调用")
+            result = self.reject(name, args, failure, category="tool_budget")
+            self.guard.aborted = failure
+            return {**result, "code": STAGE_TOOL_LIMIT_CODE}
+        if reserve:
+            self.domain_budget_warned = True
+            return self.reject(name, args, ScopeViolationError(
+                "领域查询额度已用完。请用现有信息保存分类并确认领域；若仍有歧义，说明需要确认的范围后结束本阶段。"),
+                category="tool_budget")
+        self.calls += 1
 
     def call(self, name, args):
         from .api_agent import _redact, _valid_args
         from .storage import RunInterrupted
 
         if self.guard.aborted:
-            return {"error": str(self.guard.aborted), "code": GUARD_ABORT_CODE, "audited": True}
+            return {"error": str(self.guard.aborted), "code": self.guard.aborted.diagnostic["code"], "audited": True}
         try:
             if not isinstance(name, str):
                 raise ScopeViolationError("工具名称无效")
@@ -307,9 +333,8 @@ class StageTools:
                 return self.unavailable_tool(name, args)
             if self.stop and self.stop.is_set():
                 raise ScopeViolationError("本次运行已中断")
-            self.calls += 1
-            if self.calls > 24:
-                raise ScopeViolationError("已达到本阶段的工具调用上限")
+            if budget := self._call_budget(name, args):
+                return budget
             if not _valid_args(self.schemas[name], args):
                 raise ScopeViolationError("工具参数无效")
             if any(secret and isinstance(item, str) and secret in item for secret in self.secrets for item in args.values()):
@@ -341,7 +366,8 @@ class StageTools:
             self.guard.append(db, "suggestion", target_stage, detail=STAGE_NAMES[target_stage] + " · " + clean(reason, 400))
         return {"recorded": True}
 
-    def lookup_industry_taxonomy(self, l2_code=None, hint_offset=0, cluster_offset=0, l1_code=None, offset=0):
+    def lookup_industry_taxonomy(self, l2_code=None, hint_offset=0, cluster_offset=0, l1_code=None, offset=0,
+                                 object_query=""):
         result = taxonomy.lookup(l2_code, hint_offset)
         if l2_code is None:
             rows = [item for item in result["l2"] if not l1_code or item["l2_code"].split(".")[0] == l1_code]
@@ -349,15 +375,21 @@ class StageTools:
             return {**result, "l2": items, "next_offset": more}
         with closing(self.store.connect()) as db:
             clusters = shared_metadata.existing_object_clusters(db, l2_code)
-        end = cluster_offset + 8
+        query = object_query.strip()
+        if cluster_offset and not query:
+            raise ScopeViolationError("请先用 object_query 指定具体工艺或对象，再查询匹配结果的下一页")
+        ranked = shared_metadata.rank_object_clusters(clusters, query or self.run.get("prompt", "")[:1200])
+        visible = ranked[:CLUSTER_SEARCH_LIMIT if query else CLUSTER_PAGE_SIZE]
+        items, more = page(visible[cluster_offset:], cluster_offset, size=CLUSTER_PAGE_SIZE)
         if hint_offset == 0 and cluster_offset == 0:
             self.taxonomy_lookups.add(l2_code)
         hints = [{**{key: row[key] for key in ("object_id", "object_code", "name_zh", "task_count") if key in row},
                   "scenario_count": len(row.get("scenarios", []))}
                  for row in result["object_hints"]]
-        return {**result, "object_hints": hints, "existing_object_clusters": clusters[cluster_offset:end],
+        return {**result, "object_hints": hints, "existing_object_clusters": items,
                 "existing_object_clusters_total": len(clusters),
-                "next_cluster_offset": end if end < len(clusters) else None}
+                "existing_object_clusters_matched": len(ranked),
+                "next_cluster_offset": more}
 
     def classify_industry_task(self, classification_json):
         label = taxonomy.classification(shared_metadata.json_object(classification_json.encode("utf-8")))

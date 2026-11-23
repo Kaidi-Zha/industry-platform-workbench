@@ -12,7 +12,8 @@ from . import codex_agent, engineering_quality as quality, frontier, library, mc
 from . import reference_catalog as catalog
 from .agent_runtime import AgentRuntimeRouter
 from .scope_guard import (APPEND, AUTO_CONTINUE_QUEUE, EVAL_REQUEST, FULL_WORKFLOW, MIN_CONFIDENCE, PAUSE_EACH_STAGE,
-                          READ_ONLY, REBUILD, STAGES, STAGE_NAMES, ExecutionScopeContract, ScopeViolationError,
+                          READ_ONLY, REBUILD, STAGES, STAGE_NAMES, STAGE_TOOL_LIMIT_CODE,
+                          ExecutionScopeContract, ScopeViolationError,
                           active_domain, dumps, public_contract, receipt, requested_task_count, restore_contract,
                           scoped_new_tasks, validate_targets)
 from .scope_tools import (OFFSET, PAGE_SIZE, READ_TOOLS, TOOL_STAGE, TOPOLOGY_SUMMARY, StageTools,
@@ -40,7 +41,8 @@ _PROGRESS_LABELS = {
 _TOOL_ACTIONS = {
     "list_domains": "读取领域资料库", "get_topology_summary": "核对工艺图谱",
     "list_tasks_brief": "查看已有题目", "get_stage_progress": "检查阶段进度",
-    "lookup_industry_taxonomy": "查询行业分类", "search_domain_libraries": "查找匹配领域",
+    "lookup_industry_taxonomy": "查询行业分类", "classify_industry_task": "保存行业分类",
+    "search_domain_libraries": "查找匹配领域",
     "search_topology_evidence": "检索工艺依据", "read_topology_evidence": "读取工艺原文",
     "enqueue_frontier": "检索候选信源", "save_raw_source": "读取原文",
     "promote_verified_ref": "核验技术条款", "upsert_benchmark_task": "保存题目",
@@ -226,7 +228,7 @@ def _target_tasks(db, contract):
 
 
 def _local_context(db, contract, label=None):
-    from .shared_metadata import context_records
+    from .shared_metadata import context_records, library_industry_hint
 
     rows = _entities(db, contract.domain)
     name = active_domain(db, contract.domain)
@@ -244,6 +246,10 @@ def _local_context(db, contract, label=None):
         context["more_topology_nodes"] = True
     if label:
         context["task_taxonomy"] = label
+    elif contract.target_stage == STAGES[0] and contract.domain:
+        hint = library_industry_hint(db, contract.domain)
+        if hint:
+            context["domain_taxonomy_hint"] = hint
     shared = context_records(db, context["domain_name"], limit=4 if early else 10, label=label)
     if shared:
         if early:
@@ -567,8 +573,10 @@ def _stage_hint(request):
 
 
 _TAXONOMY_GUIDANCE = (
-    "未有 task_taxonomy 时，先调用 lookup_industry_taxonomy 确定唯一官方 L2，再用该编码查询行业边界、"
-    "已有 object_cluster 和 L3/L4 参考。检查后续页，用原任务与已有对象实例做语义查重。"
+    "未有 task_taxonomy 时，先定位唯一官方 L2。已有 domain_taxonomy_hint 时，优先用它的 L2 编码调用 "
+    "lookup_industry_taxonomy；否则先查行业索引，再用相关 L2 编码查看边界、工程对象候选与 L3/L4 参考。"
+    "已有对象候选按任务相关性排序，查不到合适候选时用 object_query 输入具体工艺或对象的关键词。"
+    "只核对与任务相关的候选，无需逐页遍历行业目录。只有确实需要更多匹配时，才用同一 object_query 翻页。"
     "已有同义对象时沿用其英文标识。确属新对象时可新建小写短横线标识。L3/L4 条目和任务数仅供检索与覆盖对照。"
     "用 classify_industry_task 保存 l2_code、object_cluster 和非空 lifecycle_stages（S0–S8，对应工业生命周期）。"
     "阶段 1 须先保存分类再建库或完成匹配。若 L2 不明确，在回执中说明需用户确定的选项。"
@@ -886,7 +894,7 @@ class _StageTrace:
             self.update(start)
             started = monotonic()
 
-            def finish(detail):
+            def finish(detail, *, terminal=False):
                 duration = round((monotonic() - started) * 1000)
 
                 def save(stage):
@@ -898,7 +906,8 @@ class _StageTrace:
                             "label": label, "display_label": action, "preview": codex_agent.diagnostic_text(detail),
                             "status": "failed" if detail else "completed", "duration_ms": duration})
                     self.activity(stage, "tool_returned", turn=turn,
-                                  label="工具调用被拒绝，等待模型继续" if detail else "")
+                                  label="工具调用额度已用完，正在结束本阶段" if terminal else
+                                  "工具调用被拒绝，等待模型继续" if detail else "")
 
                 self.update(save)
 
@@ -907,7 +916,10 @@ class _StageTrace:
             except Exception as exc:
                 finish(type(exc).__name__)
                 raise
-            finish((value.get("error") or "") if isinstance(value, dict) else "")
+            if isinstance(value, dict):
+                finish(value.get("error") or "", terminal=value.get("code") == STAGE_TOOL_LIMIT_CODE)
+            else:
+                finish("")
             return value
 
         return execute
@@ -1156,7 +1168,8 @@ def run_workflow(store, run, port, stop, connection, profiles, approvals=None):
             run["result"]["scope_retryable"] = bool(failure or validation and contract.target_stage != STAGES[5])
             run["result"]["agent_summary"] = summary
             completed = outcome(contract.target_stage, contract.operation_mode, result["changes"], run.get("scope_domain_id"))
-            result.update(summary=summary, outcome=issue or completed, status="blocked" if issue else "completed")
+            result.update(attempt_id=stage["id"], summary=summary, outcome=issue or completed,
+                          status="blocked" if issue else "completed")
             _append_receipt(run, result)
             stage["receipt"] = result
             stage_status = "failed" if failure else "needs_review" if issue else "completed"

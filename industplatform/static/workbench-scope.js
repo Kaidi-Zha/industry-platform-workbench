@@ -251,11 +251,17 @@ export function scopeReceipts(result, openDetails, agentSummary) {
   const summary = [stageLabel(result.stage), result.changes.length ? result.changes.length + " 项改动" : "无数据改动"];
   if (result.stale.length) summary.push(result.stale.length + " 项待同步");
   const rejections = result.rejections || [];
-  const boundaries = rejections.filter(({ category }) => category === "scope_guard").length;
-  const sources = rejections.filter(({ category }) => category?.startsWith("source_")).length;
+  const rejectionCategory = ({ category, reason }) =>
+    reason === "已达到本阶段的工具调用上限" ? "tool_budget" : category;
+  const categories = rejections.map(rejectionCategory);
+  const boundaries = categories.filter((category) => category === "scope_guard").length;
+  const sources = categories.filter((category) => category?.startsWith("source_")).length;
+  const budget = categories.filter((category) => category === "tool_budget").length;
   if (boundaries) summary.push(boundaries + " 次权限拦截");
   if (sources) summary.push(sources + " 次信源受阻");
-  if (result.rejected > boundaries + sources) summary.push((result.rejected - boundaries - sources) + " 次请求未通过");
+  if (budget) summary.push("工具调用额度已用完");
+  const others = result.rejected - boundaries - sources - budget;
+  if (others > 0) summary.push(others + " 次请求未通过");
   details.append($("summary", "", summary.join(" · ")));
   const list = $("ul");
   for (const { tool, entity_id, detail } of result.changes) {
@@ -269,13 +275,14 @@ export function scopeReceipts(result, openDetails, agentSummary) {
   if (list.children.length) details.append(list);
   if (rejections.length) {
     const reasons = $("ul", "scope-rejections");
-    const categories = { scope_guard: "阶段权限", source_policy: "原文访问策略",
-      source_rate_limit: "信源限流", source_error: "信源错误", validation: "校验未通过" };
+    const categoryLabels = { scope_guard: "阶段权限", source_policy: "原文访问策略",
+      source_rate_limit: "信源限流", source_error: "信源错误", tool_budget: "工具额度", validation: "校验未通过" };
     for (const entry of rejections) {
       const row = $("li");
       const name = $("div", "scope-rejection-name");
       name.append($("code", "mono", entry.tool));
-      if (categories[entry.category]) name.append($("span", "meta", categories[entry.category]));
+      const category = categoryLabels[rejectionCategory(entry)];
+      if (category) name.append($("span", "meta", category));
       row.append(name, $("p", "", entry.reason || "请求未通过"));
       const parameters = Object.entries(entry.parameters || {});
       if (parameters.length) row.append($("p", "mono meta", parameters.map(([key, value]) => key + " = " + value).join(" · ")));

@@ -47,6 +47,7 @@ class ScopeBoundaryError(ScopeViolationError):
 
 GUARD_REJECTION_LIMIT = 3
 GUARD_ABORT_CODE = "guard_loop_abort"
+STAGE_TOOL_LIMIT_CODE = "stage_tool_call_limit"
 
 def dumps(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, allow_nan=False)

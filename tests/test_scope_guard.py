@@ -242,6 +242,66 @@ class WorkflowScopeTests(unittest.TestCase):
         self.assertEqual(graph["stage_states"][stage], "completed")
         self.assertEqual(workbench.overview(self.store, self.other)["participants"], [])
 
+    def test_stage_one_leaves_call_budget_to_save_the_classification(self):
+        run = self.queued("确认 PCB 制造所属行业", stage_queue=[scope_guard.STAGES[0]])
+
+        def simulate(_, port, observe, stop, **options):
+            schemas, call = options["tools"]
+            if any(tool["name"] == "list_domains" for tool in schemas):
+                return self.raw(1)
+            lookup = {"l2_code": PCB_CLASSIFICATION["l2_code"]}
+            for _ in range(scope_tools.STAGE_TOOL_LIMIT - scope_tools.DOMAIN_WRITE_RESERVE):
+                self.assertIn("industry", call("lookup_industry_taxonomy", lookup))
+            notice = call("lookup_industry_taxonomy", lookup)
+            self.assertEqual(notice["category"], "tool_budget")
+            self.assertNotIn("code", notice)
+            options["guard_check"]()
+            self.assertEqual(call("classify_industry_task", {"classification_json": json.dumps(PCB_CLASSIFICATION)}),
+                             PCB_CLASSIFICATION)
+            return "已保存分类"
+
+        self.process(simulate)
+        saved = self.store.get(run["id"])
+        attempt = saved["result"]["stage_timeline"][-1]
+        self.assertEqual((saved["status"], attempt["status"]), ("completed", "completed"))
+        self.assertEqual(saved["task_taxonomy"], PCB_CLASSIFICATION)
+        self.assertEqual(attempt["receipt"]["rejections"][0]["category"], "tool_budget")
+
+    def test_exhausted_stage_budget_stops_run_and_allows_retry_at_same_scope(self):
+        run = self.queued("确认 PCB 制造所属行业并补工艺图谱",
+                          stage_queue=list(scope_guard.STAGES[:2]), execution_pace=scope_guard.AUTO_CONTINUE_QUEUE)
+        code = scope_guard.STAGE_TOOL_LIMIT_CODE
+
+        def simulate(_, port, observe, stop, **options):
+            schemas, call = options["tools"]
+            if any(tool["name"] == "list_domains" for tool in schemas):
+                return self.raw(1, requested_stages=list(scope_guard.STAGES[:2]))
+            self.assertIn("industry", call("lookup_industry_taxonomy", {"l2_code": PCB_CLASSIFICATION["l2_code"]}))
+            for _ in range(scope_tools.STAGE_TOOL_LIMIT - 1):
+                self.assertNotIn("error", call("update_domain_meta", {
+                    "domain_id": str(self.domain), "patch_json": '{"description":"审查领域"}',
+                }))
+            result = call("classify_industry_task", {"classification_json": json.dumps(PCB_CLASSIFICATION)})
+            self.assertEqual((result["category"], result["code"]), ("tool_budget", code))
+            self.assertEqual(call("update_domain_meta", {})["code"], code)
+            with self.assertRaises(codex_agent.AgentError) as context:
+                options["guard_check"]()
+            self.assertEqual(context.exception.diagnostic["code"], code)
+            return "即使适配器返回成功，也应结束本阶段"
+
+        self.process(simulate)
+        saved = self.store.get(run["id"])
+        self.assertEqual(saved["status"], "needs_review")
+        self.assertNotIn("task_taxonomy", saved)
+        timeline = saved["result"]["stage_timeline"]
+        self.assertEqual([item["stage_key"] for item in timeline], ["routing", "stage_1"])
+        attempt = timeline[-1]
+        self.assertEqual((attempt["status"], attempt["error"]["code"]), ("failed", code))
+        self.assertTrue(attempt["error"]["retryable"])
+        self.assertEqual([entry["category"] for entry in attempt["receipt"]["rejections"]], ["tool_budget"])
+        self.store.control(run["id"], "resume", stage_attempt=attempt["id"])
+        self.assertEqual(self.store.get(run["id"])["execution_scope"]["target_stage"], scope_guard.STAGES[0])
+
     def test_stage_two_guard_aborts_on_third_boundary_rejection_and_keeps_retry_in_scope(self):
         current, later = scope_guard.STAGES[1:3]
         run = self.queued("为回流焊复核工艺图谱", hint={"stage": current, "process_node_id": "solder"})

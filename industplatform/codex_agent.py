@@ -18,6 +18,7 @@ from uuid import uuid4
 from run_codex import ROOT, codex_args, config_args
 from . import codex_gateway, codex_local, codex_permissions
 from .codex_runtime import codex_environment, prepare_codex_state
+from .scope_guard import GUARD_ABORT_CODE, STAGE_TOOL_LIMIT_CODE
 
 ROUTE = "codex-agent"
 ROUTE_DETAILS = {
@@ -1055,7 +1056,8 @@ def _execute(binary, prompt, port, on_event, stop, gateway, guidance, permission
             process.stderr.close()
     if failure or not completed:
         if gateway and gateway.error == codex_gateway.TURN_LIMIT_ERROR and not (
-            failure and failure.diagnostic.get("code") in ("network_idle_timeout", "stage_max_duration_exceeded", "guard_loop_abort")
+            failure and failure.diagnostic.get("code") in (
+                "network_idle_timeout", "stage_max_duration_exceeded", GUARD_ABORT_CODE, STAGE_TOOL_LIMIT_CODE)
         ):
             error = TurnBudgetExhausted(gateway.error, code="CODEX_TOOL_TURN_LIMIT")
             if failure:
