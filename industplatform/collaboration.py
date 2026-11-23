@@ -226,7 +226,7 @@ class Collaboration:
         with closing(self.store.connect()) as db:
             if configured_repository(db) == name:
                 return
-        if not self.lock.acquire(blocking=False):
+        if not self.lock.acquire(timeout=0.5):
             raise ValueError("请等待当前资料同步完成后更换数据仓库")
         try:
             with closing(self.store.connect()) as db, db:
