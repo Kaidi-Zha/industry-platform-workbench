@@ -27,7 +27,25 @@ py -3 -m venv .venv
 
 If port `18765` is in use, pass a free port to `--port`. Keep the terminal running and open `localhost:<port>` in your browser using the same port. Follow the on-screen instructions.
 
-To start the workbench again, run only the last command for your OS from the repository root. Press `Ctrl+C` to stop it.
+To start the workbench again, run only the last command for your OS from the repository root.
+
+## Stop the workbench
+
+Press `Ctrl+C` in the terminal that started it, or run the stop command from another terminal in the same repository. Use the port you passed to `start`.
+
+**macOS & Linux**
+
+```bash
+.venv/bin/python -m industplatform stop --port 18765
+```
+
+**Windows PowerShell**
+
+```powershell
+.\.venv\Scripts\python.exe -m industplatform stop --port 18765
+```
+
+`Workbench stopped on localhost:18765.` confirms the service has exited and the port is closed. If the command reports active work, let it finish and run the stop command again.
 
 ## Optional team data sync
 

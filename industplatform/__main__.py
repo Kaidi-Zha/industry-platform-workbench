@@ -22,6 +22,8 @@ def main():
     start.add_argument("--port", type=int, default=18765)
     start.add_argument("--no-browser", action="store_true")
     start.add_argument("--maintain", action="store_true", help="refresh the shared metadata index")
+    stop = commands.add_parser("stop", help="stop the local workbench and confirm its port is closed")
+    stop.add_argument("--port", type=int, default=18765)
     for entry in (server, start):
         entry.add_argument("--db", type=Path, default=Path(os.environ.get("INDUST_DB", ".local/industplatform.sqlite3")))
     demo = commands.add_parser("demo", help="run the offline benchmark and optionally export its ZIP")
@@ -40,6 +42,8 @@ def main():
     options = parser.parse_args()
     if options.command == "demo" and options.seed is not None and not 0 <= options.seed <= 999999:
         parser.error("--seed must be between 0 and 999999")
+    if options.command == "stop" and not 1 <= options.port <= 65535:
+        stop.error("--port must be between 1 and 65535")
 
     logging.basicConfig(level=logging.INFO)
     if options.command in ("serve", "start"):
@@ -56,6 +60,14 @@ def main():
                   maintainer=opening and options.maintain)
         finally:
             signal.signal(signal.SIGTERM, previous)
+    elif options.command == "stop":
+        from .service_control import stop as stop_workbench
+
+        try:
+            print(stop_workbench(options.port))
+        except (OSError, ValueError) as error:
+            print(error, file=sys.stderr)
+            return 1
     elif options.command == "mcp":
         from .mcp import listen
 

@@ -3,6 +3,7 @@
 import json
 import logging
 import re
+import secrets
 import threading
 import webbrowser
 from contextlib import ExitStack, closing
@@ -22,6 +23,7 @@ from .forest import search_keywords
 from .model_profiles import ModelProfiles, public_profile
 from .provider_api import ProviderError
 from .scope_guard import COLLECTION_STOPS, ENTITY_ID, EXECUTION_PACES, STAGES, validate_stage_queue
+from .service_control import STOP_PATH, register as register_control
 from .settings import AGENT_PREFERENCES, APPROVAL_MODES, PERMISSION_PREFERENCES, Settings
 from .storage import AGENT_ROUTES, API_AGENT_ROUTE, RunStore
 from .workflow import Workers, accept_request, benchmark_ready, benchmark_zip, catalog
@@ -85,7 +87,7 @@ PROVIDER_ACTIONS = (PROFILE_PATH + "/test", PROFILE_PATH + "/discover", PROFILE_
 WRITE_PATHS = ("/api/runs", SETTINGS_PATH, CODEX_LOCAL_PATH, STORAGE_PATH, PROFILE_PATH, PROFILE_PATH + "/remove", MODEL_ACTION_PATH,
                REFERENCES_PATH, BENCHMARKS_PATH, BENCHMARK_CASES_PATH, BENCHMARK_TEMPLATES_PATH,
                DOMAINS_PATH, NODES_PATH, SCHEMA_PATH, FRONTIER_PATH, VERIFIER_PATH, TASK_VALUE_PATH, DOMAIN_APPROVALS_PATH,
-               COLLABORATION_PATH, IMPORTS_PATH)
+               COLLABORATION_PATH, IMPORTS_PATH, STOP_PATH)
 
 
 class WorkspaceBusy(ValueError):
@@ -236,6 +238,25 @@ def chat_turn(run, approval=None, *, store=None):
 
 class WorkbenchHTTPServer(ThreadingHTTPServer):
     request_queue_size = 64  # Browsers request the module graph in parallel.
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.stopping = threading.Event()
+
+    def prepare_stop(self):
+        with self.workspace_lock, ExitStack() as locks:
+            for lock in (self.collaboration.lock, self.importer.lock, self.importer.upload_lock, self.workers.control_lock):
+                if not lock.acquire(blocking=False):
+                    raise WorkspaceBusy("请等待当前任务或资料同步结束后再关闭工作台")
+                locks.callback(lock.release)
+            with closing(self.store.connect()) as db:
+                if self.store.has_active_runs() or db.execute("""SELECT 1 FROM collaboration_jobs
+                    WHERE status IN ('queued','running') LIMIT 1""").fetchone():
+                    raise WorkspaceBusy("请等待当前任务或资料同步结束后再关闭工作台")
+            self.stopping.set()
+            self.importer.close()
+            self.collaboration.close()
+            self.workers.stop.set()
 
 
 class RequestHandler(BaseHTTPRequestHandler):
@@ -555,6 +576,8 @@ class RequestHandler(BaseHTTPRequestHandler):
         path = urlsplit(self.path).path
         if not self.allowed_host() or (origin and origin != "http://" + self.headers["Host"]):
             self.send_json(403, {"error": "仅接受本机工作台提交的请求"})
+        elif self.server.stopping.is_set():
+            self.send_json(503, {"error": "工作台正在关闭"})
         elif path == IMPORTS_PATH + "/file":
             self.read_import_file()
         elif path in (ATTACHMENTS_PATH, VERIFIER_SAMPLE_PATH):
@@ -571,6 +594,8 @@ class RequestHandler(BaseHTTPRequestHandler):
                 if len(content) != size:
                     raise ValueError("附件上传未完成")
                 with self.server.workspace_lock:
+                    if self.server.stopping.is_set():
+                        return self.send_json(503, {"error": "工作台正在关闭"})
                     save = sandbox_verifier.upload_sample if path == VERIFIER_SAMPLE_PATH else attachments.save
                     result = save(self.server.store, domain_id, params.get("name", [""])[0], content)
                 self.send_json(201, result)
@@ -594,7 +619,16 @@ class RequestHandler(BaseHTTPRequestHandler):
                     raise ValueError("请求体必须为有效 JSON") from None
                 if not isinstance(payload, dict):
                     raise ValueError("请求参数必须为 JSON 对象")
-                if path in PROVIDER_ACTIONS:
+                if path == STOP_PATH:
+                    token = payload.get("token")
+                    if (origin is not None or not isinstance(token, str) or len(token) != 64
+                            or not secrets.compare_digest(token.encode(), self.server.stop_token.encode())):
+                        self.send_json(403, {"error": "请从启动工作台的仓库运行关闭命令"})
+                        return
+                    self.server.prepare_stop()
+                    self.send_json(202, {"stopping": True})
+                    threading.Thread(target=self.server.shutdown, daemon=True).start()
+                elif path in PROVIDER_ACTIONS:
                     # Provider I/O uses a snapshot of the active store. It does not block local settings.
                     with self.server.workspace_lock:
                         profiles = self.server.profiles
@@ -626,6 +660,8 @@ class RequestHandler(BaseHTTPRequestHandler):
                     self.send_json(200, sandbox_verifier.inspect_image(payload.get("image")))
                 else:
                     with self.server.workspace_lock:
+                        if self.server.stopping.is_set():
+                            raise WorkspaceBusy("工作台正在关闭")
                         status, result = self.write_route(path, payload)
                     self.send_json(status, result)
             except CredentialError as exc:
@@ -650,6 +686,8 @@ class RequestHandler(BaseHTTPRequestHandler):
                     or not 1 <= size <= local_import.MAX_FILE_BYTES):
                 raise ValueError("请选择 16 MiB 以内的本地文件")
             with self.server.workspace_lock:
+                if self.server.stopping.is_set():
+                    return self.send_json(503, {"error": "工作台正在关闭"})
                 importer = self.server.importer
                 if not importer.upload_lock.acquire(blocking=False):
                     return self.send_json(409, {"error": "正在读取其他本地文件，请重试"})
@@ -1053,12 +1091,13 @@ class RequestHandler(BaseHTTPRequestHandler):
 
 def serve(port, database, *, browser=False, maintainer=False):
     anchor = Path(database).resolve()
-    with WorkbenchHTTPServer(("127.0.0.1", port), RequestHandler) as server:
+    with WorkbenchHTTPServer(("127.0.0.1", port), RequestHandler) as server, ExitStack() as control:
         server.anchor = anchor
         server.workspace_lock = threading.RLock()
         server.store, server.profiles, server.settings, server.workers = workspace(server, resolve_database(anchor))
         server.collaboration = Collaboration(server.store, checkout(), maintainer=maintainer)
         server.importer = local_import.Importer(server.store, server.profiles, server.settings, server.server_port)
+        server.stop_token = control.enter_context(register_control(server.server_port))
         server.workers.start()
         server.collaboration.start()
         server.importer.start()
