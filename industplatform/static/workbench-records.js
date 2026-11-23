@@ -312,22 +312,26 @@ export function referenceDialog(ctx, reference, focusClause) {
       if (link) links.append(link);
     }
     const clauses = row.extracted_clauses || [];
-    if (clauses.length || row.excerpt) {
+    const storedQuotes = clauses.filter(({ quote }) => typeof quote === "string" && quote.trim());
+    const legacyExcerpt = typeof row.excerpt === "string" ? row.excerpt.trim() : "";
+    if (storedQuotes.length || legacyExcerpt) {
+      const excerpts = storedQuotes.length ? storedQuotes.map(({ locator, quote }) => locator + "\n" + quote) : [legacyExcerpt];
       links.append(button("下载已保存摘录", () => saveLocal("ref-" + row.id.slice(0, 8) + ".txt",
-        [row.title, row.url, ...clauses.map(({ locator, quote }) => locator + "\n" + quote), ...(!clauses.length ? [row.excerpt] : [])]
-          .join("\n\n"), "text/plain;charset=utf-8"), "ghost", "download"));
+        [row.title, row.url, ...excerpts].join("\n\n"), "text/plain;charset=utf-8"), "ghost", "download"));
     }
     const extracts = $("div", "record-clauses");
     for (const item of clauses) {
       const block = $("article", "record-clause");
       block.id = "clause-" + item.id;
       block.append(actions($("span", "badge", clauseKinds[item.kind]), label(item.locator, "meta mono")),
-        $("h4", "", item.requirement), $("blockquote", "", item.quote), $("p", "muted", "检查方法 " + item.check));
+        $("h4", "", item.requirement));
+      if (typeof item.quote === "string" && item.quote.trim()) block.append($("blockquote", "", item.quote));
+      block.append($("p", "muted", "检查方法 " + item.check));
       if (item.id === focusClause) block.dataset.focus = "true";
       extracts.append(block);
     }
-    if (!clauses.length && row.excerpt) extracts.append($("p", "muted", "历史摘录 · " + (row.locator || "定位待复核")),
-      $("blockquote", "", row.excerpt));
+    if (!storedQuotes.length && legacyExcerpt) extracts.append($("p", "muted", "历史摘录 · " + (row.locator || "定位待复核")),
+      $("blockquote", "", legacyExcerpt));
     const usage = $("div", "record-usage");
     for (const [heading, items] of [["引用题目", row.task_usage || []], ["验证器检查项", row.verifier_usage || []]]) {
       usage.append($("h4", "", heading));

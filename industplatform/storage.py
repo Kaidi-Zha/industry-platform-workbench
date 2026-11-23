@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from . import collection, industrial_bench, local_import, reference_catalog, research, scope_guard, shared_metadata
-from . import stage_timeline, workbench
+from . import shared_projection, stage_timeline, workbench
 from .codex_agent import ROUTE as AGENT_ROUTE
 from .codex_local import API_GATEWAY, SUBSCRIPTION
 
@@ -67,6 +67,7 @@ class RunStore:
             shared_metadata.initialize(connection)
             local_import.initialize(connection)
             reference_catalog.migrate(connection)
+            shared_projection.restore_cached(connection)
 
     def connect(self):
         connection = sqlite3.connect(str(self.path), timeout=10)

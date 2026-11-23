@@ -28,8 +28,13 @@ def synchronize(repo, database, *, check=False, ref=None, rebuild=False, automat
         raise ValueError("共享视图只接受 HEAD 或 origin/main")
     if check and not database.is_file():
         raise ValueError("共享视图尚未初始化，请运行同步")
+    if repository and not check:
+        from industplatform.shared_projection import materialize
+
     database.parent.mkdir(parents=True, exist_ok=True)
     with closing(sqlite3.connect(str(database), timeout=15)) as db, db:
+        db.execute("PRAGMA foreign_keys = ON")
+        db.create_function("workflow_contract_id", 0, lambda: None)
         db.execute("BEGIN IMMEDIATE" if not check else "BEGIN")
         if not check:
             metadata.initialize(db)
@@ -56,6 +61,8 @@ def synchronize(repo, database, *, check=False, ref=None, rebuild=False, automat
             raise ValueError("此共享视图已绑定另一检出目录；请为每个工作树保留独立数据库")
         if not rebuild and saved and saved[1:3] == (head, selected):
             if ref == PUBLISHED_REF and not check:
+                if repository:
+                    materialize(db, repository, head)
                 db.execute("UPDATE shared_metadata_sync SET synced_at=? WHERE singleton=1", (stamp,))
             return head, 0, 0
         if check:
@@ -78,6 +85,8 @@ def synchronize(repo, database, *, check=False, ref=None, rebuild=False, automat
                 (path, *(record[key] for key in ("l2_code", "kind", "canonical_id", "title", "version", "status")),
                  metadata.json_bytes(record).decode("utf-8")))
             applied += 1
+        if repository:
+            materialize(db, repository, head, rebuild=rebuild)
         if repo.revision(selected) != head:
             raise ValueError("同步来源已变化，请重试")
         db.execute("""INSERT INTO shared_metadata_sync(singleton,checkout,last_synced_commit,source_ref,repository,synced_at)

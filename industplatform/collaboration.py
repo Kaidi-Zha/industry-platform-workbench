@@ -18,7 +18,7 @@ from scripts.workbench_sync import (
     RUN_ID, maintain, publication_preview, publish_rollback, publish_run, published_data, recent_publications,
 )
 
-from . import local_import
+from . import local_import, shared_projection
 from .shared_metadata import PUBLISHED_REF, SYNC_DEFAULTS, configured_repository, required_text, sync_preferences
 
 logger = logging.getLogger(__name__)
@@ -240,6 +240,7 @@ class Collaboration:
                               (time(),)).fetchone():
                     raise ValueError("请等待当前资料同步完成后更换数据仓库")
                 db.execute("INSERT OR REPLACE INTO collaboration_repository VALUES (1,?)", (name,))
+                shared_projection.materialize(db, None, None)
                 db.execute("DELETE FROM shared_metadata")
                 db.execute("DELETE FROM shared_metadata_sync")
                 db.execute("DELETE FROM collaboration_preferences")

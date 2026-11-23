@@ -234,12 +234,13 @@ function renderTaskHistory() {
   if (!taskHistory?.isConnected) return;
   const pending = new Set(pendingApprovals().map(({ thread }) => thread.id));
   const records = data.threads;
-  const key = JSON.stringify([locationState.thread, records, [...pending]]);
+  const domainExists = new Set(data.domains.map(({ name }) => name));
+  const key = JSON.stringify([locationState.thread, records, [...pending],
+    records.map(({ domain }) => domainExists.has(domain))]);
   if (taskHistory.dataset.key === key) return;
   taskHistory.dataset.key = key;
   const list = taskHistory.querySelector(".task-history-list");
   const retainedFocus = document.activeElement?.dataset.threadId;
-  const domainExists = new Set(data.domains.map(({ name }) => name));
   list.replaceChildren(...records.map((record) => {
     const link = href("", locationFor("scope/" + record.id), "task-history-item");
     link.dataset.threadId = record.id;
@@ -1561,7 +1562,13 @@ media.addEventListener("change", ({ matches }) => {
 chooseSidebar(sidebarPinned);
 const resumeOnEntry = location.pathname === "/" && !location.hash && !location.search;
 const initialLoad = reload(true);
-initializeCollaboration(() => reload(), initialLoad);
+initializeCollaboration(() => {
+  const route = followLocation();
+  const libraryView = ["domains", "assets", "graph"].includes(route.page) ||
+    (route.page === "sources" && route.section !== "datasets");
+  const taskList = ["tasks", "export"].includes(route.page) && !route.section && !route.run;
+  return reload(libraryView || taskList, route);
+}, initialLoad);
 initialLoad.then(() => loadConfig()).then(() => {
   if (!resumeOnEntry || !config.settings.resume_last_chat || readLocation().path !== locationFor("scope", null) || draftFor(null).prompt) return;
   if (data?.threads[0]) navigate(locationFor("scope/" + data.threads[0].id));

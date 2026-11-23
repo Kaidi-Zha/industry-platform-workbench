@@ -29,7 +29,7 @@ let recent = [];
 let settingsPaint;
 let drawerRepositoryPaint;
 let importPaint;
-let onImport;
+let onLibraryChanged;
 let focusFrom;
 let earliestReceipt = 0;
 let taskKey = "";
@@ -303,7 +303,14 @@ function accept(next) {
     get("sync-correction-reason").value = "";
   }
   state = next;
-  if (prior && (prior.repository !== next.repository || prior.commit !== next.commit)) onImport?.();
+  const projectionChanged = prior
+    ? prior.repository !== next.repository || prior.commit !== next.commit ||
+      ["pull", "refresh", "rebuild"].some((operation) => {
+        const receipt = next[operation];
+        return receipt?.status === "completed" && receipt.updated_at > (prior[operation]?.updated_at ?? 0);
+      })
+    : Boolean(next.commit);
+  if (projectionChanged) onLibraryChanged?.();
 }
 
 async function refresh(force = false) {
@@ -385,8 +392,8 @@ export function openSync(id = "") {
   if (!id) paint();
 }
 
-export function initializeCollaboration(onCommit, firstView) {
-  onImport = onCommit;
+export function initializeCollaboration(refreshLibrary, firstView) {
+  onLibraryChanged = refreshLibrary;
   importPaint = localImport(refresh, (id) => selection.add(id));
   const drawer = get("sync-drawer");
   const trigger = get("sync-anchor-open");

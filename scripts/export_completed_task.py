@@ -71,17 +71,23 @@ def task_records(db, run_id, label=None, *, retired=None):
                 key = metadata.canonical_key("processes", detail.removeprefix("删除无引用工序「")[:-1])
                 retired.add(metadata.record_path({**label, "kind": "processes", "canonical_id":
                     metadata.canonical_id(label["l2_code"], "processes", key, label["object_cluster"])}))
+    node_columns = {column[1] for column in db.execute("PRAGMA table_info(process_nodes)")}
+    flow_column = "flow_group" if "flow_group" in node_columns else "''"
     for identity in sorted({item[0] for tool in ("upsert_process_node", "upsert_process_edge") for item in outputs[tool]}):
         if identity not in nodes:
             continue
-        (roles,) = db.execute("SELECT occupations_json FROM process_nodes WHERE domain_id=? AND id=?",
-                              (domain, identity)).fetchone()
+        roles, position, flow_group = db.execute(f"""SELECT occupations_json,position,{flow_column}
+            FROM process_nodes WHERE domain_id=? AND id=?""", (domain, identity)).fetchone()
         edges = db.execute("""SELECT upstream_id,downstream_id FROM process_edges
             WHERE domain_id=? AND ? IN (upstream_id,downstream_id) ORDER BY upstream_id,downstream_id""",
                            (domain, identity)).fetchall()
+        upstream = [first for first, last in edges if last == identity]
+        downstream = [last for first, last in edges if first == identity]
         add("processes", nodes[identity], nodes[identity],
-            {"occupations": json.loads(roles), "upstream": [nodes[first] for first, last in edges if last == identity],
-             "downstream": [nodes[last] for first, last in edges if first == identity]})
+            {"process_node_id": identity, "position": position, "occupations": json.loads(roles),
+             "upstream_ids": upstream, "downstream_ids": downstream,
+             "upstream": [nodes[node] for node in upstream], "downstream": [nodes[node] for node in downstream],
+             **({"flow_group": flow_group} if flow_group else {})})
 
     source_ids = {output for _, _, output in outputs["save_raw_source"] if output}
     source_urls = {detail[len("登记原文 "):] for _, detail, output in outputs["save_raw_source"]
@@ -136,7 +142,7 @@ def task_records(db, run_id, label=None, *, retired=None):
             FROM grounded_process_relations WHERE domain_id=? ORDER BY id""", (domain,)):
         if (node, identity) in changed_relations or (node, sender + " → " + recipient) in changed_relations:
             key = json.dumps([nodes[node], sender, recipient, deliverable, kind], ensure_ascii=False)
-            add("entities", key, f"{sender} → {recipient}"[:220], {"process": nodes[node], "sender": sender,
+            add("entities", key, f"{sender} → {recipient}"[:220], {"process": nodes[node], "process_node_id": node, "sender": sender,
                 "recipient": recipient, "deliverable": deliverable, "relationship": kind,
                 "evidence_url": url, "locator": locator, "clause_id": clause})
 
@@ -147,7 +153,7 @@ def task_records(db, run_id, label=None, *, retired=None):
         ON (v.domain_id,v.source_id)=(s.domain_id,s.id) WHERE p.domain_id=? ORDER BY p.node_id,p.name,p.role""", (domain,)):
         if (node, f"登记企业「{name}」") in participants:
             add("entities", json.dumps([nodes[node], name, role], ensure_ascii=False), name,
-                {"process": nodes[node], "name": name, "role": role, "evidence_url": url, "locator": locator})
+                {"process": nodes[node], "process_node_id": node, "name": name, "role": role, "evidence_url": url, "locator": locator})
 
     task_ids = {entity for entity, _, _ in outputs["upsert_benchmark_task"]}
     for identity, node, title, body, complexity in db.execute("""SELECT id,node_id,title,definition_json,complexity
@@ -166,7 +172,7 @@ def task_records(db, run_id, label=None, *, retired=None):
             ON (v.domain_id,v.source_id)=(s.domain_id,s.id) WHERE t.domain_id=? AND t.task_id=? ORDER BY v.id""",
             (domain, identity))]
         add("tasks", json.dumps([nodes[node], title], ensure_ascii=False), title,
-            {"process": nodes[node], "complexity": complexity, **facts, "citations": citations})
+            {"process": nodes[node], "process_node_id": node, "complexity": complexity, **facts, "citations": citations})
     return records
 
 
