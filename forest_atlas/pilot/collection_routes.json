@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "pilot_budget": {
+    "wall_seconds_per_platform": 75,
+    "global_http_body_ceiling_bytes": 1000000000,
+    "platform_http_body_ceiling_bytes": 10000000,
+    "metadata_request_max_bytes": 1048576,
+    "sample_request_max_bytes": 262144,
+    "public_read_only": true
+  },
+  "platform_protocols": {
+    "zenodo": {
+      "enumerate": "GET https://zenodo.org/api/records with q, page, size; use links.next or increment page. Restrict to the specified community and dataset resource_type. Stop at the route max_pages.",
+      "record": "GET https://zenodo.org/api/records/{record_id}; read metadata, access_right, conceptrecid, conceptdoi, files and related_identifiers.",
+      "download": "Use the file entry links.content or links.self, verify open access and file size first. Read complete small artifacts or attempt a bounded byte range. Keep filename and checksum of the original file.",
+      "license": "Read access_right and metadata.license.id (or rights). Record the version DOI, license declaration and any file-level exceptions or terms. Check terms for the intended use before bulk download.",
+      "deduplication": "Use concept DOI/conceptrecid for the asset family, record ID and DOI for a particular version. Compare exact DOI, file checksums, related isIdenticalTo identifiers and original publication pointers across hosts.",
+      "documentation": ["https://developers.zenodo.org/", "https://help.zenodo.org/guides/search/"]
+    },
+    "huggingface": {
+      "enumerate": "GET https://huggingface.co/api/datasets with author, limit and optional search. Follow the rel=next Link cursor for additional pages up to max_pages.",
+      "record": "GET https://huggingface.co/api/datasets/{repo_id}?blobs=true; retain the SHA, cardData, tags, gated/private state and siblings with sizes and LFS object identifiers. Use the repository tree endpoint if file metadata is incomplete.",
+      "download": "Fetch public files with https://huggingface.co/datasets/{repo_id}/resolve/{sha}/{path}; select small structured samples and license files first. Viewer /splits and /first-rows can expose supported data schema and bounded sample rows.",
+      "license": "Check repository README at the same commit, plus LICENSE or a linked upstream license. Record gating and any third-party notices. A platform label alone does not authorize every use.",
+      "deduplication": "Use lowercased repository ID for family and commit SHA for version; match upstream DOI/repository, LFS SHA-256 and documented repacks. Keep transforms as versions or derivatives unless a genuinely independent data scope is verified.",
+      "documentation": ["https://huggingface.co/docs/huggingface_hub/en/package_reference/hf_api", "https://huggingface.co/docs/dataset-viewer/en/first_rows"]
+    }
+  },
+  "routes": [
+    {
+      "id": "zenodo-remodel", "platform": "zenodo", "publisher_or_collection": "REMODEL EU project",
+      "seed_atlas_ids": ["T6:133", "T6:134"], "seed_urls": ["https://zenodo.org/records/7197339", "https://zenodo.org/records/10013370"],
+      "locator": "remodel", "query": "communities:remodel AND resource_type.type:dataset", "page_size": 8, "max_pages": 2, "max_probes": 5,
+      "targets": [{"peu":"PEU-05","stage":"S4","pattern":"wire.harness manufacturing framework|wiring harness manipulation|cable grasping","reason":"线束路径规划、装夹与手爪选型"}]
+    },
+    {
+      "id": "zenodo-bam", "platform": "zenodo", "publisher_or_collection": "Bundesanstalt für Materialforschung und -prüfung (BAM)",
+      "seed_atlas_ids": ["T7:38"], "seed_urls": ["https://zenodo.org/records/5105861"],
+      "locator": "bam", "query": "communities:bam AND resource_type.type:dataset AND (ultrasonic OR \"impact-echo\" OR \"computed tomography\")", "page_size": 8, "max_pages": 2, "max_probes": 5,
+      "targets": [{"peu":"PEU-23","stage":"S5","pattern":"impact.echo|ultrason|computed tomography|tomographic|x.ray ct","reason":"实物超声、冲击回波或 CT 检测与判读"}]
+    },
+    {
+      "id": "zenodo-tubers", "platform": "zenodo", "publisher_or_collection": "TUBERS project",
+      "seed_atlas_ids": ["T7:37"], "seed_urls": ["https://zenodo.org/records/11239514"],
+      "locator": "tubers_project", "query": "communities:tubers_project AND resource_type.type:dataset", "page_size": 8, "max_pages": 1, "max_probes": 3,
+      "targets": [{"peu":"PEU-23","stage":"S5","pattern":"ultrason|computed tomography","reason":"管道超声及裂纹检验"},{"peu":"PEU-22","stage":"S7","pattern":"visual data from water pipe inspection|soft robot image inspection","reason":"服役管道内壁图像检查"}]
+    },
+    {
+      "id": "hf-plaid", "platform": "huggingface", "publisher_or_collection": "PLAID-datasets",
+      "seed_atlas_ids": ["E2:81"], "seed_urls": ["https://huggingface.co/datasets/PLAID-datasets/AirfRANS_original"],
+      "locator": "PLAID-datasets", "query": "", "page_size": 8, "max_pages": 2, "max_probes": 4,
+      "viewer_split_hint": "all_samples",
+      "targets": [{"peu":"PEU-10","stage":"S3","pattern":"airfrans|vki.ls59|rotor37","reason":"翼型或叶栅网格、流场与载荷验证"},{"peu":"PEU-11","stage":"S3","pattern":"tensile2d|hyperelasticity|elastoplastodynamics","reason":"结构力学材料模型与场解对照"}],
+      "family_aliases": {"plaid-datasets/airfrans_remeshed":"plaid-datasets/airfrans_original","plaid-datasets/airfrans_clipped":"plaid-datasets/airfrans_original"}
+    },
+    {
+      "id": "hf-polymathic", "platform": "huggingface", "publisher_or_collection": "Polymathic AI / The Well",
+      "seed_atlas_ids": ["E2:82","E2:83","E2:84","E2:85"], "seed_urls": ["https://huggingface.co/datasets/polymathic-ai/rayleigh_benard","https://huggingface.co/datasets/polymathic-ai/shear_flow"],
+      "locator": "polymathic-ai", "query": "", "page_size": 12, "max_pages": 2, "max_probes": 4,
+      "targets": [{"peu":"PEU-10","stage":"S3","pattern":"viscoelastic_instability|rayleigh_benard|shear_flow|turbulent_radiative_layer_2d|rayleigh_taylor_instability","reason":"流动、传热与流变数值工况。仅作物理基准候选。"}]
+    },
+    {
+      "id": "hf-lerobot-insertion", "platform": "huggingface", "publisher_or_collection": "LeRobot organization, insertion subset",
+      "seed_atlas_ids": ["E5:75"], "seed_urls": ["https://huggingface.co/datasets/lerobot/aloha_sim_insertion_human"],
+      "locator": "lerobot", "query": "insertion", "page_size": 8, "max_pages": 1, "max_probes": 4,
+      "viewer_split_hint": "train",
+      "targets": [{"peu":"PEU-20","stage":"S3","pattern":"aloha_sim_insertion|real_robot_insertion","reason":"轴孔插装动作、状态及场景基准"}],
+      "family_aliases": {"lerobot/aloha_sim_insertion_human_image":"lerobot/aloha_sim_insertion_human","lerobot/aloha_sim_insertion_scripted_image":"lerobot/aloha_sim_insertion_scripted"}
+    }
+  ]
+}

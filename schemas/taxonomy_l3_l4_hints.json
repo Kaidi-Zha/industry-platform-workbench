@@ -1,0 +1,6042 @@
+{
+  "source": {
+    "title": "工业工程场景与任务目录",
+    "version": "1.0",
+    "date": "2026-11-18",
+    "sha256": "426ce98c450bbdbb3b9c13924858438878c340723182ee499abd1ddd6c9c51ed",
+    "classification_number_field": "code"
+  },
+  "usage": "advisory-only",
+  "counts": {
+    "objects": 251,
+    "scenarios": 356,
+    "task_types": 1829
+  },
+  "by_l2": {
+    "D01.1": {
+      "object_count": 6,
+      "scenario_count": 16,
+      "task_count": 82,
+      "objects": [
+        {
+          "object_id": "OB002",
+          "object_code": "D01.1.1",
+          "name_zh": "数字集成电路",
+          "task_count": 42,
+          "scenarios": [
+            {
+              "scenario_id": "SC0001",
+              "scenario_code": "D01.1.1.1",
+              "name_zh": "数字芯片物理实现与时序收敛",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 13
+            },
+            {
+              "scenario_id": "SC0002",
+              "scenario_code": "D01.1.1.2",
+              "name_zh": "数字系统的功能建模与验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 10
+            },
+            {
+              "scenario_id": "SC0003",
+              "scenario_code": "D01.1.1.3",
+              "name_zh": "标准单元、存储宏与 IP 选型集成",
+              "lifecycle_stages": [
+                "S0",
+                "S2"
+              ],
+              "task_count": 7
+            },
+            {
+              "scenario_id": "SC0004",
+              "scenario_code": "D01.1.1.4",
+              "name_zh": "逻辑综合与 FPGA 实现",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 2
+            },
+            {
+              "scenario_id": "SC0005",
+              "scenario_code": "D01.1.1.5",
+              "name_zh": "版图制造检查与连接等价签核",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 6
+            },
+            {
+              "scenario_id": "SC0006",
+              "scenario_code": "D01.1.1.6",
+              "name_zh": "芯片测试程序与扫描覆盖分析",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB013",
+          "object_code": "D01.1.2",
+          "name_zh": "模拟、射频与功率器件",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0007",
+              "scenario_code": "D01.1.2.1",
+              "name_zh": "模拟与射频电路的参数设计和仿真",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 5
+            },
+            {
+              "scenario_id": "SC0008",
+              "scenario_code": "D01.1.2.2",
+              "name_zh": "电子器件与薄膜的物理建模",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0009",
+              "scenario_code": "D01.1.2.3",
+              "name_zh": "电子器件可靠性鉴定与退化分析",
+              "lifecycle_stages": [
+                "S5",
+                "S6"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB014",
+          "object_code": "D01.1.3",
+          "name_zh": "芯粒与先进封装",
+          "task_count": 17,
+          "scenarios": [
+            {
+              "scenario_id": "SC0010",
+              "scenario_code": "D01.1.3.1",
+              "name_zh": "先进封装互连与热设计协同",
+              "lifecycle_stages": [
+                "S0",
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            },
+            {
+              "scenario_id": "SC0011",
+              "scenario_code": "D01.1.3.2",
+              "name_zh": "芯粒封装装联与键合工艺规划",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0012",
+              "scenario_code": "D01.1.3.3",
+              "name_zh": "先进封装测试交接与失效定位",
+              "lifecycle_stages": [
+                "S0",
+                "S5",
+                "S6"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB087",
+          "object_code": "D01.1.4",
+          "name_zh": "晶圆与芯片制造",
+          "task_count": 9,
+          "scenarios": [
+            {
+              "scenario_id": "SC0013",
+              "scenario_code": "D01.1.4.1",
+              "name_zh": "晶圆计量、电测与失效分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6"
+              ],
+              "task_count": 7
+            },
+            {
+              "scenario_id": "SC0014",
+              "scenario_code": "D01.1.4.2",
+              "name_zh": "流片交付与设备采集配置",
+              "lifecycle_stages": [
+                "S0",
+                "S3",
+                "S7"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB088",
+          "object_code": "D01.1.5",
+          "name_zh": "光子芯片",
+          "task_count": 1,
+          "scenarios": [
+            {
+              "scenario_id": "SC0015",
+              "scenario_code": "D01.1.5.1",
+              "name_zh": "光子芯片版图与端口设计",
+              "lifecycle_stages": [
+                "S2"
+              ],
+              "task_count": 1
+            }
+          ]
+        },
+        {
+          "object_id": "OB157",
+          "object_code": "D01.1.6",
+          "name_zh": "晶圆制程",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0016",
+              "scenario_code": "D01.1.6.1",
+              "name_zh": "半导体制程的掺杂与形貌仿真",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D01.2": {
+      "object_count": 2,
+      "scenario_count": 7,
+      "task_count": 32,
+      "objects": [
+        {
+          "object_id": "OB001",
+          "object_code": "D01.2.1",
+          "name_zh": "PCB 与电子组装",
+          "task_count": 29,
+          "scenarios": [
+            {
+              "scenario_id": "SC0017",
+              "scenario_code": "D01.2.1.1",
+              "name_zh": "PCB 布局布线与设计规则收敛",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 9
+            },
+            {
+              "scenario_id": "SC0018",
+              "scenario_code": "D01.2.1.2",
+              "name_zh": "电子组装的 AOI 缺陷复核与工艺分析",
+              "lifecycle_stages": [
+                "S4",
+                "S5"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0019",
+              "scenario_code": "D01.2.1.3",
+              "name_zh": "PCB 制板输出与制造准备",
+              "lifecycle_stages": [
+                "S3"
+              ],
+              "task_count": 5
+            },
+            {
+              "scenario_id": "SC0020",
+              "scenario_code": "D01.2.1.4",
+              "name_zh": "板级测试与故障诊断",
+              "lifecycle_stages": [
+                "S5",
+                "S6"
+              ],
+              "task_count": 2
+            },
+            {
+              "scenario_id": "SC0021",
+              "scenario_code": "D01.2.1.5",
+              "name_zh": "电子物料选型、库存与合规核对",
+              "lifecycle_stages": [
+                "S0",
+                "S1",
+                "S7"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0022",
+              "scenario_code": "D01.2.1.6",
+              "name_zh": "PCB 的信号与电源完整性分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB191",
+          "object_code": "D01.2.2",
+          "name_zh": "射频无源器件",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0023",
+              "scenario_code": "D01.2.2.1",
+              "name_zh": "射频无源结构的电磁设计与匹配",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D01.3": {
+      "object_count": 4,
+      "scenario_count": 4,
+      "task_count": 16,
+      "objects": [
+        {
+          "object_id": "OB015",
+          "object_code": "D01.3.1",
+          "name_zh": "服务器及通信整机",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0024",
+              "scenario_code": "D01.3.1.1",
+              "name_zh": "电子整机的热管理与散热方案分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB155",
+          "object_code": "D01.3.2",
+          "name_zh": "处理器与存储系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0025",
+              "scenario_code": "D01.3.2.1",
+              "name_zh": "微架构的性能建模与设计空间探索",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB156",
+          "object_code": "D01.3.3",
+          "name_zh": "电子整机",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0026",
+              "scenario_code": "D01.3.3.1",
+              "name_zh": "整机电磁兼容测试的配置与数据复核",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB245",
+          "object_code": "D01.3.4",
+          "name_zh": "电子整机测试系统",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0027",
+              "scenario_code": "D01.3.4.1",
+              "name_zh": "电子产品量产测试序列与结果追溯",
+              "lifecycle_stages": [
+                "S3",
+                "S4",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D01.4": {
+      "object_count": 5,
+      "scenario_count": 8,
+      "task_count": 29,
+      "objects": [
+        {
+          "object_id": "OB016",
+          "object_code": "D01.4.1",
+          "name_zh": "测量仪器与传感通道",
+          "task_count": 1,
+          "scenarios": [
+            {
+              "scenario_id": "SC0028",
+              "scenario_code": "D01.4.1.1",
+              "name_zh": "传感仪器标定与测量不确定度分析",
+              "lifecycle_stages": [
+                "S0",
+                "S5"
+              ],
+              "task_count": 1
+            }
+          ]
+        },
+        {
+          "object_id": "OB017",
+          "object_code": "D01.4.2",
+          "name_zh": "镜头及光学传感系统",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0029",
+              "scenario_code": "D01.4.2.1",
+              "name_zh": "光学系统的成像与公差分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB106",
+          "object_code": "D01.4.3",
+          "name_zh": "工业视觉与测量系统",
+          "task_count": 16,
+          "scenarios": [
+            {
+              "scenario_id": "SC0030",
+              "scenario_code": "D01.4.3.1",
+              "name_zh": "工业视觉照明、成像与检测路径设计",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0031",
+              "scenario_code": "D01.4.3.2",
+              "name_zh": "表面缺陷、位姿与尺寸检测分析",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 7
+            },
+            {
+              "scenario_id": "SC0032",
+              "scenario_code": "D01.4.3.3",
+              "name_zh": "视觉采集、触发与像素数据校验",
+              "lifecycle_stages": [
+                "S0",
+                "S5"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0033",
+              "scenario_code": "D01.4.3.4",
+              "name_zh": "视觉系统照明与相机故障诊断",
+              "lifecycle_stages": [
+                "S6"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB193",
+          "object_code": "D01.4.4",
+          "name_zh": "阻抗传感器",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0034",
+              "scenario_code": "D01.4.4.1",
+              "name_zh": "多电极阻抗传感器的响应与布局分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB204",
+          "object_code": "D01.4.5",
+          "name_zh": "微波层析测量系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0035",
+              "scenario_code": "D01.4.5.1",
+              "name_zh": "微波层析的介电参数重建",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D01.5": {
+      "object_count": 9,
+      "scenario_count": 10,
+      "task_count": 36,
+      "objects": [
+        {
+          "object_id": "OB149",
+          "object_code": "D01.5.1",
+          "name_zh": "电磁材料",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0036",
+              "scenario_code": "D01.5.1.1",
+              "name_zh": "材料样品的介电特性与电导损耗表征",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB150",
+          "object_code": "D01.5.2",
+          "name_zh": "传播环境",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0037",
+              "scenario_code": "D01.5.2.1",
+              "name_zh": "无线传播观测的环境材料参数反演",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB151",
+          "object_code": "D01.5.3",
+          "name_zh": "天线与阵列",
+          "task_count": 7,
+          "scenarios": [
+            {
+              "scenario_id": "SC0038",
+              "scenario_code": "D01.5.3.1",
+              "name_zh": "天线阵列的方向图与阻抗设计",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0039",
+              "scenario_code": "D01.5.3.2",
+              "name_zh": "天线近场测量的校准与远场归算",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB152",
+          "object_code": "D01.5.4",
+          "name_zh": "无线链路",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0040",
+              "scenario_code": "D01.5.4.1",
+              "name_zh": "基带链路的波形与接收性能验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB153",
+          "object_code": "D01.5.5",
+          "name_zh": "射频收发系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0041",
+              "scenario_code": "D01.5.5.1",
+              "name_zh": "射频链的增益噪声与非线性分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB154",
+          "object_code": "D01.5.6",
+          "name_zh": "无线网络",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0042",
+              "scenario_code": "D01.5.6.1",
+              "name_zh": "无线覆盖与站点网络规划",
+              "lifecycle_stages": [
+                "S1",
+                "S2"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB190",
+          "object_code": "D01.5.7",
+          "name_zh": "整机安装天线",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0043",
+              "scenario_code": "D01.5.7.1",
+              "name_zh": "整机天线布置与平台耦合分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB192",
+          "object_code": "D01.5.8",
+          "name_zh": "光纤传输系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0044",
+              "scenario_code": "D01.5.8.1",
+              "name_zh": "光纤 WDM 链路与光放大器设计",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB246",
+          "object_code": "D01.5.9",
+          "name_zh": "通信网络与协议",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0045",
+              "scenario_code": "D01.5.9.1",
+              "name_zh": "通信协议流与端到端性能的仿真验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D02.1": {
+      "object_count": 5,
+      "scenario_count": 18,
+      "task_count": 84,
+      "objects": [
+        {
+          "object_id": "OB003",
+          "object_code": "D02.1.1",
+          "name_zh": "机加工零件",
+          "task_count": 31,
+          "scenarios": [
+            {
+              "scenario_id": "SC0046",
+              "scenario_code": "D02.1.1.1",
+              "name_zh": "机械功能零件加工编程与刀路验证",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 15
+            },
+            {
+              "scenario_id": "SC0047",
+              "scenario_code": "D02.1.1.2",
+              "name_zh": "功能零件的尺寸检验规划与偏差评估",
+              "lifecycle_stages": [
+                "S0",
+                "S5"
+              ],
+              "task_count": 10
+            },
+            {
+              "scenario_id": "SC0048",
+              "scenario_code": "D02.1.1.3",
+              "name_zh": "切削工艺窗口与切削力建模",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0049",
+              "scenario_code": "D02.1.1.4",
+              "name_zh": "机加工可制造性审查与技术询价",
+              "lifecycle_stages": [
+                "S3",
+                "S7"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB018",
+          "object_code": "D02.1.2",
+          "name_zh": "机械零部件与装配体",
+          "task_count": 38,
+          "scenarios": [
+            {
+              "scenario_id": "SC0050",
+              "scenario_code": "D02.1.2.1",
+              "name_zh": "机械部件的参数化设计与装配校核",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 16
+            },
+            {
+              "scenario_id": "SC0051",
+              "scenario_code": "D02.1.2.2",
+              "name_zh": "点云几何重建与 CAD 数据交换",
+              "lifecycle_stages": [
+                "S0",
+                "S2"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0052",
+              "scenario_code": "D02.1.2.3",
+              "name_zh": "结构材料试验与本构参数标定",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0053",
+              "scenario_code": "D02.1.2.4",
+              "name_zh": "机构运动、多体接触与液压联算",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 5
+            },
+            {
+              "scenario_id": "SC0054",
+              "scenario_code": "D02.1.2.5",
+              "name_zh": "结构网格、接触与强度分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 5
+            },
+            {
+              "scenario_id": "SC0055",
+              "scenario_code": "D02.1.2.6",
+              "name_zh": "热冲击、断裂与疲劳寿命分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0056",
+              "scenario_code": "D02.1.2.7",
+              "name_zh": "螺栓连接的装配预紧规划",
+              "lifecycle_stages": [
+                "S3"
+              ],
+              "task_count": 1
+            },
+            {
+              "scenario_id": "SC0057",
+              "scenario_code": "D02.1.2.8",
+              "name_zh": "机械部件目录与技术规格核对",
+              "lifecycle_stages": [
+                "S7"
+              ],
+              "task_count": 1
+            }
+          ]
+        },
+        {
+          "object_id": "OB092",
+          "object_code": "D02.1.3",
+          "name_zh": "流体机械与热工部件",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0058",
+              "scenario_code": "D02.1.3.1",
+              "name_zh": "流动传热与流固耦合分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0059",
+              "scenario_code": "D02.1.3.2",
+              "name_zh": "阀门与压缩机工况选型",
+              "lifecycle_stages": [
+                "S2",
+                "S7"
+              ],
+              "task_count": 2
+            },
+            {
+              "scenario_id": "SC0060",
+              "scenario_code": "D02.1.3.3",
+              "name_zh": "泵汽蚀与转子支承的动力学分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 2
+            },
+            {
+              "scenario_id": "SC0061",
+              "scenario_code": "D02.1.3.4",
+              "name_zh": "泵性能与汽蚀余量试验分析",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB104",
+          "object_code": "D02.1.4",
+          "name_zh": "轴承与转动部件",
+          "task_count": 2,
+          "scenarios": [
+            {
+              "scenario_id": "SC0062",
+              "scenario_code": "D02.1.4.1",
+              "name_zh": "轴承载荷、转速与寿命选型",
+              "lifecycle_stages": [
+                "S2"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB158",
+          "object_code": "D02.1.5",
+          "name_zh": "流体机械系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0063",
+              "scenario_code": "D02.1.5.1",
+              "name_zh": "管路与泵阀系统的瞬态仿真",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D02.2": {
+      "object_count": 8,
+      "scenario_count": 14,
+      "task_count": 61,
+      "objects": [
+        {
+          "object_id": "OB020",
+          "object_code": "D02.2.1",
+          "name_zh": "工业控制系统",
+          "task_count": 22,
+          "scenarios": [
+            {
+              "scenario_id": "SC0064",
+              "scenario_code": "D02.2.1.1",
+              "name_zh": "PLC 控制逻辑的编程与时序验证",
+              "lifecycle_stages": [
+                "S0",
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 7
+            },
+            {
+              "scenario_id": "SC0065",
+              "scenario_code": "D02.2.1.2",
+              "name_zh": "PLC、I/O 与现场总线器件选型",
+              "lifecycle_stages": [
+                "S2"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0066",
+              "scenario_code": "D02.2.1.3",
+              "name_zh": "控制设备诊断与维护记录集成",
+              "lifecycle_stages": [
+                "S0",
+                "S6"
+              ],
+              "task_count": 1
+            },
+            {
+              "scenario_id": "SC0067",
+              "scenario_code": "D02.2.1.4",
+              "name_zh": "现场总线、设备描述与参数配置",
+              "lifecycle_stages": [
+                "S0",
+                "S3"
+              ],
+              "task_count": 11
+            }
+          ]
+        },
+        {
+          "object_id": "OB021",
+          "object_code": "D02.2.2",
+          "name_zh": "线束与控制柜",
+          "task_count": 14,
+          "scenarios": [
+            {
+              "scenario_id": "SC0068",
+              "scenario_code": "D02.2.2.1",
+              "name_zh": "控制柜与线缆的电气设计协同",
+              "lifecycle_stages": [
+                "S0",
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 8
+            },
+            {
+              "scenario_id": "SC0069",
+              "scenario_code": "D02.2.2.2",
+              "name_zh": "线束压接、电气测试与间歇故障诊断",
+              "lifecycle_stages": [
+                "S5",
+                "S6"
+              ],
+              "task_count": 5
+            },
+            {
+              "scenario_id": "SC0070",
+              "scenario_code": "D02.2.2.3",
+              "name_zh": "控制柜器件采购规格核验",
+              "lifecycle_stages": [
+                "S7"
+              ],
+              "task_count": 1
+            }
+          ]
+        },
+        {
+          "object_id": "OB101",
+          "object_code": "D02.2.3",
+          "name_zh": "输配电设备",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0071",
+              "scenario_code": "D02.2.3.1",
+              "name_zh": "输配电设备规格选配与备件核对",
+              "lifecycle_stages": [
+                "S2",
+                "S7"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0072",
+              "scenario_code": "D02.2.3.2",
+              "name_zh": "互感器、变压器与绝缘试验分析",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB103",
+          "object_code": "D02.2.4",
+          "name_zh": "光伏与并网设备",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0073",
+              "scenario_code": "D02.2.4.1",
+              "name_zh": "光伏组件与逆变器安全性能校核",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB119",
+          "object_code": "D02.2.5",
+          "name_zh": "功率变换器与热管理系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0074",
+              "scenario_code": "D02.2.5.1",
+              "name_zh": "功率器件损耗与变换器热设计",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB140",
+          "object_code": "D02.2.6",
+          "name_zh": "电气控制模型",
+          "task_count": 1,
+          "scenarios": [
+            {
+              "scenario_id": "SC0075",
+              "scenario_code": "D02.2.6.1",
+              "name_zh": "电气控制模型的代码生成与离散调度",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 1
+            }
+          ]
+        },
+        {
+          "object_id": "OB148",
+          "object_code": "D02.2.7",
+          "name_zh": "电机与驱动系统",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0076",
+              "scenario_code": "D02.2.7.1",
+              "name_zh": "电机电磁性能与热管理的协同设计",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB161",
+          "object_code": "D02.2.8",
+          "name_zh": "磁性元件",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0077",
+              "scenario_code": "D02.2.8.1",
+              "name_zh": "变压器与电抗器的磁场及损耗分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D02.3": {
+      "object_count": 1,
+      "scenario_count": 9,
+      "task_count": 48,
+      "objects": [
+        {
+          "object_id": "OB022",
+          "object_code": "D02.3.1",
+          "name_zh": "电池电极与电芯",
+          "task_count": 48,
+          "scenarios": [
+            {
+              "scenario_id": "SC0078",
+              "scenario_code": "D02.3.1.1",
+              "name_zh": "电芯与电池包的电化学及热设计",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 10
+            },
+            {
+              "scenario_id": "SC0079",
+              "scenario_code": "D02.3.1.2",
+              "name_zh": "电极涂布与辊压的制造质量分析",
+              "lifecycle_stages": [
+                "S4",
+                "S5"
+              ],
+              "task_count": 6
+            },
+            {
+              "scenario_id": "SC0080",
+              "scenario_code": "D02.3.1.3",
+              "name_zh": "电池材料选配与参数校核",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 7
+            },
+            {
+              "scenario_id": "SC0081",
+              "scenario_code": "D02.3.1.4",
+              "name_zh": "电池装配工艺与制造布局规划",
+              "lifecycle_stages": [
+                "S1",
+                "S3"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0082",
+              "scenario_code": "D02.3.1.5",
+              "name_zh": "电极混浆、成形与干燥工艺建模",
+              "lifecycle_stages": [
+                "S3",
+                "S4"
+              ],
+              "task_count": 6
+            },
+            {
+              "scenario_id": "SC0083",
+              "scenario_code": "D02.3.1.6",
+              "name_zh": "电芯化成、分容与电化学测试",
+              "lifecycle_stages": [
+                "S4",
+                "S5"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0084",
+              "scenario_code": "D02.3.1.7",
+              "name_zh": "电池材料供应与运输技术文件核对",
+              "lifecycle_stages": [
+                "S0",
+                "S7"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0085",
+              "scenario_code": "D02.3.1.8",
+              "name_zh": "电芯老化、容量差异与衰退诊断",
+              "lifecycle_stages": [
+                "S5",
+                "S6"
+              ],
+              "task_count": 6
+            },
+            {
+              "scenario_id": "SC0086",
+              "scenario_code": "D02.3.1.9",
+              "name_zh": "电池试验与材料参数的数据交接",
+              "lifecycle_stages": [
+                "S0"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D02.4": {
+      "object_count": 3,
+      "scenario_count": 3,
+      "task_count": 12,
+      "objects": [
+        {
+          "object_id": "OB023",
+          "object_code": "D02.4.1",
+          "name_zh": "制冷空调与换热设备产品",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0087",
+              "scenario_code": "D02.4.1.1",
+              "name_zh": "暖通设备的性能匹配与热流分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB159",
+          "object_code": "D02.4.2",
+          "name_zh": "热泵系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0088",
+              "scenario_code": "D02.4.2.1",
+              "name_zh": "可逆热泵的循环切换与性能分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB160",
+          "object_code": "D02.4.3",
+          "name_zh": "换热设备",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0089",
+              "scenario_code": "D02.4.3.1",
+              "name_zh": "换热器热力设计与压降校核",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D03.1": {
+      "object_count": 6,
+      "scenario_count": 15,
+      "task_count": 55,
+      "objects": [
+        {
+          "object_id": "OB024",
+          "object_code": "D03.1.1",
+          "name_zh": "风力发电机组",
+          "task_count": 14,
+          "scenarios": [
+            {
+              "scenario_id": "SC0090",
+              "scenario_code": "D03.1.1.1",
+              "name_zh": "风力发电机组的耦合载荷设计分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            },
+            {
+              "scenario_id": "SC0091",
+              "scenario_code": "D03.1.1.2",
+              "name_zh": "风电传动链、润滑与备件设计",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S7"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0092",
+              "scenario_code": "D03.1.1.3",
+              "name_zh": "风机功率、载荷与疲劳测试分析",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB089",
+          "object_code": "D03.1.2",
+          "name_zh": "数控机床与工装",
+          "task_count": 17,
+          "scenarios": [
+            {
+              "scenario_id": "SC0093",
+              "scenario_code": "D03.1.2.1",
+              "name_zh": "数控机床、刀具与传动组件选型",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S7"
+              ],
+              "task_count": 6
+            },
+            {
+              "scenario_id": "SC0094",
+              "scenario_code": "D03.1.2.2",
+              "name_zh": "数控机床几何误差标定与轨迹验证",
+              "lifecycle_stages": [
+                "S5",
+                "S6"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0095",
+              "scenario_code": "D03.1.2.3",
+              "name_zh": "机床状态监测与刀具磨损分析",
+              "lifecycle_stages": [
+                "S0",
+                "S4",
+                "S6"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB090",
+          "object_code": "D03.1.3",
+          "name_zh": "成形装备与模具",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0096",
+              "scenario_code": "D03.1.3.1",
+              "name_zh": "模具导向、水路与热流道组件配置",
+              "lifecycle_stages": [
+                "S0",
+                "S3",
+                "S7"
+              ],
+              "task_count": 2
+            },
+            {
+              "scenario_id": "SC0097",
+              "scenario_code": "D03.1.3.2",
+              "name_zh": "注塑装备液压与热流道故障诊断",
+              "lifecycle_stages": [
+                "S6"
+              ],
+              "task_count": 2
+            },
+            {
+              "scenario_id": "SC0098",
+              "scenario_code": "D03.1.3.3",
+              "name_zh": "冲压设备力位移曲线诊断",
+              "lifecycle_stages": [
+                "S6"
+              ],
+              "task_count": 1
+            }
+          ]
+        },
+        {
+          "object_id": "OB093",
+          "object_code": "D03.1.4",
+          "name_zh": "旋转与液压装备",
+          "task_count": 11,
+          "scenarios": [
+            {
+              "scenario_id": "SC0099",
+              "scenario_code": "D03.1.4.1",
+              "name_zh": "液压与振动状态数据分析",
+              "lifecycle_stages": [
+                "S6"
+              ],
+              "task_count": 2
+            },
+            {
+              "scenario_id": "SC0100",
+              "scenario_code": "D03.1.4.2",
+              "name_zh": "旋转设备多传感故障诊断",
+              "lifecycle_stages": [
+                "S6"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0101",
+              "scenario_code": "D03.1.4.3",
+              "name_zh": "轴承退化与剩余寿命分析",
+              "lifecycle_stages": [
+                "S6"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0102",
+              "scenario_code": "D03.1.4.4",
+              "name_zh": "流体与旋转设备的状态数据集成",
+              "lifecycle_stages": [
+                "S0"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB247",
+          "object_code": "D03.1.5",
+          "name_zh": "设备维护与维修资源",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0103",
+              "scenario_code": "D03.1.5.1",
+              "name_zh": "设备检修工单与备件资源的约束安排",
+              "lifecycle_stages": [
+                "S6",
+                "S7"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB249",
+          "object_code": "D03.1.6",
+          "name_zh": "设备声学与状态数据",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0104",
+              "scenario_code": "D03.1.6.1",
+              "name_zh": "工业机器声音的异常检测与跨工况评价",
+              "lifecycle_stages": [
+                "S5",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D03.2": {
+      "object_count": 7,
+      "scenario_count": 16,
+      "task_count": 69,
+      "objects": [
+        {
+          "object_id": "OB019",
+          "object_code": "D03.2.1",
+          "name_zh": "工业机器人与工作单元",
+          "task_count": 27,
+          "scenarios": [
+            {
+              "scenario_id": "SC0105",
+              "scenario_code": "D03.2.1.1",
+              "name_zh": "机器人工作单元的离线规划与虚拟调试",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 10
+            },
+            {
+              "scenario_id": "SC0106",
+              "scenario_code": "D03.2.1.2",
+              "name_zh": "机器人关节、抓手与末端工具选型",
+              "lifecycle_stages": [
+                "S0",
+                "S2",
+                "S7"
+              ],
+              "task_count": 6
+            },
+            {
+              "scenario_id": "SC0107",
+              "scenario_code": "D03.2.1.3",
+              "name_zh": "机器人动力学建模与轨迹验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0108",
+              "scenario_code": "D03.2.1.4",
+              "name_zh": "机器人手眼标定与工位配准",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0109",
+              "scenario_code": "D03.2.1.5",
+              "name_zh": "机器人设备模型、遥测与状态诊断",
+              "lifecycle_stages": [
+                "S0",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB085",
+          "object_code": "D03.2.2",
+          "name_zh": "生产线与物料系统",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0110",
+              "scenario_code": "D03.2.2.1",
+              "name_zh": "生产装备的产线布局与节拍协同",
+              "lifecycle_stages": [
+                "S1",
+                "S3"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0111",
+              "scenario_code": "D03.2.2.2",
+              "name_zh": "工单、工件序列与质量追溯",
+              "lifecycle_stages": [
+                "S4",
+                "S5",
+                "S7"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB196",
+          "object_code": "D03.2.3",
+          "name_zh": "力控夹持单元",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0112",
+              "scenario_code": "D03.2.3.1",
+              "name_zh": "脆弱零件夹持提升的力控验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB197",
+          "object_code": "D03.2.4",
+          "name_zh": "机器人操作计划",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0113",
+              "scenario_code": "D03.2.4.1",
+              "name_zh": "多阶段抓放的任务与运动联合规划",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB221",
+          "object_code": "D03.2.5",
+          "name_zh": "制造产线与车间",
+          "task_count": 20,
+          "scenarios": [
+            {
+              "scenario_id": "SC0114",
+              "scenario_code": "D03.2.5.1",
+              "name_zh": "作业车间工序与设备资源的有限产能排程",
+              "lifecycle_stages": [
+                "S3",
+                "S4"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0115",
+              "scenario_code": "D03.2.5.2",
+              "name_zh": "插单与设备扰动后的生产滚动重排",
+              "lifecycle_stages": [
+                "S4"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0116",
+              "scenario_code": "D03.2.5.3",
+              "name_zh": "生产进度与设备效率指标的事件重建",
+              "lifecycle_stages": [
+                "S4"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0117",
+              "scenario_code": "D03.2.5.4",
+              "name_zh": "跨工厂制造能力与订单分配的网络规划",
+              "lifecycle_stages": [
+                "S1",
+                "S3",
+                "S7"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0118",
+              "scenario_code": "D03.2.5.5",
+              "name_zh": "混线生产的换型顺序与资源重构规划",
+              "lifecycle_stages": [
+                "S3",
+                "S4"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB225",
+          "object_code": "D03.2.6",
+          "name_zh": "机器人作业单元",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0119",
+              "scenario_code": "D03.2.6.1",
+              "name_zh": "危险环境遥操作的运动约束与中断恢复验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB227",
+          "object_code": "D03.2.7",
+          "name_zh": "工艺质量与检验数据",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0120",
+              "scenario_code": "D03.2.7.1",
+              "name_zh": "制造质量波动的根因假设与改进效果验证",
+              "lifecycle_stages": [
+                "S4",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D03.3": {
+      "object_count": 8,
+      "scenario_count": 9,
+      "task_count": 54,
+      "objects": [
+        {
+          "object_id": "OB026",
+          "object_code": "D03.3.1",
+          "name_zh": "乘用车车身与外部流场",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0121",
+              "scenario_code": "D03.3.1.1",
+              "name_zh": "道路车辆外形的空气动力学分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB027",
+          "object_code": "D03.3.2",
+          "name_zh": "车辆电控系统",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0122",
+              "scenario_code": "D03.3.2.1",
+              "name_zh": "车辆控制系统的需求追踪与模型测试",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 7
+            },
+            {
+              "scenario_id": "SC0123",
+              "scenario_code": "D03.3.2.2",
+              "name_zh": "ECU 诊断描述与参数编解码核验",
+              "lifecycle_stages": [
+                "S0",
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB120",
+          "object_code": "D03.3.3",
+          "name_zh": "整车动力与能量系统",
+          "task_count": 7,
+          "scenarios": [
+            {
+              "scenario_id": "SC0124",
+              "scenario_code": "D03.3.3.1",
+              "name_zh": "整车能耗、续航与动力性能的工况比较",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 7
+            }
+          ]
+        },
+        {
+          "object_id": "OB121",
+          "object_code": "D03.3.4",
+          "name_zh": "底盘与行驶动力学系统",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0125",
+              "scenario_code": "D03.3.4.1",
+              "name_zh": "道路车辆制动、转向与操稳的模型分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB122",
+          "object_code": "D03.3.5",
+          "name_zh": "道路环境与驾驶功能测试模型",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0126",
+              "scenario_code": "D03.3.5.1",
+              "name_zh": "辅助驾驶测试的道路与交通情景配置",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB123",
+          "object_code": "D03.3.6",
+          "name_zh": "白车身与碰撞吸能结构",
+          "task_count": 7,
+          "scenarios": [
+            {
+              "scenario_id": "SC0127",
+              "scenario_code": "D03.3.6.1",
+              "name_zh": "汽车碰撞模型的构建与响应核验",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 7
+            }
+          ]
+        },
+        {
+          "object_id": "OB124",
+          "object_code": "D03.3.7",
+          "name_zh": "整车声振系统",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0128",
+              "scenario_code": "D03.3.7.1",
+              "name_zh": "整车噪声与振动传递路径的分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB186",
+          "object_code": "D03.3.8",
+          "name_zh": "车载导航传感器",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0129",
+              "scenario_code": "D03.3.8.1",
+              "name_zh": "相机与惯性传感器的时空标定",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 5
+            }
+          ]
+        }
+      ]
+    },
+    "D03.4": {
+      "object_count": 4,
+      "scenario_count": 4,
+      "task_count": 23,
+      "objects": [
+        {
+          "object_id": "OB028",
+          "object_code": "D03.4.1",
+          "name_zh": "车辆转向架与悬挂系统",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0130",
+              "scenario_code": "D03.4.1.1",
+              "name_zh": "轨道车辆的多体动力学与悬挂分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB125",
+          "object_code": "D03.4.2",
+          "name_zh": "轮对与轮轨接触系统",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0131",
+              "scenario_code": "D03.4.2.1",
+              "name_zh": "轮轨磨耗与接触损伤的模型评估",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB126",
+          "object_code": "D03.4.3",
+          "name_zh": "列车制动与纵向动力系统",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0132",
+              "scenario_code": "D03.4.3.1",
+              "name_zh": "列车制动响应与黏着控制的联合仿真",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB127",
+          "object_code": "D03.4.4",
+          "name_zh": "车体与转向架承载结构",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0133",
+              "scenario_code": "D03.4.4.1",
+              "name_zh": "轨道车辆结构载荷与疲劳评估",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 5
+            }
+          ]
+        }
+      ]
+    },
+    "D03.5": {
+      "object_count": 9,
+      "scenario_count": 12,
+      "task_count": 67,
+      "objects": [
+        {
+          "object_id": "OB029",
+          "object_code": "D03.5.1",
+          "name_zh": "飞行器气动外形",
+          "task_count": 2,
+          "scenarios": [
+            {
+              "scenario_id": "SC0134",
+              "scenario_code": "D03.5.1.1",
+              "name_zh": "飞行器气动外形与流场验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB030",
+          "object_code": "D03.5.2",
+          "name_zh": "航空复合材料结构",
+          "task_count": 13,
+          "scenarios": [
+            {
+              "scenario_id": "SC0135",
+              "scenario_code": "D03.5.2.1",
+              "name_zh": "复合材料结构的铺层设计与强度分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 7
+            },
+            {
+              "scenario_id": "SC0136",
+              "scenario_code": "D03.5.2.2",
+              "name_zh": "复材曲面铺放与制造数据准备",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB128",
+          "object_code": "D03.5.3",
+          "name_zh": "飞机总体与任务模型",
+          "task_count": 14,
+          "scenarios": [
+            {
+              "scenario_id": "SC0137",
+              "scenario_code": "D03.5.3.1",
+              "name_zh": "飞机总体参数与飞行任务的协同设计",
+              "lifecycle_stages": [
+                "S1",
+                "S2"
+              ],
+              "task_count": 8
+            },
+            {
+              "scenario_id": "SC0138",
+              "scenario_code": "D03.5.3.2",
+              "name_zh": "飞机参数化外形与质量特性的计算交付",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB129",
+          "object_code": "D03.5.4",
+          "name_zh": "机翼与翼盒结构",
+          "task_count": 7,
+          "scenarios": [
+            {
+              "scenario_id": "SC0139",
+              "scenario_code": "D03.5.4.1",
+              "name_zh": "机翼气动与结构的多工况协同分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 7
+            }
+          ]
+        },
+        {
+          "object_id": "OB130",
+          "object_code": "D03.5.5",
+          "name_zh": "飞机操纵与飞行动力系统",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0140",
+              "scenario_code": "D03.5.5.1",
+              "name_zh": "民用飞机飞行动力与操纵模型的验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB131",
+          "object_code": "D03.5.6",
+          "name_zh": "机载液压与起落架系统",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0141",
+              "scenario_code": "D03.5.6.1",
+              "name_zh": "飞机液压系统的容量与故障情景分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB132",
+          "object_code": "D03.5.7",
+          "name_zh": "航天器轨道与任务模型",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0142",
+              "scenario_code": "D03.5.7.1",
+              "name_zh": "航天器轨道传播与任务约束分析",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB133",
+          "object_code": "D03.5.8",
+          "name_zh": "航天器机载系统",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0143",
+              "scenario_code": "D03.5.8.1",
+              "name_zh": "航天器姿态与执行机构的闭环仿真",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 5
+            },
+            {
+              "scenario_id": "SC0144",
+              "scenario_code": "D03.5.8.2",
+              "name_zh": "航天器日照、功率与储能的任务联算",
+              "lifecycle_stages": [
+                "S1",
+                "S2"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB202",
+          "object_code": "D03.5.9",
+          "name_zh": "航空发动机健康数据",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0145",
+              "scenario_code": "D03.5.9.1",
+              "name_zh": "航空发动机退化与剩余寿命研究",
+              "lifecycle_stages": [
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D03.6": {
+      "object_count": 5,
+      "scenario_count": 7,
+      "task_count": 39,
+      "objects": [
+        {
+          "object_id": "OB031",
+          "object_code": "D03.6.1",
+          "name_zh": "船体及推进工况",
+          "task_count": 11,
+          "scenarios": [
+            {
+              "scenario_id": "SC0146",
+              "scenario_code": "D03.6.1.1",
+              "name_zh": "船型水动力与阻力推进分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 5
+            },
+            {
+              "scenario_id": "SC0147",
+              "scenario_code": "D03.6.1.2",
+              "name_zh": "船舶波浪载荷与耐波响应分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB032",
+          "object_code": "D03.6.2",
+          "name_zh": "船体分段与舾装系统",
+          "task_count": 11,
+          "scenarios": [
+            {
+              "scenario_id": "SC0148",
+              "scenario_code": "D03.6.2.1",
+              "name_zh": "船舶结构与舾装的设计协调",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 6
+            },
+            {
+              "scenario_id": "SC0149",
+              "scenario_code": "D03.6.2.2",
+              "name_zh": "船体板件与型材的生产数据准备",
+              "lifecycle_stages": [
+                "S3"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB134",
+          "object_code": "D03.6.3",
+          "name_zh": "船体、舱室与装载状态",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0150",
+              "scenario_code": "D03.6.3.1",
+              "name_zh": "船舶静水力、装载与稳性分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB135",
+          "object_code": "D03.6.4",
+          "name_zh": "船体承载结构",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0151",
+              "scenario_code": "D03.6.4.1",
+              "name_zh": "船体构件强度、屈曲与疲劳分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB136",
+          "object_code": "D03.6.5",
+          "name_zh": "船舶推进与船上能源系统",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0152",
+              "scenario_code": "D03.6.5.1",
+              "name_zh": "船舶推进架构与船上负荷匹配",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S5"
+              ],
+              "task_count": 5
+            }
+          ]
+        }
+      ]
+    },
+    "D04.1": {
+      "object_count": 2,
+      "scenario_count": 2,
+      "task_count": 9,
+      "objects": [
+        {
+          "object_id": "OB033",
+          "object_code": "D04.1.1",
+          "name_zh": "炼油与燃料加工装置",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0153",
+              "scenario_code": "D04.1.1.1",
+              "name_zh": "炼制流程的物料能量平衡与操作方案比较",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB214",
+          "object_code": "D04.1.2",
+          "name_zh": "炼厂生产网络",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0154",
+              "scenario_code": "D04.1.2.1",
+              "name_zh": "炼厂生产计划与约束情景分析",
+              "lifecycle_stages": [
+                "S1",
+                "S3"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D04.2": {
+      "object_count": 5,
+      "scenario_count": 11,
+      "task_count": 49,
+      "objects": [
+        {
+          "object_id": "OB034",
+          "object_code": "D04.2.1",
+          "name_zh": "化工物性与流程装置",
+          "task_count": 18,
+          "scenarios": [
+            {
+              "scenario_id": "SC0155",
+              "scenario_code": "D04.2.1.1",
+              "name_zh": "反应与分离过程的设计和运行优化",
+              "lifecycle_stages": [
+                "S2",
+                "S4"
+              ],
+              "task_count": 6
+            },
+            {
+              "scenario_id": "SC0156",
+              "scenario_code": "D04.2.1.2",
+              "name_zh": "化学标识、物性回归与热力学模型选择",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 7
+            },
+            {
+              "scenario_id": "SC0157",
+              "scenario_code": "D04.2.1.3",
+              "name_zh": "化工过程故障分析与数据切分",
+              "lifecycle_stages": [
+                "S4",
+                "S5",
+                "S6"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0158",
+              "scenario_code": "D04.2.1.4",
+              "name_zh": "流程物性包与仪表模型交接",
+              "lifecycle_stages": [
+                "S0"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB035",
+          "object_code": "D04.2.2",
+          "name_zh": "清洁等工业用途酶",
+          "task_count": 9,
+          "scenarios": [
+            {
+              "scenario_id": "SC0159",
+              "scenario_code": "D04.2.2.1",
+              "name_zh": "工业酶的候选设计与性能分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 9
+            }
+          ]
+        },
+        {
+          "object_id": "OB099",
+          "object_code": "D04.2.3",
+          "name_zh": "批次配方与反应设备",
+          "task_count": 11,
+          "scenarios": [
+            {
+              "scenario_id": "SC0160",
+              "scenario_code": "D04.2.3.1",
+              "name_zh": "批配方、设备模块与转移流程配置",
+              "lifecycle_stages": [
+                "S3",
+                "S4"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0161",
+              "scenario_code": "D04.2.3.2",
+              "name_zh": "批生产物料、工单与能力协同",
+              "lifecycle_stages": [
+                "S0",
+                "S4",
+                "S7"
+              ],
+              "task_count": 5
+            },
+            {
+              "scenario_id": "SC0162",
+              "scenario_code": "D04.2.3.3",
+              "name_zh": "批过程清洗、告警与历史数据维护",
+              "lifecycle_stages": [
+                "S4",
+                "S6"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB194",
+          "object_code": "D04.2.4",
+          "name_zh": "表面催化体系",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0163",
+              "scenario_code": "D04.2.4.1",
+              "name_zh": "催化表面的吸附构型与能量筛选",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB226",
+          "object_code": "D04.2.5",
+          "name_zh": "化工反应与安全控制",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0164",
+              "scenario_code": "D04.2.5.1",
+              "name_zh": "过程异常情景与联锁因果关系的动态验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0165",
+              "scenario_code": "D04.2.5.2",
+              "name_zh": "化工多变量预测控制的设计与闭环评估",
+              "lifecycle_stages": [
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D04.3": {
+      "object_count": 4,
+      "scenario_count": 6,
+      "task_count": 25,
+      "objects": [
+        {
+          "object_id": "OB036",
+          "object_code": "D04.3.1",
+          "name_zh": "注塑制品与模具",
+          "task_count": 15,
+          "scenarios": [
+            {
+              "scenario_id": "SC0166",
+              "scenario_code": "D04.3.1.1",
+              "name_zh": "塑料制品的充填保压冷却与翘曲分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 11
+            },
+            {
+              "scenario_id": "SC0167",
+              "scenario_code": "D04.3.1.2",
+              "name_zh": "注塑循环质量分析与参数追踪",
+              "lifecycle_stages": [
+                "S0",
+                "S4",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB091",
+          "object_code": "D04.3.2",
+          "name_zh": "增材聚合物制品",
+          "task_count": 1,
+          "scenarios": [
+            {
+              "scenario_id": "SC0168",
+              "scenario_code": "D04.3.2.1",
+              "name_zh": "挤出增材路径与压力补偿",
+              "lifecycle_stages": [
+                "S3"
+              ],
+              "task_count": 1
+            }
+          ]
+        },
+        {
+          "object_id": "OB097",
+          "object_code": "D04.3.3",
+          "name_zh": "聚合物与薄膜制品",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0169",
+              "scenario_code": "D04.3.3.1",
+              "name_zh": "聚合物混炼与薄膜干燥建模",
+              "lifecycle_stages": [
+                "S3",
+                "S4"
+              ],
+              "task_count": 2
+            },
+            {
+              "scenario_id": "SC0170",
+              "scenario_code": "D04.3.3.2",
+              "name_zh": "聚合物选材与黏弹行为建模",
+              "lifecycle_stages": [
+                "S2"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB250",
+          "object_code": "D04.3.4",
+          "name_zh": "橡胶配方与硫化过程",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0171",
+              "scenario_code": "D04.3.4.1",
+              "name_zh": "橡胶硫化曲线与工艺窗口的数据分析",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D04.4": {
+      "object_count": 6,
+      "scenario_count": 7,
+      "task_count": 25,
+      "objects": [
+        {
+          "object_id": "OB037",
+          "object_code": "D04.4.1",
+          "name_zh": "金属合金与材料状态",
+          "task_count": 9,
+          "scenarios": [
+            {
+              "scenario_id": "SC0172",
+              "scenario_code": "D04.4.1.1",
+              "name_zh": "合金成分与热处理的材料性能研究",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 2
+            },
+            {
+              "scenario_id": "SC0173",
+              "scenario_code": "D04.4.1.2",
+              "name_zh": "材料热分析、光谱与衍射计量",
+              "lifecycle_stages": [
+                "S0",
+                "S5"
+              ],
+              "task_count": 7
+            }
+          ]
+        },
+        {
+          "object_id": "OB162",
+          "object_code": "D04.4.2",
+          "name_zh": "冶金熔体",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0174",
+              "scenario_code": "D04.4.2.1",
+              "name_zh": "钢液与炉渣的反应及夹杂物分析",
+              "lifecycle_stages": [
+                "S2",
+                "S4"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB163",
+          "object_code": "D04.4.3",
+          "name_zh": "连铸系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0175",
+              "scenario_code": "D04.4.3.1",
+              "name_zh": "连续铸造的凝固与冷却方案分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB164",
+          "object_code": "D04.4.4",
+          "name_zh": "热处理件",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0176",
+              "scenario_code": "D04.4.4.1",
+              "name_zh": "热处理的组织转变与残余变形分析",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB189",
+          "object_code": "D04.4.5",
+          "name_zh": "材料压痕试验",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0177",
+              "scenario_code": "D04.4.5.1",
+              "name_zh": "纳米压痕的仪器修正与材料性质提取",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB233",
+          "object_code": "D04.4.6",
+          "name_zh": "金属轧制与成形",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0178",
+              "scenario_code": "D04.4.6.1",
+              "name_zh": "轧制孔型与道次的热力变形分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D04.5": {
+      "object_count": 5,
+      "scenario_count": 5,
+      "task_count": 34,
+      "objects": [
+        {
+          "object_id": "OB039",
+          "object_code": "D04.5.1",
+          "name_zh": "水泥回转窑系统",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0179",
+              "scenario_code": "D04.5.1.1",
+              "name_zh": "水泥煅烧的过程与能耗质量分析",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB040",
+          "object_code": "D04.5.2",
+          "name_zh": "玻璃制品热加工过程",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0180",
+              "scenario_code": "D04.5.2.1",
+              "name_zh": "玻璃熔制的热与流动过程分析",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB100",
+          "object_code": "D04.5.3",
+          "name_zh": "晶体与功能材料",
+          "task_count": 15,
+          "scenarios": [
+            {
+              "scenario_id": "SC0181",
+              "scenario_code": "D04.5.3.1",
+              "name_zh": "晶体结构、对称性与原子尺度建模",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 15
+            }
+          ]
+        },
+        {
+          "object_id": "OB139",
+          "object_code": "D04.5.4",
+          "name_zh": "玻璃制品与成形模具",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0182",
+              "scenario_code": "D04.5.4.1",
+              "name_zh": "玻璃等温压制成形的流动与模具方案分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB234",
+          "object_code": "D04.5.5",
+          "name_zh": "陶瓷坯体与热处理",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0183",
+              "scenario_code": "D04.5.5.1",
+              "name_zh": "陶瓷脱脂烧结的动力学拟合与温程设计",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D04.6": {
+      "object_count": 3,
+      "scenario_count": 8,
+      "task_count": 31,
+      "objects": [
+        {
+          "object_id": "OB038",
+          "object_code": "D04.6.1",
+          "name_zh": "钣金与冲压件",
+          "task_count": 14,
+          "scenarios": [
+            {
+              "scenario_id": "SC0184",
+              "scenario_code": "D04.6.1.1",
+              "name_zh": "钣金成形的回弹与成形极限分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 9
+            },
+            {
+              "scenario_id": "SC0185",
+              "scenario_code": "D04.6.1.2",
+              "name_zh": "冲压板料选配与材料交接",
+              "lifecycle_stages": [
+                "S0",
+                "S2",
+                "S7"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0186",
+              "scenario_code": "D04.6.1.3",
+              "name_zh": "冲压减薄、应变与边裂检验",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB041",
+          "object_code": "D04.6.2",
+          "name_zh": "金属增材构件",
+          "task_count": 7,
+          "scenarios": [
+            {
+              "scenario_id": "SC0187",
+              "scenario_code": "D04.6.2.1",
+              "name_zh": "金属增材制造的变形预测与补偿",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 1
+            },
+            {
+              "scenario_id": "SC0188",
+              "scenario_code": "D04.6.2.2",
+              "name_zh": "金属增材过程监测与组织质量分析",
+              "lifecycle_stages": [
+                "S4",
+                "S5"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0189",
+              "scenario_code": "D04.6.2.3",
+              "name_zh": "增材粉末、材料批次与构型追溯",
+              "lifecycle_stages": [
+                "S3",
+                "S7"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB042",
+          "object_code": "D04.6.3",
+          "name_zh": "焊缝、铸件与无损检验",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0190",
+              "scenario_code": "D04.6.3.1",
+              "name_zh": "焊接与铸件的无损检测规划和缺陷复核",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 8
+            },
+            {
+              "scenario_id": "SC0191",
+              "scenario_code": "D04.6.3.2",
+              "name_zh": "无损检测图像、体数据与检查条件归档",
+              "lifecycle_stages": [
+                "S0"
+              ],
+              "task_count": 2
+            }
+          ]
+        }
+      ]
+    },
+    "D05.1": {
+      "object_count": 8,
+      "scenario_count": 9,
+      "task_count": 64,
+      "objects": [
+        {
+          "object_id": "OB004",
+          "object_code": "D05.1.1",
+          "name_zh": "小分子候选化合物",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0192",
+              "scenario_code": "D05.1.1.1",
+              "name_zh": "小分子药物候选的计算筛选与设计迭代",
+              "lifecycle_stages": [
+                "S2"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB043",
+          "object_code": "D05.1.2",
+          "name_zh": "压片及口服固体制剂",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0193",
+              "scenario_code": "D05.1.2.1",
+              "name_zh": "固体制剂工艺与批次质量分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB086",
+          "object_code": "D05.1.3",
+          "name_zh": "多产品批生产设施",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0194",
+              "scenario_code": "D05.1.3.1",
+              "name_zh": "药品批生产的设备占用与排程分析",
+              "lifecycle_stages": [
+                "S3",
+                "S7"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB108",
+          "object_code": "D05.1.4",
+          "name_zh": "候选药物分子与结构库",
+          "task_count": 22,
+          "scenarios": [
+            {
+              "scenario_id": "SC0195",
+              "scenario_code": "D05.1.4.1",
+              "name_zh": "药物分子的结构整理、检索与性质计算",
+              "lifecycle_stages": [
+                "S2"
+              ],
+              "task_count": 12
+            },
+            {
+              "scenario_id": "SC0196",
+              "scenario_code": "D05.1.4.2",
+              "name_zh": "分子体系构建与动力学轨迹分析",
+              "lifecycle_stages": [
+                "S2"
+              ],
+              "task_count": 10
+            }
+          ]
+        },
+        {
+          "object_id": "OB109",
+          "object_code": "D05.1.5",
+          "name_zh": "药物动力学研究模型",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0197",
+              "scenario_code": "D05.1.5.1",
+              "name_zh": "药代模型的参数化与研究模拟",
+              "lifecycle_stages": [
+                "S2"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB167",
+          "object_code": "D05.1.6",
+          "name_zh": "原料药结晶与分离",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0198",
+              "scenario_code": "D05.1.6.1",
+              "name_zh": "结晶过滤和干燥的放大模型分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB235",
+          "object_code": "D05.1.7",
+          "name_zh": "制剂配方与质量属性",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0199",
+              "scenario_code": "D05.1.7.1",
+              "name_zh": "固体制剂配方的混料试验与质量属性分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB248",
+          "object_code": "D05.1.8",
+          "name_zh": "药物候选分子",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0200",
+              "scenario_code": "D05.1.8.1",
+              "name_zh": "分子生成候选的约束与多样性评价",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D05.2": {
+      "object_count": 6,
+      "scenario_count": 6,
+      "task_count": 44,
+      "objects": [
+        {
+          "object_id": "OB005",
+          "object_code": "D05.2.1",
+          "name_zh": "抗体产品的纯化单元",
+          "task_count": 12,
+          "scenarios": [
+            {
+              "scenario_id": "SC0201",
+              "scenario_code": "D05.2.1.1",
+              "name_zh": "生物药下游色谱纯化的建模与方案优化",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 12
+            }
+          ]
+        },
+        {
+          "object_id": "OB044",
+          "object_code": "D05.2.2",
+          "name_zh": "CHO 等生产细胞培养过程",
+          "task_count": 12,
+          "scenarios": [
+            {
+              "scenario_id": "SC0202",
+              "scenario_code": "D05.2.2.1",
+              "name_zh": "生物药上游培养的实验设计与过程分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S4",
+                "S5"
+              ],
+              "task_count": 12
+            }
+          ]
+        },
+        {
+          "object_id": "OB110",
+          "object_code": "D05.2.3",
+          "name_zh": "生物制品分析质谱数据",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0203",
+              "scenario_code": "D05.2.3.1",
+              "name_zh": "生物制品分析的峰提取、对齐与定量质控",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 10
+            }
+          ]
+        },
+        {
+          "object_id": "OB165",
+          "object_code": "D05.2.4",
+          "name_zh": "生物药过滤系统",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0204",
+              "scenario_code": "D05.2.4.1",
+              "name_zh": "膜过滤的工艺方法与批数据分析",
+              "lifecycle_stages": [
+                "S3",
+                "S4",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB166",
+          "object_code": "D05.2.5",
+          "name_zh": "先进生物制品生产线",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0205",
+              "scenario_code": "D05.2.5.1",
+              "name_zh": "核酸与细胞产品的工艺资源建模",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S3"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB205",
+          "object_code": "D05.2.6",
+          "name_zh": "研发转录组数据",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0206",
+              "scenario_code": "D05.2.6.1",
+              "name_zh": "药物研发转录组的差异表达分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D05.3": {
+      "object_count": 2,
+      "scenario_count": 2,
+      "task_count": 13,
+      "objects": [
+        {
+          "object_id": "OB045",
+          "object_code": "D05.3.1",
+          "name_zh": "药用原料的提取与浓缩单元",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0207",
+              "scenario_code": "D05.3.1.1",
+              "name_zh": "天然来源药品的提取分离过程建模",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB046",
+          "object_code": "D05.3.2",
+          "name_zh": "原料及制剂质量数据",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0208",
+              "scenario_code": "D05.3.2.1",
+              "name_zh": "天然来源药品的指纹图谱与批间一致性分析",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 5
+            }
+          ]
+        }
+      ]
+    },
+    "D05.4": {
+      "object_count": 5,
+      "scenario_count": 5,
+      "task_count": 34,
+      "objects": [
+        {
+          "object_id": "OB006",
+          "object_code": "D05.4.1",
+          "name_zh": "骨科植入物",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0209",
+              "scenario_code": "D05.4.1.1",
+              "name_zh": "骨科植入器械的结构设计与计算验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB047",
+          "object_code": "D05.4.2",
+          "name_zh": "体外诊断仪器测量系统",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0210",
+              "scenario_code": "D05.4.2.1",
+              "name_zh": "诊断仪器的测量链与信号处理验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB048",
+          "object_code": "D05.4.3",
+          "name_zh": "器械产品配置与技术文件",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0211",
+              "scenario_code": "D05.4.3.1",
+              "name_zh": "医疗器械需求与设计变更的验证追踪",
+              "lifecycle_stages": [
+                "S0",
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB111",
+          "object_code": "D05.4.4",
+          "name_zh": "影像与解剖几何模型",
+          "task_count": 9,
+          "scenarios": [
+            {
+              "scenario_id": "SC0212",
+              "scenario_code": "D05.4.4.1",
+              "name_zh": "医疗器械研发的影像几何重建与配准",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 9
+            }
+          ]
+        },
+        {
+          "object_id": "OB112",
+          "object_code": "D05.4.5",
+          "name_zh": "人体肌骨与器械载荷模型",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0213",
+              "scenario_code": "D05.4.5.1",
+              "name_zh": "康复与骨科器械的肌骨运动和载荷分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 8
+            }
+          ]
+        }
+      ]
+    },
+    "D06.1": {
+      "object_count": 6,
+      "scenario_count": 7,
+      "task_count": 39,
+      "objects": [
+        {
+          "object_id": "OB049",
+          "object_code": "D06.1.1",
+          "name_zh": "乳制品等批过程生产系统",
+          "task_count": 12,
+          "scenarios": [
+            {
+              "scenario_id": "SC0214",
+              "scenario_code": "D06.1.1.1",
+              "name_zh": "食品加工的流程与产能方案分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 12
+            }
+          ]
+        },
+        {
+          "object_id": "OB113",
+          "object_code": "D06.1.2",
+          "name_zh": "食品发酵与分离过程",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0215",
+              "scenario_code": "D06.1.2.1",
+              "name_zh": "食品发酵的传质、分离与资源消耗分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB168",
+          "object_code": "D06.1.3",
+          "name_zh": "热加工食品",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0216",
+              "scenario_code": "D06.1.3.1",
+              "name_zh": "热穿透与温度分布的过程数据验证",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB195",
+          "object_code": "D06.1.4",
+          "name_zh": "供应与质量业务流程",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0217",
+              "scenario_code": "D06.1.4.1",
+              "name_zh": "食品供应中断与质量冻结的流程建模",
+              "lifecycle_stages": [
+                "S0",
+                "S3",
+                "S7"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB231",
+          "object_code": "D06.1.5",
+          "name_zh": "食品理化与质量数据",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0218",
+              "scenario_code": "D06.1.5.1",
+              "name_zh": "食品理化指标与质量等级的统计建模",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB236",
+          "object_code": "D06.1.6",
+          "name_zh": "食品配方与储存品质",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0219",
+              "scenario_code": "D06.1.6.1",
+              "name_zh": "食品混料配方的品质与加工约束优化",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0220",
+              "scenario_code": "D06.1.6.2",
+              "name_zh": "食品储存温程与微生物品质的预测分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D06.2": {
+      "object_count": 2,
+      "scenario_count": 2,
+      "task_count": 9,
+      "objects": [
+        {
+          "object_id": "OB107",
+          "object_code": "D06.2.1",
+          "name_zh": "烟草制品与过程测量数据",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0221",
+              "scenario_code": "D06.2.1.1",
+              "name_zh": "烟草制品水分与密度的测量分析",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB237",
+          "object_code": "D06.2.2",
+          "name_zh": "烟草调湿与热处理",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0222",
+              "scenario_code": "D06.2.2.1",
+              "name_zh": "烟草加工调湿的测量分析与反馈模型验证",
+              "lifecycle_stages": [
+                "S3",
+                "S4",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D06.3": {
+      "object_count": 4,
+      "scenario_count": 4,
+      "task_count": 21,
+      "objects": [
+        {
+          "object_id": "OB051",
+          "object_code": "D06.3.1",
+          "name_zh": "织造生产及布面质量",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0223",
+              "scenario_code": "D06.3.1.1",
+              "name_zh": "织造工艺与疵点质量的关联分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 10
+            }
+          ]
+        },
+        {
+          "object_id": "OB169",
+          "object_code": "D06.3.2",
+          "name_zh": "纱线与纺纱过程",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0224",
+              "scenario_code": "D06.3.2.1",
+              "name_zh": "纱线质量与纺纱工况的关联分析",
+              "lifecycle_stages": [
+                "S4",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB170",
+          "object_code": "D06.3.3",
+          "name_zh": "染色配方",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0225",
+              "scenario_code": "D06.3.3.1",
+              "name_zh": "纺织染色的配色与试染修正",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB238",
+          "object_code": "D06.3.4",
+          "name_zh": "织物表面与印花",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0226",
+              "scenario_code": "D06.3.4.1",
+              "name_zh": "数字纺织印花的色彩配置与作业准备",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D06.4": {
+      "object_count": 3,
+      "scenario_count": 3,
+      "task_count": 19,
+      "objects": [
+        {
+          "object_id": "OB052",
+          "object_code": "D06.4.1",
+          "name_zh": "服装纸样与面料模型",
+          "task_count": 12,
+          "scenarios": [
+            {
+              "scenario_id": "SC0227",
+              "scenario_code": "D06.4.1.1",
+              "name_zh": "服装纸样、放码与数字合体检查",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 12
+            }
+          ]
+        },
+        {
+          "object_id": "OB175",
+          "object_code": "D06.4.2",
+          "name_zh": "服装裁片与裁床",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0228",
+              "scenario_code": "D06.4.2.1",
+              "name_zh": "服装排料与裁剪计划的约束优化",
+              "lifecycle_stages": [
+                "S3",
+                "S4"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB232",
+          "object_code": "D06.4.3",
+          "name_zh": "缝制作业与生产单元",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0229",
+              "scenario_code": "D06.4.3.1",
+              "name_zh": "服装缝制工序的工时分析与产线平衡",
+              "lifecycle_stages": [
+                "S3",
+                "S4"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D06.5": {
+      "object_count": 2,
+      "scenario_count": 2,
+      "task_count": 11,
+      "objects": [
+        {
+          "object_id": "OB053",
+          "object_code": "D06.5.1",
+          "name_zh": "鞋楦、鞋面纸样和部件",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0230",
+              "scenario_code": "D06.5.1.1",
+              "name_zh": "鞋样工程与尺码放码",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB171",
+          "object_code": "D06.5.2",
+          "name_zh": "制革过程",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0231",
+              "scenario_code": "D06.5.2.1",
+              "name_zh": "制革批次的物料水耗与污染负荷核算",
+              "lifecycle_stages": [
+                "S4",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D06.6": {
+      "object_count": 3,
+      "scenario_count": 3,
+      "task_count": 12,
+      "objects": [
+        {
+          "object_id": "OB054",
+          "object_code": "D06.6.1",
+          "name_zh": "锯材与板材质量",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0232",
+              "scenario_code": "D06.6.1.1",
+              "name_zh": "木材制品的表面缺陷检测与等级复核",
+              "lifecycle_stages": [
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB172",
+          "object_code": "D06.6.2",
+          "name_zh": "原木与锯材",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0233",
+              "scenario_code": "D06.6.2.1",
+              "name_zh": "原木分选与锯切出材方案优化",
+              "lifecycle_stages": [
+                "S3",
+                "S4"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB173",
+          "object_code": "D06.6.3",
+          "name_zh": "木材干燥窑",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0234",
+              "scenario_code": "D06.6.3.1",
+              "name_zh": "木材干燥曲线的仿真与运行分析",
+              "lifecycle_stages": [
+                "S3",
+                "S4",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D06.7": {
+      "object_count": 3,
+      "scenario_count": 3,
+      "task_count": 16,
+      "objects": [
+        {
+          "object_id": "OB055",
+          "object_code": "D06.7.1",
+          "name_zh": "纸页成形及质量控制系统",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0235",
+              "scenario_code": "D06.7.1.1",
+              "name_zh": "纸机在线质量测量与过程调节分析",
+              "lifecycle_stages": [
+                "S4",
+                "S5",
+                "S6"
+              ],
+              "task_count": 10
+            }
+          ]
+        },
+        {
+          "object_id": "OB174",
+          "object_code": "D06.7.2",
+          "name_zh": "制浆生产线",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0236",
+              "scenario_code": "D06.7.2.1",
+              "name_zh": "制浆洗涤与回收流程的物料能量分析",
+              "lifecycle_stages": [
+                "S2",
+                "S4"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB212",
+          "object_code": "D06.7.3",
+          "name_zh": "纸包装结构",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0237",
+              "scenario_code": "D06.7.3.1",
+              "name_zh": "纸包装结构设计与折叠验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D06.8": {
+      "object_count": 2,
+      "scenario_count": 2,
+      "task_count": 14,
+      "objects": [
+        {
+          "object_id": "OB056",
+          "object_code": "D06.8.1",
+          "name_zh": "包装图稿与印前生产文件",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0238",
+              "scenario_code": "D06.8.1.1",
+              "name_zh": "包装印刷的印前预检与拼版",
+              "lifecycle_stages": [
+                "S3",
+                "S5"
+              ],
+              "task_count": 10
+            }
+          ]
+        },
+        {
+          "object_id": "OB239",
+          "object_code": "D06.8.2",
+          "name_zh": "印刷色彩与过程质量",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0239",
+              "scenario_code": "D06.8.2.1",
+              "name_zh": "印刷测色规格与机台质量的过程核验",
+              "lifecycle_stages": [
+                "S3",
+                "S4",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D06.9": {
+      "object_count": 4,
+      "scenario_count": 4,
+      "task_count": 21,
+      "objects": [
+        {
+          "object_id": "OB057",
+          "object_code": "D06.9.1",
+          "name_zh": "板式及定制家具",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0240",
+              "scenario_code": "D06.9.1.1",
+              "name_zh": "家具的参数化设计与生产数据协同",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 10
+            }
+          ]
+        },
+        {
+          "object_id": "OB185",
+          "object_code": "D06.9.2",
+          "name_zh": "珠宝产品",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0241",
+              "scenario_code": "D06.9.2.1",
+              "name_zh": "珠宝实体建模与方案交付",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB251",
+          "object_code": "D06.9.3",
+          "name_zh": "乐器结构与振动",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0242",
+              "scenario_code": "D06.9.3.1",
+              "name_zh": "弦乐器音板的材料与模态设计比较",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB252",
+          "object_code": "D06.9.4",
+          "name_zh": "玩具机构与壳体",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0243",
+              "scenario_code": "D06.9.4.1",
+              "name_zh": "玩具产品的装配机构与制造交付设计",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D06.10": {
+      "object_count": 5,
+      "scenario_count": 6,
+      "task_count": 18,
+      "objects": [
+        {
+          "object_id": "OB207",
+          "object_code": "D06.10.1",
+          "name_zh": "农田地块档案",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0244",
+              "scenario_code": "D06.10.1.1",
+              "name_zh": "农田轮作记录与规则核查",
+              "lifecycle_stages": [
+                "S4",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB208",
+          "object_code": "D06.10.2",
+          "name_zh": "农田遥感数据",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0245",
+              "scenario_code": "D06.10.2.1",
+              "name_zh": "农田植被指数计算与分区统计",
+              "lifecycle_stages": [
+                "S4",
+                "S5"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0246",
+              "scenario_code": "D06.10.2.2",
+              "name_zh": "农地识别与遥感时序验证",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB209",
+          "object_code": "D06.10.3",
+          "name_zh": "作物生长系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0247",
+              "scenario_code": "D06.10.3.1",
+              "name_zh": "作物生长模型标定与管理情景分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB210",
+          "object_code": "D06.10.4",
+          "name_zh": "田间灌溉系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0248",
+              "scenario_code": "D06.10.4.1",
+              "name_zh": "灌溉需水与供水方案分析",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S6"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB211",
+          "object_code": "D06.10.5",
+          "name_zh": "作物管理策略",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0249",
+              "scenario_code": "D06.10.5.1",
+              "name_zh": "水肥管理策略的仿真闭环评估",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D07.1": {
+      "object_count": 4,
+      "scenario_count": 5,
+      "task_count": 28,
+      "objects": [
+        {
+          "object_id": "OB058",
+          "object_code": "D07.1.1",
+          "name_zh": "油气地层与储层",
+          "task_count": 20,
+          "scenarios": [
+            {
+              "scenario_id": "SC0250",
+              "scenario_code": "D07.1.1.1",
+              "name_zh": "地下地质与储层模型的构建和不确定性分析",
+              "lifecycle_stages": [
+                "S1",
+                "S2"
+              ],
+              "task_count": 10
+            },
+            {
+              "scenario_id": "SC0251",
+              "scenario_code": "D07.1.1.2",
+              "name_zh": "储层流动模拟与注采方案分析",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 10
+            }
+          ]
+        },
+        {
+          "object_id": "OB059",
+          "object_code": "D07.1.2",
+          "name_zh": "油井生产系统",
+          "task_count": 1,
+          "scenarios": [
+            {
+              "scenario_id": "SC0252",
+              "scenario_code": "D07.1.2.1",
+              "name_zh": "油井运行的异常事件诊断",
+              "lifecycle_stages": [
+                "S6"
+              ],
+              "task_count": 1
+            }
+          ]
+        },
+        {
+          "object_id": "OB201",
+          "object_code": "D07.1.3",
+          "name_zh": "地震勘探数据",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0253",
+              "scenario_code": "D07.1.3.1",
+              "name_zh": "地震波速度模型的全波形反演",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB240",
+          "object_code": "D07.1.4",
+          "name_zh": "井工程与完井系统",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0254",
+              "scenario_code": "D07.1.4.1",
+              "name_zh": "井轨迹与钻完井方案的工程计算交接",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S3"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D07.2": {
+      "object_count": 3,
+      "scenario_count": 3,
+      "task_count": 16,
+      "objects": [
+        {
+          "object_id": "OB060",
+          "object_code": "D07.2.1",
+          "name_zh": "地下巷道通风系统",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0255",
+              "scenario_code": "D07.2.1.1",
+              "name_zh": "地下煤矿通风网络的设计与工况分析",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 10
+            }
+          ]
+        },
+        {
+          "object_id": "OB176",
+          "object_code": "D07.2.2",
+          "name_zh": "地下煤矿",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0256",
+              "scenario_code": "D07.2.2.1",
+              "name_zh": "煤矿采区与巷道的设计和计划交付",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S7"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB177",
+          "object_code": "D07.2.3",
+          "name_zh": "选煤厂",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0257",
+              "scenario_code": "D07.2.3.1",
+              "name_zh": "煤炭重介分选的浮沉与产率分析",
+              "lifecycle_stages": [
+                "S2",
+                "S4",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D07.3": {
+      "object_count": 3,
+      "scenario_count": 3,
+      "task_count": 28,
+      "objects": [
+        {
+          "object_id": "OB061",
+          "object_code": "D07.3.1",
+          "name_zh": "露天／地下矿体和采掘单元",
+          "task_count": 12,
+          "scenarios": [
+            {
+              "scenario_id": "SC0258",
+              "scenario_code": "D07.3.1.1",
+              "name_zh": "矿体模型与采矿计划协同",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S7"
+              ],
+              "task_count": 12
+            }
+          ]
+        },
+        {
+          "object_id": "OB062",
+          "object_code": "D07.3.2",
+          "name_zh": "浮选单元与泡沫状态",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0259",
+              "scenario_code": "D07.3.2.1",
+              "name_zh": "浮选流程与泡沫图像的工况分析",
+              "lifecycle_stages": [
+                "S4",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB114",
+          "object_code": "D07.3.3",
+          "name_zh": "破碎磨矿与分级系统",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0260",
+              "scenario_code": "D07.3.3.1",
+              "name_zh": "矿物破碎磨矿的平衡、选型与流程比较",
+              "lifecycle_stages": [
+                "S2",
+                "S4"
+              ],
+              "task_count": 10
+            }
+          ]
+        }
+      ]
+    },
+    "D07.4": {
+      "object_count": 7,
+      "scenario_count": 10,
+      "task_count": 53,
+      "objects": [
+        {
+          "object_id": "OB063",
+          "object_code": "D07.4.1",
+          "name_zh": "风电场",
+          "task_count": 17,
+          "scenarios": [
+            {
+              "scenario_id": "SC0261",
+              "scenario_code": "D07.4.1.1",
+              "name_zh": "风电机组的状态监测与维修决策支持",
+              "lifecycle_stages": [
+                "S6"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0262",
+              "scenario_code": "D07.4.1.2",
+              "name_zh": "风资源、尾流与场站布局分析",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S5"
+              ],
+              "task_count": 11
+            },
+            {
+              "scenario_id": "SC0263",
+              "scenario_code": "D07.4.1.3",
+              "name_zh": "风场通信与 SCADA 数据集成",
+              "lifecycle_stages": [
+                "S0"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB064",
+          "object_code": "D07.4.2",
+          "name_zh": "光伏电站",
+          "task_count": 14,
+          "scenarios": [
+            {
+              "scenario_id": "SC0264",
+              "scenario_code": "D07.4.2.1",
+              "name_zh": "光伏电站性能损失与运行偏差分析",
+              "lifecycle_stages": [
+                "S0",
+                "S5",
+                "S6"
+              ],
+              "task_count": 6
+            },
+            {
+              "scenario_id": "SC0265",
+              "scenario_code": "D07.4.2.2",
+              "name_zh": "光伏组件选配、遮挡与发电量建模",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB102",
+          "object_code": "D07.4.3",
+          "name_zh": "发电机组与电站",
+          "task_count": 2,
+          "scenarios": [
+            {
+              "scenario_id": "SC0266",
+              "scenario_code": "D07.4.3.1",
+              "name_zh": "发电设备清册与投退产计划核对",
+              "lifecycle_stages": [
+                "S1",
+                "S7",
+                "S8"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB137",
+          "object_code": "D07.4.4",
+          "name_zh": "水库与水电站系统",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0267",
+              "scenario_code": "D07.4.4.1",
+              "name_zh": "水电站水量、发电与梯级运行方案分析",
+              "lifecycle_stages": [
+                "S1",
+                "S6"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB138",
+          "object_code": "D07.4.5",
+          "name_zh": "燃气与蒸汽发电机组",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0268",
+              "scenario_code": "D07.4.5.1",
+              "name_zh": "热力发电机组的循环衡算与变负荷分析",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB241",
+          "object_code": "D07.4.6",
+          "name_zh": "地热资源与发电系统",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0269",
+              "scenario_code": "D07.4.6.1",
+              "name_zh": "地热储层热流与采灌方案的数值分析",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB254",
+          "object_code": "D07.4.7",
+          "name_zh": "民用核能系统",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0270",
+              "scenario_code": "D07.4.7.1",
+              "name_zh": "民用核能热工模型的输入与数值结果核查",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D07.5": {
+      "object_count": 4,
+      "scenario_count": 8,
+      "task_count": 30,
+      "objects": [
+        {
+          "object_id": "OB007",
+          "object_code": "D07.5.1",
+          "name_zh": "输配电网络",
+          "task_count": 17,
+          "scenarios": [
+            {
+              "scenario_id": "SC0271",
+              "scenario_code": "D07.5.1.1",
+              "name_zh": "电网运行方案的交流潮流与可行性分析",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 5
+            },
+            {
+              "scenario_id": "SC0272",
+              "scenario_code": "D07.5.1.2",
+              "name_zh": "机组组合、经济调度与备用配置",
+              "lifecycle_stages": [
+                "S1",
+                "S6"
+              ],
+              "task_count": 3
+            },
+            {
+              "scenario_id": "SC0273",
+              "scenario_code": "D07.5.1.3",
+              "name_zh": "线路载流能力与温升校核",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 1
+            },
+            {
+              "scenario_id": "SC0274",
+              "scenario_code": "D07.5.1.4",
+              "name_zh": "变压器与断路器状态诊断",
+              "lifecycle_stages": [
+                "S6"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0275",
+              "scenario_code": "D07.5.1.5",
+              "name_zh": "变电站设备模型、时钟与量测交接",
+              "lifecycle_stages": [
+                "S0"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB068",
+          "object_code": "D07.5.2",
+          "name_zh": "电网保护与暂态系统",
+          "task_count": 7,
+          "scenarios": [
+            {
+              "scenario_id": "SC0276",
+              "scenario_code": "D07.5.2.1",
+              "name_zh": "电网保护与暂态模型的测试分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 7
+            }
+          ]
+        },
+        {
+          "object_id": "OB179",
+          "object_code": "D07.5.3",
+          "name_zh": "配电馈线",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0277",
+              "scenario_code": "D07.5.3.1",
+              "name_zh": "馈线可靠性与故障区段贡献分析",
+              "lifecycle_stages": [
+                "S1",
+                "S6"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB200",
+          "object_code": "D07.5.4",
+          "name_zh": "电网运行控制",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0278",
+              "scenario_code": "D07.5.4.1",
+              "name_zh": "电网拓扑调整与再调度的序列验证",
+              "lifecycle_stages": [
+                "S5",
+                "S6"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D07.6": {
+      "object_count": 2,
+      "scenario_count": 2,
+      "task_count": 11,
+      "objects": [
+        {
+          "object_id": "OB065",
+          "object_code": "D07.6.1",
+          "name_zh": "城市燃气供应网络",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0279",
+              "scenario_code": "D07.6.1.1",
+              "name_zh": "燃气供应网络的能力与运行分析",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB066",
+          "object_code": "D07.6.2",
+          "name_zh": "供热供冷网络",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0280",
+              "scenario_code": "D07.6.2.1",
+              "name_zh": "区域供热网络的热水力设计与运行比较",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 6
+            }
+          ]
+        }
+      ]
+    },
+    "D07.7": {
+      "object_count": 3,
+      "scenario_count": 3,
+      "task_count": 20,
+      "objects": [
+        {
+          "object_id": "OB067",
+          "object_code": "D07.7.1",
+          "name_zh": "储能与综合能源系统",
+          "task_count": 13,
+          "scenarios": [
+            {
+              "scenario_id": "SC0281",
+              "scenario_code": "D07.7.1.1",
+              "name_zh": "储能站与综合能源的运行策略比较",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S6"
+              ],
+              "task_count": 13
+            }
+          ]
+        },
+        {
+          "object_id": "OB178",
+          "object_code": "D07.7.2",
+          "name_zh": "电解制氢系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0282",
+              "scenario_code": "D07.7.2.1",
+              "name_zh": "电解槽负载与产氢量的系统分析",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S6"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB223",
+          "object_code": "D07.7.3",
+          "name_zh": "工厂能源系统",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0283",
+              "scenario_code": "D07.7.3.1",
+              "name_zh": "工序能耗基线与厂区能源调度分析",
+              "lifecycle_stages": [
+                "S4",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D08.1": {
+      "object_count": 4,
+      "scenario_count": 4,
+      "task_count": 27,
+      "objects": [
+        {
+          "object_id": "OB008",
+          "object_code": "D08.1.1",
+          "name_zh": "供水管网",
+          "task_count": 12,
+          "scenarios": [
+            {
+              "scenario_id": "SC0284",
+              "scenario_code": "D08.1.1.1",
+              "name_zh": "供水管网的水力分析与漏损线索定位",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 12
+            }
+          ]
+        },
+        {
+          "object_id": "OB096",
+          "object_code": "D08.1.2",
+          "name_zh": "供水与膜处理系统",
+          "task_count": 9,
+          "scenarios": [
+            {
+              "scenario_id": "SC0285",
+              "scenario_code": "D08.1.2.1",
+              "name_zh": "脱盐膜过程的物料平衡与性能分析",
+              "lifecycle_stages": [
+                "S2",
+                "S4",
+                "S6"
+              ],
+              "task_count": 9
+            }
+          ]
+        },
+        {
+          "object_id": "OB180",
+          "object_code": "D08.1.3",
+          "name_zh": "流域与水资源",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0286",
+              "scenario_code": "D08.1.3.1",
+              "name_zh": "降雨径流模型的率定与蓄泄分析",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S6"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB203",
+          "object_code": "D08.1.4",
+          "name_zh": "水务工业控制系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0287",
+              "scenario_code": "D08.1.4.1",
+              "name_zh": "水务控制数据的异常检测与告警复核",
+              "lifecycle_stages": [
+                "S0",
+                "S5",
+                "S6"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D08.2": {
+      "object_count": 2,
+      "scenario_count": 2,
+      "task_count": 24,
+      "objects": [
+        {
+          "object_id": "OB069",
+          "object_code": "D08.2.1",
+          "name_zh": "污水处理及再生水系统",
+          "task_count": 12,
+          "scenarios": [
+            {
+              "scenario_id": "SC0288",
+              "scenario_code": "D08.2.1.1",
+              "name_zh": "污水处理的过程建模与控制方案分析",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 12
+            }
+          ]
+        },
+        {
+          "object_id": "OB115",
+          "object_code": "D08.2.2",
+          "name_zh": "雨污排水与调蓄系统",
+          "task_count": 12,
+          "scenarios": [
+            {
+              "scenario_id": "SC0289",
+              "scenario_code": "D08.2.2.1",
+              "name_zh": "排水管网的降雨径流、溢流与调蓄分析",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 12
+            }
+          ]
+        }
+      ]
+    },
+    "D08.3": {
+      "object_count": 7,
+      "scenario_count": 7,
+      "task_count": 34,
+      "objects": [
+        {
+          "object_id": "OB070",
+          "object_code": "D08.3.1",
+          "name_zh": "物料回收线上的废弃物",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0290",
+              "scenario_code": "D08.3.1.1",
+              "name_zh": "废弃物分选的视觉识别与质量复核",
+              "lifecycle_stages": [
+                "S5",
+                "S8"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB071",
+          "object_code": "D08.3.2",
+          "name_zh": "以回收为目标的退役产品",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0291",
+              "scenario_code": "D08.3.2.1",
+              "name_zh": "退役产品的拆解顺序与资源回收规划",
+              "lifecycle_stages": [
+                "S8"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB095",
+          "object_code": "D08.3.3",
+          "name_zh": "退役电池与材料回收",
+          "task_count": 1,
+          "scenarios": [
+            {
+              "scenario_id": "SC0292",
+              "scenario_code": "D08.3.3.1",
+              "name_zh": "电池回收物料流与生命周期核算",
+              "lifecycle_stages": [
+                "S0",
+                "S8"
+              ],
+              "task_count": 1
+            }
+          ]
+        },
+        {
+          "object_id": "OB118",
+          "object_code": "D08.3.4",
+          "name_zh": "回收产品与资源化过程",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0293",
+              "scenario_code": "D08.3.4.1",
+              "name_zh": "资源化路线的物料与生命周期影响比较",
+              "lifecycle_stages": [
+                "S8"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB144",
+          "object_code": "D08.3.5",
+          "name_zh": "填埋场与填埋气系统",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0294",
+              "scenario_code": "D08.3.5.1",
+              "name_zh": "填埋气产生与排放的模型估算",
+              "lifecycle_stages": [
+                "S1",
+                "S6"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB228",
+          "object_code": "D08.3.6",
+          "name_zh": "资源与环境清单",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0295",
+              "scenario_code": "D08.3.6.1",
+              "name_zh": "制造物料与排放清单的生命周期核算",
+              "lifecycle_stages": [
+                "S3",
+                "S4",
+                "S8"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB253",
+          "object_code": "D08.3.7",
+          "name_zh": "工业废物流与处理系统",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0296",
+              "scenario_code": "D08.3.7.1",
+              "name_zh": "工业危废减量与处理流程的物料核算",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S8"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D08.4": {
+      "object_count": 4,
+      "scenario_count": 4,
+      "task_count": 26,
+      "objects": [
+        {
+          "object_id": "OB073",
+          "object_code": "D08.4.1",
+          "name_zh": "含水层及溶质迁移",
+          "task_count": 12,
+          "scenarios": [
+            {
+              "scenario_id": "SC0297",
+              "scenario_code": "D08.4.1.1",
+              "name_zh": "地下水污染迁移与修复方案分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "task_count": 12
+            }
+          ]
+        },
+        {
+          "object_id": "OB146",
+          "object_code": "D08.4.2",
+          "name_zh": "污染场地与监测点位",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0298",
+              "scenario_code": "D08.4.2.1",
+              "name_zh": "污染场地调查与修复监测的采样设计",
+              "lifecycle_stages": [
+                "S1",
+                "S5",
+                "S6"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB147",
+          "object_code": "D08.4.3",
+          "name_zh": "工程场址与周边生境",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0299",
+              "scenario_code": "D08.4.3.1",
+              "name_zh": "工程布局与生态修复的生境影响分析",
+              "lifecycle_stages": [
+                "S1",
+                "S2",
+                "S5"
+              ],
+              "task_count": 5
+            }
+          ]
+        },
+        {
+          "object_id": "OB242",
+          "object_code": "D08.4.4",
+          "name_zh": "地下水与污染修复",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0300",
+              "scenario_code": "D08.4.4.1",
+              "name_zh": "污染地下水反应输运与修复情景分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D08.5": {
+      "object_count": 3,
+      "scenario_count": 3,
+      "task_count": 17,
+      "objects": [
+        {
+          "object_id": "OB141",
+          "object_code": "D08.5.1",
+          "name_zh": "排放源与周边受体",
+          "task_count": 9,
+          "scenarios": [
+            {
+              "scenario_id": "SC0301",
+              "scenario_code": "D08.5.1.1",
+              "name_zh": "工业排放的大气扩散建模与结果核查",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 9
+            }
+          ]
+        },
+        {
+          "object_id": "OB142",
+          "object_code": "D08.5.2",
+          "name_zh": "排放监测系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0302",
+              "scenario_code": "D08.5.2.1",
+              "name_zh": "连续排放数据校验与单位统一",
+              "lifecycle_stages": [
+                "S4",
+                "S5",
+                "S6"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB145",
+          "object_code": "D08.5.3",
+          "name_zh": "工业废气治理设施",
+          "task_count": 5,
+          "scenarios": [
+            {
+              "scenario_id": "SC0303",
+              "scenario_code": "D08.5.3.1",
+              "name_zh": "废气治理设备的工程参数与成本方案比较",
+              "lifecycle_stages": [
+                "S1",
+                "S2"
+              ],
+              "task_count": 5
+            }
+          ]
+        }
+      ]
+    },
+    "D08.6": {
+      "object_count": 2,
+      "scenario_count": 2,
+      "task_count": 10,
+      "objects": [
+        {
+          "object_id": "OB143",
+          "object_code": "D08.6.1",
+          "name_zh": "环境声源与传播空间",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0304",
+              "scenario_code": "D08.6.1.1",
+              "name_zh": "环境噪声传播与降噪方案分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB243",
+          "object_code": "D08.6.2",
+          "name_zh": "地基与环境振动",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0305",
+              "scenario_code": "D08.6.2.1",
+              "name_zh": "工业与交通振动的地基传播和控制分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D09.1": {
+      "object_count": 4,
+      "scenario_count": 5,
+      "task_count": 35,
+      "objects": [
+        {
+          "object_id": "OB074",
+          "object_code": "D09.1.1",
+          "name_zh": "建筑及结构机电模型",
+          "task_count": 19,
+          "scenarios": [
+            {
+              "scenario_id": "SC0306",
+              "scenario_code": "D09.1.1.1",
+              "name_zh": "建筑 BIM 的多专业协调与模型交付",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 15
+            },
+            {
+              "scenario_id": "SC0307",
+              "scenario_code": "D09.1.1.2",
+              "name_zh": "建筑构件的 BIM 编制与参数更新",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB075",
+          "object_code": "D09.1.2",
+          "name_zh": "建筑承重结构",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0308",
+              "scenario_code": "D09.1.2.1",
+              "name_zh": "建筑结构的受力建模与设计分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 10
+            }
+          ]
+        },
+        {
+          "object_id": "OB181",
+          "object_code": "D09.1.3",
+          "name_zh": "建筑采光系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0309",
+              "scenario_code": "D09.1.3.1",
+              "name_zh": "建筑采光与照明的光环境模拟",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB217",
+          "object_code": "D09.1.4",
+          "name_zh": "建筑形体与围护几何",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0310",
+              "scenario_code": "D09.1.4.1",
+              "name_zh": "建筑形体与立面的参数化设计",
+              "lifecycle_stages": [
+                "S2"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D09.2": {
+      "object_count": 6,
+      "scenario_count": 7,
+      "task_count": 41,
+      "objects": [
+        {
+          "object_id": "OB009",
+          "object_code": "D09.2.1",
+          "name_zh": "道路工程",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0311",
+              "scenario_code": "D09.2.1.1",
+              "name_zh": "道路路线与纵断面的约束设计",
+              "lifecycle_stages": [
+                "S2"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB076",
+          "object_code": "D09.2.2",
+          "name_zh": "基坑或地基支护系统",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0312",
+              "scenario_code": "D09.2.2.1",
+              "name_zh": "岩土工程的支护与变形分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 10
+            }
+          ]
+        },
+        {
+          "object_id": "OB116",
+          "object_code": "D09.2.3",
+          "name_zh": "河道与防洪工程",
+          "task_count": 10,
+          "scenarios": [
+            {
+              "scenario_id": "SC0313",
+              "scenario_code": "D09.2.3.1",
+              "name_zh": "河道与场地防洪的二维水动力分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 10
+            }
+          ]
+        },
+        {
+          "object_id": "OB187",
+          "object_code": "D09.2.4",
+          "name_zh": "桥梁与工程结构",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0314",
+              "scenario_code": "D09.2.4.1",
+              "name_zh": "运营结构的模态识别与状态跟踪",
+              "lifecycle_stages": [
+                "S5",
+                "S6"
+              ],
+              "task_count": 5
+            },
+            {
+              "scenario_id": "SC0315",
+              "scenario_code": "D09.2.4.2",
+              "name_zh": "桥梁参数建模与分析模型交接",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB206",
+          "object_code": "D09.2.5",
+          "name_zh": "工程图纸与修订记录",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0316",
+              "scenario_code": "D09.2.5.1",
+              "name_zh": "土木工程图纸的指令修订与差异审查",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB230",
+          "object_code": "D09.2.6",
+          "name_zh": "地下工程与围岩",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0317",
+              "scenario_code": "D09.2.6.1",
+              "name_zh": "隧道分步开挖与支护的岩土数值分析",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D09.3": {
+      "object_count": 6,
+      "scenario_count": 6,
+      "task_count": 27,
+      "objects": [
+        {
+          "object_id": "OB077",
+          "object_code": "D09.3.1",
+          "name_zh": "建筑机电与工程管线",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0318",
+              "scenario_code": "D09.3.1.1",
+              "name_zh": "工程安装的空间协调与管线交付",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB078",
+          "object_code": "D09.3.2",
+          "name_zh": "工程作业包与施工模型",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0319",
+              "scenario_code": "D09.3.2.1",
+              "name_zh": "施工与安装进度的四维模拟及资源检查",
+              "lifecycle_stages": [
+                "S3",
+                "S4"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB198",
+          "object_code": "D09.3.3",
+          "name_zh": "室内空间与方案图纸",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0320",
+              "scenario_code": "D09.3.3.1",
+              "name_zh": "室内布置方案与模型图纸协同交付",
+              "lifecycle_stages": [
+                "S2",
+                "S3"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB215",
+          "object_code": "D09.3.4",
+          "name_zh": "建筑消防模型",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0321",
+              "scenario_code": "D09.3.4.1",
+              "name_zh": "建筑火灾烟气与排烟方案仿真",
+              "lifecycle_stages": [
+                "S2",
+                "S5"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB216",
+          "object_code": "D09.3.5",
+          "name_zh": "建筑疏散系统",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0322",
+              "scenario_code": "D09.3.5.1",
+              "name_zh": "建筑人员疏散与烟气暴露分析",
+              "lifecycle_stages": [
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB255",
+          "object_code": "D09.3.6",
+          "name_zh": "建筑暖通系统",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0323",
+              "scenario_code": "D09.3.6.1",
+              "name_zh": "暖通设备选型与调试数据的数字核查",
+              "lifecycle_stages": [
+                "S2",
+                "S3",
+                "S5",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D09.4": {
+      "object_count": 1,
+      "scenario_count": 1,
+      "task_count": 17,
+      "objects": [
+        {
+          "object_id": "OB079",
+          "object_code": "D09.4.1",
+          "name_zh": "建筑与暖通系统",
+          "task_count": 17,
+          "scenarios": [
+            {
+              "scenario_id": "SC0324",
+              "scenario_code": "D09.4.1.1",
+              "name_zh": "建筑能源与暖通运行的模型分析",
+              "lifecycle_stages": [
+                "S2",
+                "S4",
+                "S5",
+                "S6"
+              ],
+              "task_count": 17
+            }
+          ]
+        }
+      ]
+    },
+    "D10.1": {
+      "object_count": 6,
+      "scenario_count": 6,
+      "task_count": 48,
+      "objects": [
+        {
+          "object_id": "OB011",
+          "object_code": "D10.1.1",
+          "name_zh": "道路货运网络与车队",
+          "task_count": 13,
+          "scenarios": [
+            {
+              "scenario_id": "SC0325",
+              "scenario_code": "D10.1.1.1",
+              "name_zh": "道路货运的车辆分配与路线优化",
+              "lifecycle_stages": [
+                "S7"
+              ],
+              "task_count": 13
+            }
+          ]
+        },
+        {
+          "object_id": "OB012",
+          "object_code": "D10.1.2",
+          "name_zh": "铁路线路、站场与列车运行图",
+          "task_count": 9,
+          "scenarios": [
+            {
+              "scenario_id": "SC0326",
+              "scenario_code": "D10.1.2.1",
+              "name_zh": "铁路运行图的容量与延误稳健性分析",
+              "lifecycle_stages": [
+                "S1",
+                "S6"
+              ],
+              "task_count": 9
+            }
+          ]
+        },
+        {
+          "object_id": "OB083",
+          "object_code": "D10.1.3",
+          "name_zh": "独立液体／气体运输管道",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0327",
+              "scenario_code": "D10.1.3.1",
+              "name_zh": "长距离管道运输的瞬态与异常分析",
+              "lifecycle_stages": [
+                "S2",
+                "S6"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB117",
+          "object_code": "D10.1.4",
+          "name_zh": "道路交通网络与交叉口",
+          "task_count": 9,
+          "scenarios": [
+            {
+              "scenario_id": "SC0328",
+              "scenario_code": "D10.1.4.1",
+              "name_zh": "道路交通需求、信号与通行能力仿真",
+              "lifecycle_stages": [
+                "S1",
+                "S6"
+              ],
+              "task_count": 9
+            }
+          ]
+        },
+        {
+          "object_id": "OB188",
+          "object_code": "D10.1.5",
+          "name_zh": "在役管道",
+          "task_count": 7,
+          "scenarios": [
+            {
+              "scenario_id": "SC0329",
+              "scenario_code": "D10.1.5.1",
+              "name_zh": "管道导波检测的数据复核与定位分析",
+              "lifecycle_stages": [
+                "S5",
+                "S6"
+              ],
+              "task_count": 7
+            }
+          ]
+        },
+        {
+          "object_id": "OB244",
+          "object_code": "D10.1.6",
+          "name_zh": "铁路站场与运行系统",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0330",
+              "scenario_code": "D10.1.6.1",
+              "name_zh": "铁路站场进路与列车运行的仿真协调",
+              "lifecycle_stages": [
+                "S1",
+                "S5",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D10.2": {
+      "object_count": 2,
+      "scenario_count": 2,
+      "task_count": 11,
+      "objects": [
+        {
+          "object_id": "OB080",
+          "object_code": "D10.2.1",
+          "name_zh": "在役船舶及航次",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0331",
+              "scenario_code": "D10.2.1.1",
+              "name_zh": "航运路线与航速的性能方案分析",
+              "lifecycle_stages": [
+                "S6"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB183",
+          "object_code": "D10.2.2",
+          "name_zh": "船舶装载工况",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0332",
+              "scenario_code": "D10.2.2.1",
+              "name_zh": "船舶货物配载与稳性数据校核",
+              "lifecycle_stages": [
+                "S5",
+                "S7"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D10.3": {
+      "object_count": 2,
+      "scenario_count": 2,
+      "task_count": 11,
+      "objects": [
+        {
+          "object_id": "OB081",
+          "object_code": "D10.3.1",
+          "name_zh": "航班网络与飞机资源",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0333",
+              "scenario_code": "D10.3.1.1",
+              "name_zh": "航空班表与机队轮转的约束规划",
+              "lifecycle_stages": [
+                "S1",
+                "S7"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB182",
+          "object_code": "D10.3.2",
+          "name_zh": "机场与空域",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0334",
+              "scenario_code": "D10.3.2.1",
+              "name_zh": "机场地面运行与空域容量仿真",
+              "lifecycle_stages": [
+                "S1",
+                "S6",
+                "S7"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D10.4": {
+      "object_count": 5,
+      "scenario_count": 6,
+      "task_count": 34,
+      "objects": [
+        {
+          "object_id": "OB010",
+          "object_code": "D10.4.1",
+          "name_zh": "仓储与物料搬运系统",
+          "task_count": 11,
+          "scenarios": [
+            {
+              "scenario_id": "SC0335",
+              "scenario_code": "D10.4.1.1",
+              "name_zh": "仓储系统的容量规划与作业仿真",
+              "lifecycle_stages": [
+                "S0",
+                "S1",
+                "S3",
+                "S6",
+                "S7"
+              ],
+              "task_count": 11
+            }
+          ]
+        },
+        {
+          "object_id": "OB084",
+          "object_code": "D10.4.2",
+          "name_zh": "码头、堆场与装卸资源",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0336",
+              "scenario_code": "D10.4.2.1",
+              "name_zh": "港口堆场与装卸系统的容量仿真",
+              "lifecycle_stages": [
+                "S1",
+                "S6"
+              ],
+              "task_count": 8
+            }
+          ]
+        },
+        {
+          "object_id": "OB213",
+          "object_code": "D10.4.3",
+          "name_zh": "包装与装载单元",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0337",
+              "scenario_code": "D10.4.3.1",
+              "name_zh": "外箱托盘与车辆装载配置",
+              "lifecycle_stages": [
+                "S3",
+                "S7"
+              ],
+              "task_count": 3
+            }
+          ]
+        },
+        {
+          "object_id": "OB220",
+          "object_code": "D10.4.4",
+          "name_zh": "库存网络与补货策略",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0338",
+              "scenario_code": "D10.4.4.1",
+              "name_zh": "多地点库存补货与服务水平的约束规划",
+              "lifecycle_stages": [
+                "S7"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0339",
+              "scenario_code": "D10.4.4.2",
+              "name_zh": "库存盘点差异与批次可用量的核对",
+              "lifecycle_stages": [
+                "S5",
+                "S7"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB224",
+          "object_code": "D10.4.5",
+          "name_zh": "厂内运输与供料系统",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0340",
+              "scenario_code": "D10.4.5.1",
+              "name_zh": "厂内移动机器人供料与车队交通协同",
+              "lifecycle_stages": [
+                "S3",
+                "S4"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    },
+    "D10.5": {
+      "object_count": 2,
+      "scenario_count": 2,
+      "task_count": 9,
+      "objects": [
+        {
+          "object_id": "OB082",
+          "object_code": "D10.5.1",
+          "name_zh": "包裹配送网络",
+          "task_count": 6,
+          "scenarios": [
+            {
+              "scenario_id": "SC0341",
+              "scenario_code": "D10.5.1.1",
+              "name_zh": "快递末端配送的区域与线路规划",
+              "lifecycle_stages": [
+                "S7"
+              ],
+              "task_count": 6
+            }
+          ]
+        },
+        {
+          "object_id": "OB184",
+          "object_code": "D10.5.2",
+          "name_zh": "快递分拨中心",
+          "task_count": 3,
+          "scenarios": [
+            {
+              "scenario_id": "SC0342",
+              "scenario_code": "D10.5.2.1",
+              "name_zh": "快递分拣与输送系统的容量仿真",
+              "lifecycle_stages": [
+                "S1",
+                "S3",
+                "S6"
+              ],
+              "task_count": 3
+            }
+          ]
+        }
+      ]
+    },
+    "D11.1": {
+      "object_count": 7,
+      "scenario_count": 14,
+      "task_count": 57,
+      "objects": [
+        {
+          "object_id": "OB094",
+          "object_code": "D11.1.1",
+          "name_zh": "仿真模型与工程数据",
+          "task_count": 15,
+          "scenarios": [
+            {
+              "scenario_id": "SC0343",
+              "scenario_code": "D11.1.1.1",
+              "name_zh": "仿真模型初始化、联算与数据交换",
+              "lifecycle_stages": [
+                "S0",
+                "S2"
+              ],
+              "task_count": 7
+            },
+            {
+              "scenario_id": "SC0344",
+              "scenario_code": "D11.1.1.2",
+              "name_zh": "计算验证与试验不确定度评估",
+              "lifecycle_stages": [
+                "S0",
+                "S5"
+              ],
+              "task_count": 1
+            },
+            {
+              "scenario_id": "SC0345",
+              "scenario_code": "D11.1.1.3",
+              "name_zh": "工程数据、元数据与来源链管理",
+              "lifecycle_stages": [
+                "S0"
+              ],
+              "task_count": 7
+            }
+          ]
+        },
+        {
+          "object_id": "OB105",
+          "object_code": "D11.1.2",
+          "name_zh": "软件、标准与资料授权",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0346",
+              "scenario_code": "D11.1.2.1",
+              "name_zh": "工程软件、标准与数据使用授权核查",
+              "lifecycle_stages": [
+                "S0"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB199",
+          "object_code": "D11.1.3",
+          "name_zh": "工程技术文档",
+          "task_count": 2,
+          "scenarios": [
+            {
+              "scenario_id": "SC0347",
+              "scenario_code": "D11.1.3.1",
+              "name_zh": "工程技术文档的编排与可复现交付",
+              "lifecycle_stages": [
+                "S0",
+                "S3",
+                "S5"
+              ],
+              "task_count": 2
+            }
+          ]
+        },
+        {
+          "object_id": "OB218",
+          "object_code": "D11.1.4",
+          "name_zh": "产品需求与构型数据",
+          "task_count": 8,
+          "scenarios": [
+            {
+              "scenario_id": "SC0348",
+              "scenario_code": "D11.1.4.1",
+              "name_zh": "工程需求的基线管理与验证追踪",
+              "lifecycle_stages": [
+                "S0",
+                "S1",
+                "S2",
+                "S5"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0349",
+              "scenario_code": "D11.1.4.2",
+              "name_zh": "产品配置与工程变更的 BOM 一致性管理",
+              "lifecycle_stages": [
+                "S0",
+                "S2",
+                "S3"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB219",
+          "object_code": "D11.1.5",
+          "name_zh": "实验样品与记录",
+          "task_count": 12,
+          "scenarios": [
+            {
+              "scenario_id": "SC0350",
+              "scenario_code": "D11.1.5.1",
+              "name_zh": "实验室样品谱系与分析结果的关联管理",
+              "lifecycle_stages": [
+                "S0",
+                "S5"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0351",
+              "scenario_code": "D11.1.5.2",
+              "name_zh": "电子实验记录与仪器数据的可追溯交付",
+              "lifecycle_stages": [
+                "S0",
+                "S5"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0352",
+              "scenario_code": "D11.1.5.3",
+              "name_zh": "测量仪器接口适配与采集过程的模拟验证",
+              "lifecycle_stages": [
+                "S0",
+                "S3",
+                "S5"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB222",
+          "object_code": "D11.1.6",
+          "name_zh": "工业资产与运行数据",
+          "task_count": 12,
+          "scenarios": [
+            {
+              "scenario_id": "SC0353",
+              "scenario_code": "D11.1.6.1",
+              "name_zh": "工厂数字孪生的资产语义与状态同步验证",
+              "lifecycle_stages": [
+                "S0",
+                "S4",
+                "S6"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0354",
+              "scenario_code": "D11.1.6.2",
+              "name_zh": "工业通信的身份信任与访问配置验证",
+              "lifecycle_stages": [
+                "S0",
+                "S5",
+                "S6"
+              ],
+              "task_count": 4
+            },
+            {
+              "scenario_id": "SC0355",
+              "scenario_code": "D11.1.6.3",
+              "name_zh": "工业边缘数据服务的部署与恢复验证",
+              "lifecycle_stages": [
+                "S0",
+                "S4",
+                "S6"
+              ],
+              "task_count": 4
+            }
+          ]
+        },
+        {
+          "object_id": "OB229",
+          "object_code": "D11.1.7",
+          "name_zh": "技术采购与供应质量",
+          "task_count": 4,
+          "scenarios": [
+            {
+              "scenario_id": "SC0356",
+              "scenario_code": "D11.1.7.1",
+              "name_zh": "供应商技术资格与来料质量的工程评价",
+              "lifecycle_stages": [
+                "S0",
+                "S5",
+                "S7"
+              ],
+              "task_count": 4
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+cd "$(git rev-parse --show-toplevel)"
+if [ -n "${INDUST_PYTHON:-}" ]; then
+    exec "$INDUST_PYTHON" -B "$@"
+fi
+if command -v python3 >/dev/null 2>&1; then
+    exec python3 -B "$@"
+fi
+exec python -B "$@"

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Verified industrial reference classification",
+  "type": "object",
+  "required": ["authority_tier", "source_channel", "process_node_ids"],
+  "properties": {
+    "authority_tier": {"enum": ["T1_STANDARD", "T2_MANUFACTURER", "T3_TOOLCHAIN", "T4_CASE_SAMPLE"]},
+    "source_channel": {
+      "enum": ["C1_STANDARD_ORG", "C2_OEM_FAB_SPEC", "C3_TOOL_FORMAT_DOC", "C4_EQUIP_MAT_VENDOR",
+               "C5_ASSOC_WHITEPAPER", "C6_OPEN_ENG_REPO", "C7_FAILURE_CASE"]
+    },
+    "process_node_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,119}$"},
+      "if": {"contains": {"const": "unassigned"}},
+      "then": {"const": ["unassigned"]}
+    }
+  },
+  "oneOf": [
+    {"properties": {"authority_tier": {"const": "T1_STANDARD"}, "source_channel": {"const": "C1_STANDARD_ORG"}}},
+    {"properties": {"authority_tier": {"const": "T2_MANUFACTURER"}, "source_channel": {"enum": ["C2_OEM_FAB_SPEC", "C4_EQUIP_MAT_VENDOR"]}}},
+    {"properties": {"authority_tier": {"const": "T3_TOOLCHAIN"}, "source_channel": {"const": "C3_TOOL_FORMAT_DOC"}}},
+    {"properties": {"authority_tier": {"const": "T4_CASE_SAMPLE"}, "source_channel": {"enum": ["C5_ASSOC_WHITEPAPER", "C6_OPEN_ENG_REPO", "C7_FAILURE_CASE"]}}}
+  ]
+}

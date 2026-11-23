@@ -1,0 +1,663 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Frozen L2 classification codes",
+  "type": "string",
+  "enum": [
+    "D01.1",
+    "D01.2",
+    "D01.3",
+    "D01.4",
+    "D01.5",
+    "D02.1",
+    "D02.2",
+    "D02.3",
+    "D02.4",
+    "D03.1",
+    "D03.2",
+    "D03.3",
+    "D03.4",
+    "D03.5",
+    "D03.6",
+    "D04.1",
+    "D04.2",
+    "D04.3",
+    "D04.4",
+    "D04.5",
+    "D04.6",
+    "D05.1",
+    "D05.2",
+    "D05.3",
+    "D05.4",
+    "D06.1",
+    "D06.2",
+    "D06.3",
+    "D06.4",
+    "D06.5",
+    "D06.6",
+    "D06.7",
+    "D06.8",
+    "D06.9",
+    "D06.10",
+    "D07.1",
+    "D07.2",
+    "D07.3",
+    "D07.4",
+    "D07.5",
+    "D07.6",
+    "D07.7",
+    "D08.1",
+    "D08.2",
+    "D08.3",
+    "D08.4",
+    "D08.5",
+    "D08.6",
+    "D09.1",
+    "D09.2",
+    "D09.3",
+    "D09.4",
+    "D10.1",
+    "D10.2",
+    "D10.3",
+    "D10.4",
+    "D10.5",
+    "D11.1"
+  ],
+  "source": {
+    "title": "工业工程场景与任务目录",
+    "version": "1.0",
+    "date": "2026-11-18",
+    "sha256": "426ce98c450bbdbb3b9c13924858438878c340723182ee499abd1ddd6c9c51ed",
+    "classification_number_field": "code"
+  },
+  "english_id_origin": "repository-slug",
+  "l1": [
+    {
+      "l1_code": "D01",
+      "name_zh": "电子与半导体",
+      "english_id": "electronics-and-semiconductors",
+      "scope_kind": "industry"
+    },
+    {
+      "l1_code": "D02",
+      "name_zh": "机械与电气",
+      "english_id": "mechanical-and-electrical-engineering",
+      "scope_kind": "industry"
+    },
+    {
+      "l1_code": "D03",
+      "name_zh": "工业与交通装备",
+      "english_id": "industrial-and-transport-equipment",
+      "scope_kind": "industry"
+    },
+    {
+      "l1_code": "D04",
+      "name_zh": "化工与材料",
+      "english_id": "chemicals-and-materials",
+      "scope_kind": "industry"
+    },
+    {
+      "l1_code": "D05",
+      "name_zh": "医药与医疗器械",
+      "english_id": "pharmaceuticals-and-medical-devices",
+      "scope_kind": "industry"
+    },
+    {
+      "l1_code": "D06",
+      "name_zh": "农食与轻工",
+      "english_id": "agriculture-food-and-light-industry",
+      "scope_kind": "industry"
+    },
+    {
+      "l1_code": "D07",
+      "name_zh": "矿产与能源",
+      "english_id": "minerals-and-energy",
+      "scope_kind": "industry"
+    },
+    {
+      "l1_code": "D08",
+      "name_zh": "环保与资源循环",
+      "english_id": "environment-and-resource-recovery",
+      "scope_kind": "industry"
+    },
+    {
+      "l1_code": "D09",
+      "name_zh": "建筑与土木",
+      "english_id": "construction-and-civil-engineering",
+      "scope_kind": "industry"
+    },
+    {
+      "l1_code": "D10",
+      "name_zh": "运输与物流",
+      "english_id": "transport-and-logistics",
+      "scope_kind": "industry"
+    },
+    {
+      "l1_code": "D11",
+      "name_zh": "共用工作",
+      "english_id": "shared-engineering-work",
+      "scope_kind": "shared"
+    }
+  ],
+  "l2": [
+    {
+      "l2_code": "D01.1",
+      "l1_code": "D01",
+      "name_zh": "半导体与微电子",
+      "english_id": "semiconductors-and-microelectronics",
+      "scope_kind": "industry",
+      "include_zh": "芯片、器件、晶圆制造、封装测试；包括功率半导体",
+      "exclude_zh": "上游通用化学材料归 D04；整机与电力设备按整机归属"
+    },
+    {
+      "l2_code": "D01.2",
+      "l1_code": "D01",
+      "name_zh": "电子元件、PCB 与电子组装",
+      "english_id": "electronic-components-pcb-and-assembly",
+      "scope_kind": "industry",
+      "include_zh": "无源元件、连接件、裸板、板级组件及电子代工",
+      "exclude_zh": "芯片归 D01.1；专用整机的系统级组装归其产品行业"
+    },
+    {
+      "l2_code": "D01.3",
+      "l1_code": "D01",
+      "name_zh": "计算与电子整机",
+      "english_id": "computing-and-electronic-systems",
+      "scope_kind": "industry",
+      "include_zh": "计算设备、电子整机的系统设计、性能、热与电磁兼容验证",
+      "exclude_zh": "完整医疗设备归 D05.4；完整工业控制装备归 D02.3；一般软件服务不单列于此"
+    },
+    {
+      "l2_code": "D01.4",
+      "l1_code": "D01",
+      "name_zh": "仪器、传感与光学产品",
+      "english_id": "instruments-sensors-and-optics",
+      "scope_kind": "industry",
+      "include_zh": "非医疗测量仪器、传感器、光学仪器及相关组件",
+      "exclude_zh": "现场测量任务按服务对象关联；医疗用途整机归 D05.4"
+    },
+    {
+      "l2_code": "D01.5",
+      "l1_code": "D01",
+      "name_zh": "通信设备与网络",
+      "english_id": "telecommunications-equipment-and-networks",
+      "scope_kind": "industry",
+      "include_zh": "通信设备、天线、收发链路与传播环境、无线及光通信网络工程",
+      "exclude_zh": "消费软件、内容服务和常规办公网络管理"
+    },
+    {
+      "l2_code": "D02.1",
+      "l1_code": "D02",
+      "name_zh": "通用机械与功能零部件",
+      "english_id": "general-machinery-and-components",
+      "scope_kind": "industry",
+      "include_zh": "泵阀、压缩机、传动、轴承、液压气动等有明确机械功能的产品",
+      "exclude_zh": "通用金属坯料和基础加工制品归 D04；终端设施运营按其行业归属"
+    },
+    {
+      "l2_code": "D02.2",
+      "l1_code": "D02",
+      "name_zh": "电气装备与工业自动化",
+      "english_id": "electrical-equipment-and-industrial-automation",
+      "scope_kind": "industry",
+      "include_zh": "电机、变压器、开关柜、电缆、驱动、PLC 与控制系统产品",
+      "exclude_zh": "芯片归 D01.1；电网供电运营归 D08；应用中的 PLC 控制随应用行业关联"
+    },
+    {
+      "l2_code": "D02.3",
+      "l1_code": "D02",
+      "name_zh": "电池与储能装备",
+      "english_id": "batteries-and-energy-storage-equipment",
+      "scope_kind": "industry",
+      "include_zh": "电芯、模组、PACK、储能设备产品及其研发制造",
+      "exclude_zh": "材料归 D04；独立储能服务归 D08.4；材料回收归 D09.3"
+    },
+    {
+      "l2_code": "D02.4",
+      "l1_code": "D02",
+      "name_zh": "家电与暖通设备",
+      "english_id": "appliances-and-hvac-equipment",
+      "scope_kind": "industry",
+      "include_zh": "家用电器、制冷供暖和通用暖通设备产品",
+      "exclude_zh": "建筑机电施工归 D10.3；楼宇暖通运行归 D10.4；能源供应服务归 D08"
+    },
+    {
+      "l2_code": "D03.1",
+      "l1_code": "D03",
+      "name_zh": "专用生产与作业装备",
+      "english_id": "special-purpose-production-and-work-equipment",
+      "scope_kind": "industry",
+      "include_zh": "机床、成形设备、能源及其他专用作业装备的产品工程",
+      "exclude_zh": "机器人与自动化产线归机器人行业；通用机械部件归机械与电气；客户工厂运行问题随客户行业"
+    },
+    {
+      "l2_code": "D03.2",
+      "l1_code": "D03",
+      "name_zh": "工业机器人与产线",
+      "english_id": "industrial-robots-and-production-lines",
+      "scope_kind": "industry",
+      "include_zh": "机器人、工作单元和自动化产线的设计、集成与调试",
+      "exclude_zh": "通用控制器产品归机械与电气；工厂产品工艺与生产运营随实际服务行业"
+    },
+    {
+      "l2_code": "D03.3",
+      "l1_code": "D03",
+      "name_zh": "汽车与道路车辆",
+      "english_id": "automobiles-and-road-vehicles",
+      "scope_kind": "industry",
+      "include_zh": "汽车、挂车及车辆专用系统；其他道路车辆按实际产品补细分",
+      "exclude_zh": "电芯、通用芯片按独立产品归属；道路运输服务归 D11.1"
+    },
+    {
+      "l2_code": "D03.4",
+      "l1_code": "D03",
+      "name_zh": "轨道交通装备",
+      "english_id": "rail-transit-equipment",
+      "scope_kind": "industry",
+      "include_zh": "机车、车辆与轨道车辆专用系统",
+      "exclude_zh": "线路土建归 D10.2；铁路运输调度归 D11.1"
+    },
+    {
+      "l2_code": "D03.5",
+      "l1_code": "D03",
+      "name_zh": "航空航天装备",
+      "english_id": "aerospace-equipment",
+      "scope_kind": "industry",
+      "include_zh": "飞行器、航天器、专用动力与系统",
+      "exclude_zh": "航空运输服务归 D11.3；机场土建归 D10.2；不默认展开全部国防活动"
+    },
+    {
+      "l2_code": "D03.6",
+      "l1_code": "D03",
+      "name_zh": "船舶与海洋运载装备",
+      "english_id": "ships-and-marine-transport-equipment",
+      "scope_kind": "industry",
+      "include_zh": "船舶、海上运载平台及专用系统",
+      "exclude_zh": "运输服务归 D11.2；海上采油、发电按资源／能源业务归属"
+    },
+    {
+      "l2_code": "D04.1",
+      "l1_code": "D04",
+      "name_zh": "燃料加工与炼制",
+      "english_id": "fuel-processing-and-refining",
+      "scope_kind": "industry",
+      "include_zh": "炼油、焦化、成品燃料及相关加工产品",
+      "exclude_zh": "原油、煤开采归 D07；电力与燃气供应服务归 D08"
+    },
+    {
+      "l2_code": "D04.2",
+      "l1_code": "D04",
+      "name_zh": "化学品与工业生物制品",
+      "english_id": "chemicals-and-industrial-bioproducts",
+      "scope_kind": "industry",
+      "include_zh": "化学原料、精细化学品、涂料、工业气体、肥料、工业酶等",
+      "exclude_zh": "以药物为交付目标归 D05；食品归 D06；不能只因采用发酵就归生物药"
+    },
+    {
+      "l2_code": "D04.3",
+      "l1_code": "D04",
+      "name_zh": "橡胶、塑料与聚合物制品",
+      "english_id": "rubber-plastics-and-polymer-products",
+      "scope_kind": "industry",
+      "include_zh": "橡塑材料加工和制品；注塑、挤出等作为工艺标签",
+      "exclude_zh": "聚合物原料合成可关联 D04.2；完整器械／整机按最终产品归属"
+    },
+    {
+      "l2_code": "D04.4",
+      "l1_code": "D04",
+      "name_zh": "冶金与金属材料",
+      "english_id": "metallurgy-and-metal-materials",
+      "scope_kind": "industry",
+      "include_zh": "冶炼、合金、基础金属和材料级加工产品",
+      "exclude_zh": "采矿选矿归 D07；具有明确机械功能的部件归 D02"
+    },
+    {
+      "l2_code": "D04.5",
+      "l1_code": "D04",
+      "name_zh": "无机非金属材料与制品",
+      "english_id": "inorganic-nonmetallic-materials-and-products",
+      "scope_kind": "industry",
+      "include_zh": "玻璃、陶瓷、水泥及相关矿物、无机材料产品",
+      "exclude_zh": "土建工程归 D10；完整光学仪器归 D01.4；晶圆器件生产归 D01.1"
+    },
+    {
+      "l2_code": "D04.6",
+      "l1_code": "D04",
+      "name_zh": "金属制品与通用加工",
+      "english_id": "metal-products-and-general-machining",
+      "scope_kind": "industry",
+      "include_zh": "金属结构件、容器、基础制品及以工件交付为主的通用加工服务",
+      "exclude_zh": "专用设备／车辆部件按系统行业；无产业语境的 CAM 题不自动算本行业"
+    },
+    {
+      "l2_code": "D05.1",
+      "l1_code": "D05",
+      "name_zh": "化学药物",
+      "english_id": "chemical-pharmaceuticals",
+      "scope_kind": "industry",
+      "include_zh": "化学原料药及其制剂，从研发到制造和产品支持",
+      "exclude_zh": "通用化工原料归 D04；以生物药为目标归 D05.2；不按药企公司整体归类"
+    },
+    {
+      "l2_code": "D05.2",
+      "l1_code": "D05",
+      "name_zh": "生物药物",
+      "english_id": "biopharmaceuticals",
+      "scope_kind": "industry",
+      "include_zh": "抗体、疫苗、重组蛋白、细胞与基因治疗等药物产品",
+      "exclude_zh": "工业酶归 D04.2；一般生物分析未给出药物目标时不强制归属"
+    },
+    {
+      "l2_code": "D05.3",
+      "l1_code": "D05",
+      "name_zh": "中药与天然来源药品",
+      "english_id": "traditional-chinese-and-natural-source-medicines",
+      "scope_kind": "industry",
+      "include_zh": "以药品为交付目标的中药及天然来源药品",
+      "exclude_zh": "药用原料种植属于范围外观察项 D12；食品保健类产品按用途另判"
+    },
+    {
+      "l2_code": "D05.4",
+      "l1_code": "D05",
+      "name_zh": "医疗器械与体外诊断产品",
+      "english_id": "medical-devices-and-in-vitro-diagnostics",
+      "scope_kind": "industry",
+      "include_zh": "医疗设备、耗材、植入物和诊断产品的研发制造",
+      "exclude_zh": "医院临床服务暂不展开；一般测量仪器归 D01.4"
+    },
+    {
+      "l2_code": "D06.1",
+      "l1_code": "D06",
+      "name_zh": "食品与饮料",
+      "english_id": "food-and-beverages",
+      "scope_kind": "industry",
+      "include_zh": "食品、饲料、饮料等加工产品与生产业务",
+      "exclude_zh": "种养殖属于范围外观察项 D12；食品装备归 D02；包装材料按独立产品另归"
+    },
+    {
+      "l2_code": "D06.2",
+      "l1_code": "D06",
+      "name_zh": "烟草制品",
+      "english_id": "tobacco-products",
+      "scope_kind": "industry",
+      "include_zh": "烟草加工及制品生产",
+      "exclude_zh": "种植属于范围外观察项 D12；一般企业行政工作不自动变成工业场景"
+    },
+    {
+      "l2_code": "D06.3",
+      "l1_code": "D06",
+      "name_zh": "纺织品",
+      "english_id": "textiles",
+      "scope_kind": "industry",
+      "include_zh": "纺纱、织造、针织、染整和纺织产品，含产业用纺织品",
+      "exclude_zh": "化学纤维原料按化学材料业务关联 D04；制成服装归 D06.4"
+    },
+    {
+      "l2_code": "D06.4",
+      "l1_code": "D06",
+      "name_zh": "服装",
+      "english_id": "apparel",
+      "scope_kind": "industry",
+      "include_zh": "服装产品的设计、制造和相关业务",
+      "exclude_zh": "布料制造归 D06.3；通用裁剪设备归 D02"
+    },
+    {
+      "l2_code": "D06.5",
+      "l1_code": "D06",
+      "name_zh": "皮革、鞋与相关制品",
+      "english_id": "leather-footwear-and-related-products",
+      "scope_kind": "industry",
+      "include_zh": "皮革加工、鞋类及皮革相关产品",
+      "exclude_zh": "畜牧属于范围外观察项 D12；鞋企仓库业务不构成制鞋工艺证据"
+    },
+    {
+      "l2_code": "D06.6",
+      "l1_code": "D06",
+      "name_zh": "木材与木制品",
+      "english_id": "wood-and-wood-products",
+      "scope_kind": "industry",
+      "include_zh": "木材加工及木制产品，不含完整家具",
+      "exclude_zh": "林木培育与采伐属于范围外观察项 D12；家具归 D06.9"
+    },
+    {
+      "l2_code": "D06.7",
+      "l1_code": "D06",
+      "name_zh": "纸浆、纸与纸制品",
+      "english_id": "pulp-paper-and-paper-products",
+      "scope_kind": "industry",
+      "include_zh": "制浆、造纸、纸品及纸质包装产品",
+      "exclude_zh": "印刷服务归 D06.8；纸机设备归 D02"
+    },
+    {
+      "l2_code": "D06.8",
+      "l1_code": "D06",
+      "name_zh": "印刷与记录媒介复制",
+      "english_id": "printing-and-recorded-media-reproduction",
+      "scope_kind": "industry",
+      "include_zh": "印刷、印后及记录媒介复制产品／服务",
+      "exclude_zh": "通用文案创作不自动纳入；印刷设备归 D02"
+    },
+    {
+      "l2_code": "D06.9",
+      "l1_code": "D06",
+      "name_zh": "家具、家居与其他日用制品",
+      "english_id": "furniture-home-and-consumer-products",
+      "scope_kind": "industry",
+      "include_zh": "家具、珠宝、玩具、体育用品、乐器等实物产品",
+      "exclude_zh": "家电归 D02.5；医疗器械归 D05.4；室内装修设计归 D10"
+    },
+    {
+      "l2_code": "D06.10",
+      "l1_code": "D06",
+      "name_zh": "作物生产",
+      "english_id": "crop-production",
+      "scope_kind": "industry",
+      "include_zh": "农田空间数据、作物生长建模、灌溉与水肥管理仿真",
+      "exclude_zh": "食品加工、农化产品和农机产品按所属制造业；经营文书与一般生活内容不纳入。畜牧、林业和渔业的技术工作待独立调查。"
+    },
+    {
+      "l2_code": "D07.1",
+      "l1_code": "D07",
+      "name_zh": "油气勘探与开采",
+      "english_id": "oil-and-gas-exploration-and-production",
+      "scope_kind": "industry",
+      "include_zh": "以油气资源获取为目标的勘探、开采及直接支持业务",
+      "exclude_zh": "炼油归 D04.1；能源供应归 D08；通用地下反演需另说明应用"
+    },
+    {
+      "l2_code": "D07.2",
+      "l1_code": "D07",
+      "name_zh": "煤炭开采与洗选",
+      "english_id": "coal-mining-and-preparation",
+      "scope_kind": "industry",
+      "include_zh": "煤炭资源获取及洗选业务",
+      "exclude_zh": "焦化归 D04.1；发电归 D08.1"
+    },
+    {
+      "l2_code": "D07.3",
+      "l1_code": "D07",
+      "name_zh": "金属与非金属矿采选",
+      "english_id": "metal-and-nonmetal-mining-and-beneficiation",
+      "scope_kind": "industry",
+      "include_zh": "矿石获取、选矿及相关资源业务",
+      "exclude_zh": "冶炼归 D04.4；成品材料加工按 D04；采矿设备产品归 D02"
+    },
+    {
+      "l2_code": "D07.4",
+      "l1_code": "D07",
+      "name_zh": "电力生产",
+      "english_id": "power-generation",
+      "scope_kind": "industry",
+      "include_zh": "各类发电业务，技术路线在 L3 或标签展开",
+      "exclude_zh": "发电装备产品归 D02；电站土建归 D10；燃料材料归 D04／D07"
+    },
+    {
+      "l2_code": "D07.5",
+      "l1_code": "D07",
+      "name_zh": "输配电与电力系统运营",
+      "english_id": "power-transmission-distribution-and-system-operations",
+      "scope_kind": "industry",
+      "include_zh": "输配电、系统调度及供电网络业务",
+      "exclude_zh": "电气设备产品归 D02.3；输电工程施工归 D10"
+    },
+    {
+      "l2_code": "D07.6",
+      "l1_code": "D07",
+      "name_zh": "燃气、热力及其他能源供应",
+      "english_id": "gas-heat-and-other-energy-supply",
+      "scope_kind": "industry",
+      "include_zh": "燃气供应、热力和区域能源供给服务",
+      "exclude_zh": "化学品生产归 D04；一般运输管道服务归 D11；设备产品归 D02"
+    },
+    {
+      "l2_code": "D07.7",
+      "l1_code": "D07",
+      "name_zh": "储能与综合能源服务",
+      "english_id": "energy-storage-and-integrated-energy-services",
+      "scope_kind": "industry",
+      "include_zh": "独立储能、跨能源协调及能源服务业务",
+      "exclude_zh": "电池和储能设备制造归 D02.4；建筑自身设施运行归 D10.4；发电站内部储能可仍主挂 D08.1"
+    },
+    {
+      "l2_code": "D08.1",
+      "l1_code": "D08",
+      "name_zh": "供水与水资源服务",
+      "english_id": "water-supply-and-water-resources",
+      "scope_kind": "industry",
+      "include_zh": "原水调蓄、取水、净水、供水及管网服务",
+      "exclude_zh": "水利／管网土建归 D10.2；泵阀产品归 D02.1；水力发电归 D08.1"
+    },
+    {
+      "l2_code": "D08.2",
+      "l1_code": "D08",
+      "name_zh": "污水处理与再生水",
+      "english_id": "wastewater-treatment-and-water-reuse",
+      "scope_kind": "industry",
+      "include_zh": "污水收集处理、再生水及相关运营工作",
+      "exclude_zh": "处理厂土建归 D10；工艺设备产品归 D02；与供水共同项目保留关联"
+    },
+    {
+      "l2_code": "D08.3",
+      "l1_code": "D08",
+      "name_zh": "固废处理与资源循环",
+      "english_id": "solid-waste-treatment-and-resource-recovery",
+      "scope_kind": "industry",
+      "include_zh": "收集处理处置、以材料回收为目标的分选拆解及逆向资源流",
+      "exclude_zh": "完整产品再制造按产品行业；维修拆解按维修目标；再生料后续制品制造归对应材料／产品行业"
+    },
+    {
+      "l2_code": "D08.4",
+      "l1_code": "D08",
+      "name_zh": "场地与生态修复",
+      "english_id": "site-and-ecological-remediation",
+      "scope_kind": "industry",
+      "include_zh": "污染场地调查、土壤地下水修复、工程生态影响与修复规划",
+      "exclude_zh": "通用环境科学未给产业目标时留在共享问题库；工厂内部环保工作同时关联其生产行业"
+    },
+    {
+      "l2_code": "D08.5",
+      "l1_code": "D08",
+      "name_zh": "大气污染防治",
+      "english_id": "air-pollution-control",
+      "scope_kind": "industry",
+      "include_zh": "废气治理设施、污染扩散、排放监测与控制方案",
+      "exclude_zh": ""
+    },
+    {
+      "l2_code": "D08.6",
+      "l1_code": "D08",
+      "name_zh": "环境噪声控制",
+      "english_id": "environmental-noise-control",
+      "scope_kind": "industry",
+      "include_zh": "工业及基础设施声源、噪声传播预测和降噪方案",
+      "exclude_zh": ""
+    },
+    {
+      "l2_code": "D09.1",
+      "l1_code": "D09",
+      "name_zh": "房屋建筑与建筑工程",
+      "english_id": "building-construction",
+      "scope_kind": "industry",
+      "include_zh": "住宅、公共和工业建筑的规划设计、工程建造等",
+      "exclude_zh": "建筑材料与设备按产品行业；建成后的日常设施运营归 D10.4"
+    },
+    {
+      "l2_code": "D09.2",
+      "l1_code": "D09",
+      "name_zh": "土木与基础设施工程",
+      "english_id": "civil-and-infrastructure-engineering",
+      "scope_kind": "industry",
+      "include_zh": "道路、桥隧、水利、管网等土木工程",
+      "exclude_zh": "供水、供电、运输服务分别归 D09／D08／D11；不能因资产相同合并服务"
+    },
+    {
+      "l2_code": "D09.3",
+      "l1_code": "D09",
+      "name_zh": "专业建筑工程与工程安装",
+      "english_id": "specialty-construction-and-engineering-installation",
+      "scope_kind": "industry",
+      "include_zh": "建筑机电、装修及专项施工安装业务",
+      "exclude_zh": "产品制造归 D01–D06；设备供应商自身产品调试按产品业务关联"
+    },
+    {
+      "l2_code": "D09.4",
+      "l1_code": "D09",
+      "name_zh": "建筑、园区与设施运营",
+      "english_id": "building-campus-and-facility-operations",
+      "scope_kind": "industry",
+      "include_zh": "楼宇、园区及数据中心等的建筑设施、暖通与公共设施运行",
+      "exclude_zh": "数据处理服务本身暂不展开；独立能源服务归 D08；工厂生产执行仍归产品行业"
+    },
+    {
+      "l2_code": "D10.1",
+      "l1_code": "D10",
+      "name_zh": "陆路运输",
+      "english_id": "land-transport",
+      "scope_kind": "industry",
+      "include_zh": "道路、铁路及通用管道运输服务",
+      "exclude_zh": "车辆制造归 D03；道路土建归 D10；公用燃气／供水网络按 D08／D09"
+    },
+    {
+      "l2_code": "D10.2",
+      "l1_code": "D10",
+      "name_zh": "水上运输",
+      "english_id": "water-transport",
+      "scope_kind": "industry",
+      "include_zh": "海运、内河运输及航运业务",
+      "exclude_zh": "船舶制造归 D03.4；港口土建归 D10；港口装卸归 D11.4"
+    },
+    {
+      "l2_code": "D10.3",
+      "l1_code": "D10",
+      "name_zh": "航空运输",
+      "english_id": "air-transport",
+      "scope_kind": "industry",
+      "include_zh": "航空运输与相关运输业务",
+      "exclude_zh": "航空器制造归 D03.3；机场土建归 D10；地面货物处理归 D11.4"
+    },
+    {
+      "l2_code": "D10.4",
+      "l1_code": "D10",
+      "name_zh": "仓储、装卸与物流组织",
+      "english_id": "warehousing-cargo-handling-and-logistics",
+      "scope_kind": "industry",
+      "include_zh": "仓库、货运组织、装卸及物流支持服务",
+      "exclude_zh": "制造企业内部物流以制造业务为主归属并关联本行业；搬运设备产品归 D02"
+    },
+    {
+      "l2_code": "D10.5",
+      "l1_code": "D10",
+      "name_zh": "邮政、快递与配送",
+      "english_id": "postal-courier-and-delivery-services",
+      "scope_kind": "industry",
+      "include_zh": "邮政、快递和末端配送服务",
+      "exclude_zh": "通用电商零售不独立展开；配送装备产品按装备行业"
+    },
+    {
+      "l2_code": "D11.1",
+      "l1_code": "D11",
+      "name_zh": "跨行业工程支撑",
+      "english_id": "cross-industry-engineering-support",
+      "scope_kind": "shared"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>industplatform · 工业研究工作台</title>
+  <link rel="stylesheet" href="/static/tokens.css">
+  <link rel="stylesheet" href="/static/workbench.css">
+  <script type="module" src="/static/workbench.js"></script>
+</head>
+<body>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="bolt" viewBox="0 0 24 24"><path d="m13.5 2-9 12H11l-.5 8 9-12H13l.5-8Z"/></symbol>
+    <symbol id="terminal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m7 9 3 3-3 3m6 0h4"/></symbol>
+    <symbol id="graph" viewBox="0 0 24 24"><rect x="3" y="9" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M9 12h3m0-6v12m0-12h3m-3 12h3"/></symbol>
+    <symbol id="book" viewBox="0 0 24 24"><path d="M12 6c-2-2-6-2-9-1v14c3-1 7-1 9 1 2-2 6-2 9-1V5c-3-1-7-1-9 1Zm0 0v14"/></symbol>
+    <symbol id="task" viewBox="0 0 24 24"><path d="M8 5H5v16h14V5h-3m-8-2h8v4H8zm0 9h8m-8 4h6"/></symbol>
+    <symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v2"/></symbol>
+    <symbol id="shield" viewBox="0 0 24 24"><path d="m12 3 8 3.5V12c0 4.5-4 7.5-8 9-4-1.5-8-4.5-8-9V6.5L12 3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+    <symbol id="chart" viewBox="0 0 24 24"><path d="M5 19h14M7 15v-4m5 4V5m5 10V8"/></symbol>
+    <symbol id="retry" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14-5L3 9m0-5v5h5m-4 4a8 8 0 0 0 14 5l3-3m0 5v-5h-5"/></symbol>
+    <symbol id="settings" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="10" cy="18" r="2" fill="currentColor"/></symbol>
+    <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="19" cy="12" r="1" fill="currentColor"/></symbol>
+    <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="panel" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M9 5v14"/></symbol>
+    <symbol id="drawer-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M15 5v14"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-5-5 5 5-5 5"/></symbol>
+    <symbol id="up" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
+    <symbol id="chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="archive" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="5" rx="1"/><path d="M6 9v11h12V9m-8 4h4"/></symbol>
+    <symbol id="history" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 1 2.3 5.7M4 12V6m0 6h6m2-4v4l3 2"/></symbol>
+    <symbol id="stop" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1" fill="currentColor"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></symbol>
+    <symbol id="layout" viewBox="0 0 24 24"><path d="M4 5h16v4H4zm0 9h7v5H4zm9 0h7v5h-7zm-1-5v3m-4 2v-2h8v2"/></symbol>
+    <symbol id="fit" viewBox="0 0 24 24"><path d="M4 9V4h5m6 0h5v5m0 6v5h-5m-6 0H4v-5m4-7h8v8H8z"/></symbol>
+    <symbol id="minus" viewBox="0 0 24 24"><path d="M6 12h12"/></symbol>
+    <symbol id="card" viewBox="0 0 24 24"><rect x="4" y="5" width="7" height="14" rx="1.5"/><rect x="13" y="5" width="7" height="14" rx="1.5"/></symbol>
+    <symbol id="list" viewBox="0 0 24 24"><path d="M8 6h11M8 12h11M8 18h11M4 6h.1M4 12h.1M4 18h.1"/></symbol>
+    <symbol id="cube" viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Zm-8 4.5 8 4.5 8-4.5M12 12v9"/></symbol>
+    <symbol id="download" viewBox="0 0 24 24"><path d="M12 4v11m-4-4 4 4 4-4M5 18v3h14v-3"/></symbol>
+    <symbol id="spark" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z"/></symbol>
+    <symbol id="thread" viewBox="0 0 24 24"><path d="M6 17.5 4 20v-6a7 7 0 1 1 7 4H8m1-7h6"/></symbol>
+  </svg>
+
+  <div class="shell" id="shell" data-sidebar="open" data-drawer="closed">
+    <aside class="sidebar" id="sidebar" aria-label="工作区导航">
+      <div class="sidebar-top" id="sidebar-context">
+        <a class="brand" id="workspace-brand" href="/global/research" aria-label="industplatform · 返回研究指挥台"><svg class="icon" aria-hidden="true"><use href="#cube"/></svg><span>industplatform</span></a>
+        <a class="domain-back" id="domain-back" href="/global/library" hidden>← 返回领域资料库</a>
+        <p class="sidebar-domain-name" id="sidebar-domain-name" hidden></p>
+      </div>
+      <nav class="workflow-nav" id="workflow-nav" aria-label="工作台导航"></nav>
+      <div class="sidebar-foot">
+        <div class="sync-anchor">
+          <button class="sync-anchor-open" id="sync-anchor-open" type="button" aria-haspopup="dialog" aria-controls="sync-drawer" aria-expanded="false">
+            <span class="sync-anchor-line"><span class="dot" id="sync-anchor-dot"></span><span class="truncate">资料同步</span><span id="sync-anchor-counts" class="sync-counts"></span></span>
+            <span class="sync-anchor-meta truncate" id="sync-anchor-meta" role="status">正在读取同步状态…</span>
+          </button>
+          <button class="sync-anchor-pull" id="sync-anchor-pull" type="button" aria-label="立即拉取同步" title="立即拉取同步" disabled><svg class="icon" aria-hidden="true"><use href="#retry"/></svg></button>
+        </div>
+      </div>
+      <a class="gateway-link" id="settings-link" href="/global/settings">
+        <svg class="icon" aria-hidden="true"><use href="#settings"/></svg><span>网关与设置</span><span class="dot" id="gateway-dot" hidden></span>
+      </a>
+    </aside>
+
+    <main class="stage" id="stage">
+      <header class="stage-header">
+        <div class="header-path">
+          <button class="button icon-button ghost" id="sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="切换工作区导航" title="切换工作区导航"><svg class="icon" aria-hidden="true"><use href="#panel"/></svg></button>
+          <nav id="breadcrumb" class="breadcrumb" aria-label="当前位置"></nav>
+        </div>
+        <div class="header-actions">
+          <button class="button ghost health-pill" id="health-pill" type="button" aria-controls="inspector"><span class="dot" id="health-dot"></span><span id="health-label">正在连接</span></button>
+          <button class="button ghost monitor-button" id="inspector-toggle" type="button" aria-controls="inspector" aria-expanded="false" aria-label="运行监控" title="运行监控"><svg class="icon" aria-hidden="true"><use href="#drawer-icon"/></svg><span class="monitor-label">运行监控</span><span class="approval-badge" id="approval-count" hidden></span></button>
+        </div>
+      </header>
+      <div class="stage-body" id="stage-body">
+        <p class="error-banner" id="load-error" role="alert" hidden></p>
+        <div id="view" aria-busy="true">
+          <p class="loading" role="status">正在读取工作台…</p>
+        </div>
+      </div>
+    </main>
+
+    <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+    <aside class="inspector" id="inspector" aria-labelledby="inspector-title" aria-hidden="true" inert>
+      <header class="inspector-header"><div><h2 id="inspector-title">运行监控</h2><p id="inspector-scope"></p><div id="header-metrics" class="mono"></div></div><button class="button ghost icon-button" id="inspector-close" type="button" aria-label="收起运行监控"><svg class="icon" aria-hidden="true"><use href="#close"/></svg></button></header>
+      <nav class="segments inspector-tabs" id="inspector-tabs" aria-label="运行监控视图">
+        <button type="button" data-tab="agents" aria-pressed="true">子代理树</button>
+        <button type="button" data-tab="events" aria-pressed="false">实时事件流</button>
+        <button type="button" data-tab="approvals" aria-pressed="false">权限审批</button>
+      </nav>
+      <div id="inspector-content" class="inspector-content"></div>
+    </aside>
+    <button id="sidebar-backdrop" type="button" class="sidebar-backdrop" aria-label="关闭导航" hidden></button>
+  </div>
+
+  <dialog class="detail-drawer sync-drawer" id="sync-drawer" aria-labelledby="sync-title">
+    <header class="sync-drawer-header">
+      <div><h2 id="sync-title">资料同步与发布</h2><p id="sync-repository" class="sync-meta sync-mono" hidden></p></div>
+      <button class="button ghost sync-dismiss" id="sync-dismiss" type="button" autofocus><svg class="icon" aria-hidden="true"><use href="#close"/></svg>收起面板</button>
+    </header>
+    <div class="sync-drawer-body">
+      <section class="sync-section" aria-labelledby="sync-remote-title">
+        <h3 id="sync-remote-title">远端同步状态</h3>
+        <div class="sync-remote">
+          <dl><dt>当前基线</dt><dd id="sync-baseline" class="sync-mono">main</dd></dl>
+          <dl><dt>本地元信息库</dt><dd id="sync-local-store">正在读取…</dd></dl>
+          <div class="sync-remote-actions">
+            <span class="sync-meta">拉取后自动写入本地 SQLite</span>
+            <button class="button sync-secondary" id="sync-drawer-pull" type="button" disabled>立即拉取同步</button>
+          </div>
+          <p id="sync-remote-error" class="sync-error" role="alert" hidden></p>
+        </div>
+      </section>
+      <section class="sync-section" aria-labelledby="sync-import-title">
+        <div class="sync-section-head">
+          <h3 id="sync-import-title">本地资料</h3>
+          <button class="button sync-secondary" id="sync-import-toggle" type="button" aria-expanded="false" aria-controls="sync-import-picker"><svg class="icon" aria-hidden="true"><use href="#plus"/></svg>批量导入</button>
+        </div>
+        <div class="sync-import-picker" id="sync-import-picker" hidden>
+          <p class="sync-meta">支持 HTML、PDF 和 CSV。仅将提取的链接和少量上下文交给模型整理。</p>
+          <div class="actions">
+            <button class="button sync-secondary" id="sync-import-choose-files" type="button">选择文件</button>
+            <button class="button sync-secondary" id="sync-import-choose-folder" type="button">选择文件夹</button>
+          </div>
+          <input id="sync-import-files" type="file" accept=".html,.htm,.pdf,.csv" multiple hidden>
+          <input id="sync-import-folder" type="file" webkitdirectory multiple hidden>
+          <p class="sync-meta" id="sync-import-selection" hidden></p>
+          <label class="sync-import-source" id="sync-import-source-label" hidden>原文链接（可选）
+            <input id="sync-import-source" type="url" placeholder="https://" maxlength="1600">
+          </label>
+          <button class="button primary sync-import-prepare" id="sync-import-prepare" type="button" disabled>整理并入库</button>
+        </div>
+        <p class="sync-meta sync-import-message" id="sync-import-message" role="status" hidden></p>
+        <div class="sync-import-batches" id="sync-import-batches"></div>
+      </section>
+      <section class="sync-section" aria-labelledby="sync-tasks-title">
+        <div class="sync-section-head">
+          <h3 id="sync-tasks-title">待发布任务 <span id="sync-task-count" class="sync-meta sync-mono" hidden></span></h3>
+          <button class="button ghost sync-text-button" id="sync-select-all" type="button" hidden>全选</button>
+        </div>
+        <div id="sync-tasks"></div>
+        <label class="sync-correction" id="sync-correction" hidden>
+          <span>检测到修改既有记录，须填写纠错说明（无说明禁止推送 <code>main</code>）</span>
+          <textarea id="sync-correction-reason" rows="2" maxlength="2000"></textarea>
+        </label>
+        <div id="sync-feedback" role="status" aria-live="polite" hidden></div>
+      </section>
+      <section class="sync-section" aria-labelledby="sync-recent-title">
+        <h3 id="sync-recent-title">最近推送记录</h3>
+        <div id="sync-recent"></div>
+      </section>
+    </div>
+    <footer class="sync-drawer-footer">
+      <p class="sync-meta" id="sync-footer-note">校验与自动去重后单 Commit 推入 <code>main</code></p>
+      <button class="button primary sync-publish" id="sync-publish" type="button" disabled>校验并推送至 main</button>
+    </footer>
+  </dialog>
+
+  <dialog class="dialog" id="editor-dialog" aria-labelledby="dialog-title">
+    <form id="editor-form">
+      <header><h2 id="dialog-title"></h2><button type="button" id="dialog-close" class="button ghost icon-button" aria-label="关闭"><svg class="icon" aria-hidden="true"><use href="#close"/></svg></button></header>
+      <div id="dialog-fields" class="dialog-fields"></div>
+      <p id="dialog-error" class="inline-error" role="alert" hidden></p>
+      <footer><button class="button" id="dialog-cancel" type="button">取消</button><button class="button primary" type="submit" id="dialog-submit">保存</button></footer>
+    </form>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,3 @@
+#!/bin/sh
+[ "$3" = 1 ] || exit 0
+exec "$(git rev-parse --show-toplevel)/.githooks/run-python" scripts/sync_meta_to_local.py --automatic

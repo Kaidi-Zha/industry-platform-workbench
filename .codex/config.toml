@@ -1,0 +1,5 @@
+[mcp_servers.industplatform]
+command = "python3"
+args = ["-B", "run_mcp.py", "--port", "18765"]
+cwd = ".."
+tool_timeout_sec = 40

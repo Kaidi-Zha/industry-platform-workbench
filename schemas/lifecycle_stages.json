@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Industrial lifecycle stages",
+  "type": "string",
+  "enum": [
+    "S0",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8"
+  ],
+  "source": {
+    "title": "工业工程场景与任务目录",
+    "version": "1.0",
+    "date": "2026-11-18",
+    "sha256": "426ce98c450bbdbb3b9c13924858438878c340723182ee499abd1ddd6c9c51ed",
+    "classification_number_field": "code"
+  },
+  "stages": [
+    {
+      "code": "S0",
+      "name_zh": "标准、合规、安全、互操作与数据治理",
+      "scope_zh": "横向要求，以及针对这些要求的专业工作",
+      "boundary_zh": "标准要求与“执行合规核查”场景分别存；质量检验工作仍用 S5",
+      "kind": "crosscutting_support"
+    },
+    {
+      "code": "S1",
+      "name_zh": "需求、规划与立项",
+      "scope_zh": "需求、能力配置、方案可行性和建设／产品规划",
+      "boundary_zh": "确定目标、范围与主要约束",
+      "kind": "business_stage"
+    },
+    {
+      "code": "S2",
+      "name_zh": "研发与设计",
+      "scope_zh": "科学工程研发、产品／系统／工程设计",
+      "boundary_zh": "以形成或改进产品、系统或设计为目标",
+      "kind": "business_stage"
+    },
+    {
+      "code": "S3",
+      "name_zh": "工艺与交付准备",
+      "scope_zh": "工艺路线、制造规划、工程组织、生产或施工准备",
+      "boundary_zh": "原料、设备、工序与资源如何组织为可交付流程",
+      "kind": "business_stage"
+    },
+    {
+      "code": "S4",
+      "name_zh": "生产、施工与交付执行",
+      "scope_zh": "制造／施工阶段的工程计算、技术控制、参数优化和交付支持",
+      "boundary_zh": "纯手工执行作为背景；运行型服务的工程工作主要挂 S6",
+      "kind": "business_stage"
+    },
+    {
+      "code": "S5",
+      "name_zh": "检验、验证与验收",
+      "scope_zh": "测量、质量检验、试验、设计验证、交付验收",
+      "boundary_zh": "可以伴随 S2–S6，不限定为生产后的唯一阶段",
+      "kind": "business_stage"
+    },
+    {
+      "code": "S6",
+      "name_zh": "运行、维护与服务",
+      "scope_zh": "状态分析、诊断、运行优化、维修方案与技术支持",
+      "boundary_zh": "主清单记录工程数字部分；现场维修动作另记；按第 2 节分行业归属",
+      "kind": "business_stage"
+    },
+    {
+      "code": "S7",
+      "name_zh": "供应、计划与物流协同",
+      "scope_zh": "技术采购评审、约束排程、库存与运输优化及工程协同",
+      "boundary_zh": "一般采购审批和经营事务不自动纳入；这是跨周期环节",
+      "kind": "business_stage"
+    },
+    {
+      "code": "S8",
+      "name_zh": "退役、拆解与再利用",
+      "scope_zh": "退役评估、拆解规划、再制造方案和资源回收工程分析",
+      "boundary_zh": "现场拆解执行另记；维修拆解通常属于 S6；再制造可关联 S4／S5",
+      "kind": "business_stage"
+    }
+  ]
+}
